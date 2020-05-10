@@ -4,51 +4,26 @@
   
   <url>
     <loc>http://techblog.on-going.jp/</loc>
-    <lastmod>2020-05-11T05:08:02+09:00</lastmod>
+    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://techblog.on-going.jp/categories/</loc>
-    <lastmod>2020-05-11T05:08:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/posts/my-sixth-post/</loc>
-    <lastmod>2020-05-11T05:08:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/posts/</loc>
-    <lastmod>2020-05-11T05:08:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/tags/</loc>
-    <lastmod>2020-05-11T05:08:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/tags/test/</loc>
-    <lastmod>2020-05-11T05:08:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/categories/test/</loc>
-    <lastmod>2020-05-11T05:08:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/posts/my-fifth-post/</loc>
-    <lastmod>2020-05-11T01:44:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/posts/my-fourth-post/</loc>
-    <lastmod>2020-05-11T01:19:35+09:00</lastmod>
+    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://techblog.on-going.jp/posts/my-third-post/</loc>
+    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://techblog.on-going.jp/posts/</loc>
+    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://techblog.on-going.jp/tags/</loc>
     <lastmod>2020-05-10T15:20:04+09:00</lastmod>
   </url>
   
@@ -58,18 +33,13 @@
   </url>
   
   <url>
-    <loc>http://techblog.on-going.jp/tags/tmp/</loc>
+    <loc>http://techblog.on-going.jp/tags/test/</loc>
     <lastmod>2020-05-10T15:20:04+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://techblog.on-going.jp/posts/my-second-post/</loc>
-    <lastmod>2020-05-10T15:13:22+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/posts/my-first-post/</loc>
-    <lastmod>2020-05-10T13:31:22+09:00</lastmod>
+    <loc>http://techblog.on-going.jp/tags/tmp/</loc>
+    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
   </url>
   
 </urlset>

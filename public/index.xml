@@ -6,37 +6,10 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Mon, 11 May 2020 05:08:02 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 15:20:04 +0900</lastBuildDate>
     
 	<atom:link href="http://techblog.on-going.jp/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>My Sixth Post</title>
-      <link>http://techblog.on-going.jp/posts/my-sixth-post/</link>
-      <pubDate>Mon, 11 May 2020 05:08:02 +0900</pubDate>
-      
-      <guid>http://techblog.on-going.jp/posts/my-sixth-post/</guid>
-      <description>Sixth</description>
-    </item>
-    
-    <item>
-      <title>My Fifth Post</title>
-      <link>http://techblog.on-going.jp/posts/my-fifth-post/</link>
-      <pubDate>Mon, 11 May 2020 01:44:34 +0900</pubDate>
-      
-      <guid>http://techblog.on-going.jp/posts/my-fifth-post/</guid>
-      <description>Fifth</description>
-    </item>
-    
-    <item>
-      <title>My Fourth Post</title>
-      <link>http://techblog.on-going.jp/posts/my-fourth-post/</link>
-      <pubDate>Mon, 11 May 2020 01:19:35 +0900</pubDate>
-      
-      <guid>http://techblog.on-going.jp/posts/my-fourth-post/</guid>
-      <description>Fourth</description>
-    </item>
     
     <item>
       <title>My Third Post</title>
@@ -45,24 +18,6 @@
       
       <guid>http://techblog.on-going.jp/posts/my-third-post/</guid>
       <description>Third</description>
-    </item>
-    
-    <item>
-      <title>My Second Post</title>
-      <link>http://techblog.on-going.jp/posts/my-second-post/</link>
-      <pubDate>Sun, 10 May 2020 15:13:22 +0900</pubDate>
-      
-      <guid>http://techblog.on-going.jp/posts/my-second-post/</guid>
-      <description>Second</description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>http://techblog.on-going.jp/posts/my-first-post/</link>
-      <pubDate>Sun, 10 May 2020 13:31:22 +0900</pubDate>
-      
-      <guid>http://techblog.on-going.jp/posts/my-first-post/</guid>
-      <description>First</description>
     </item>
     
   </channel>
