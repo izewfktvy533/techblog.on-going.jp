@@ -20,5 +20,23 @@
       <description>Third</description>
     </item>
     
+    <item>
+      <title>My Second Post</title>
+      <link>http://techblog.on-going.jp/posts/my-second-post/</link>
+      <pubDate>Sun, 10 May 2020 15:13:22 +0900</pubDate>
+      
+      <guid>http://techblog.on-going.jp/posts/my-second-post/</guid>
+      <description>Second</description>
+    </item>
+    
+    <item>
+      <title>My First Post</title>
+      <link>http://techblog.on-going.jp/posts/my-first-post/</link>
+      <pubDate>Sun, 10 May 2020 13:31:22 +0900</pubDate>
+      
+      <guid>http://techblog.on-going.jp/posts/my-first-post/</guid>
+      <description>First</description>
+    </item>
+    
   </channel>
 </rss>
