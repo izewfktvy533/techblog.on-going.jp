@@ -6,10 +6,19 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Sun, 10 May 2020 15:20:04 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2020 01:19:35 +0900</lastBuildDate>
     
 	<atom:link href="http://techblog.on-going.jp/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My Fourth Post</title>
+      <link>http://techblog.on-going.jp/posts/my-fourth-post/</link>
+      <pubDate>Mon, 11 May 2020 01:19:35 +0900</pubDate>
+      
+      <guid>http://techblog.on-going.jp/posts/my-fourth-post/</guid>
+      <description>Fourth</description>
+    </item>
     
     <item>
       <title>My Third Post</title>

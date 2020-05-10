@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://techblog.on-going.jp/posts/my-fourth-post/</loc>
+    <lastmod>2020-05-11T01:19:35+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://techblog.on-going.jp/posts/</loc>
+    <lastmod>2020-05-11T01:19:35+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://techblog.on-going.jp/tags/</loc>
+    <lastmod>2020-05-11T01:19:35+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://techblog.on-going.jp/tags/test/</loc>
+    <lastmod>2020-05-11T01:19:35+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://techblog.on-going.jp/</loc>
     <lastmod>2020-05-10T18:24:57+09:00</lastmod>
   </url>
@@ -23,22 +43,7 @@
   </url>
   
   <url>
-    <loc>http://techblog.on-going.jp/posts/</loc>
-    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/tags/</loc>
-    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://techblog.on-going.jp/categories/tech/</loc>
-    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/tags/test/</loc>
     <lastmod>2020-05-10T15:20:04+09:00</lastmod>
   </url>
   
