@@ -2,3 +2,4 @@
 
 ## Environment
 - HUGO
+    - Theme: Anatole
