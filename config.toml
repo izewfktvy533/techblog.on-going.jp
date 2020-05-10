@@ -1,0 +1,28 @@
+baseURL = "http://techblog.on-going.jp/"
+languageCode = "jp"
+theme = "anatole"
+hasCJKLanguage = true
+
+
+
+[params]
+title = "on-going's Tech Blog"
+author = "techblog.on-going."
+description = "GitHub: izewfktvy533zjmn"
+profilePicture = "images/profile.jpg"
+
+
+
+[menue]
+
+    [[menu.main]]
+    name = "Home"
+    identifier = "home"
+    weight = 100
+    url = "/"
+
+    [[menu.main]]
+    name = "Posts"
+    identifier = "posts"
+    weight = 200
+    url = "/posts/"
