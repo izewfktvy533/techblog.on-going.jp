@@ -13,8 +13,20 @@ profilePicture = "images/profile.jpg"
 
 
 
-[menue]
+## Math settings
+[params.math]
+enable = true  # options: true, false. Enable math support globally, default: false. You can always enable math on per page.
+use = "katex"  # options: "katex", "mathjax". default is "katex".
 
+## Social links
+[[params.socialIcons]]
+icon = "fa-github"
+title = "GitHub"
+url = "https://github.com/izewfktvy533zjmn"
+
+
+
+[menue]
     [[menu.main]]
     name = "Home"
     identifier = "home"
