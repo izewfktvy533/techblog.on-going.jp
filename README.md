@@ -2,4 +2,4 @@
 
 ## Environment
 - HUGO
-    - Theme: Anatole
+    - Theme: [Anatole](https://themes.gohugo.io/anatole/)
