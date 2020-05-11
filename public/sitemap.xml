@@ -4,42 +4,7 @@
   
   <url>
     <loc>http://techblog.on-going.jp/</loc>
-    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/categories/</loc>
-    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/posts/my-third-post/</loc>
-    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/posts/</loc>
-    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/tags/</loc>
-    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/categories/tech/</loc>
-    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/tags/test/</loc>
-    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/tags/tmp/</loc>
-    <lastmod>2020-05-10T15:20:04+09:00</lastmod>
+    <lastmod>2020-05-10T15:13:22+09:00</lastmod>
   </url>
   
   <url>
@@ -48,8 +13,21 @@
   </url>
   
   <url>
+    <loc>http://techblog.on-going.jp/posts/</loc>
+    <lastmod>2020-05-10T15:13:22+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://techblog.on-going.jp/posts/my-first-post/</loc>
     <lastmod>2020-05-10T13:31:22+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://techblog.on-going.jp/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://techblog.on-going.jp/tags/</loc>
   </url>
   
 </urlset>
