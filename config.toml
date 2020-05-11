@@ -8,7 +8,6 @@ hasCJKLanguage = true
 [params]
 title = "on-going's Tech Blog"
 author = "techblog.on-going."
-description = "GitHub: izewfktvy533zjmn"
 profilePicture = "images/profile.jpg"
 
 
@@ -23,6 +22,16 @@ use = "katex"  # options: "katex", "mathjax". default is "katex".
 icon = "fa-github"
 title = "GitHub"
 url = "https://github.com/izewfktvy533zjmn"
+
+[[params.socialIcons]]
+icon = "fa-twitter"
+title = "Twitter"
+url = "https://twitter.com/izewfktvy"
+
+[[params.socialIcons]]
+icon = "fa-instagram"
+title = "Instagram"
+url = "https://www.instagram.com/izewfktvy533zjmn/"
 
 
 
