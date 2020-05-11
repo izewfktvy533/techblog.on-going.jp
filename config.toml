@@ -3,14 +3,14 @@ languageCode = "jp"
 theme = "anatole"
 hasCJKLanguage = true
 
+googleAnalytics = "UA-166112919-1"
+
 
 
 [params]
 title = "on-going's Tech Blog"
 author = "techblog.on-going."
 profilePicture = "images/profile.jpg"
-
-
 
 ## Math settings
 [params.math]
