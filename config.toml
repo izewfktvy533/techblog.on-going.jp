@@ -2,7 +2,6 @@ baseURL = "http://techblog.on-going.jp/"
 languageCode = "jp"
 theme = "anatole"
 hasCJKLanguage = true
-
 googleAnalytics = "UA-166112919-1"
 
 
