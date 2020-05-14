@@ -2,6 +2,7 @@
 title: "#1 Techブログはじめます！"
 date: 2020-05-12T21:54:40+09:00
 Description: ""
+thumbnail: /images/physical_raspi_kubernetes_cluster.jpg
 Tags: []
 Categories: []
 DisableComments: true

@@ -11,6 +11,8 @@ googleAnalytics = "UA-166112919-1"
 title = "on-going's Tech Blog"
 author = "techblog.on-going."
 profilePicture = "images/profile.jpg"
+thumbnail = "images/profile.jpg"
+twitter = "izewfktvy"
 
 ## Math settings
 [params.math]
