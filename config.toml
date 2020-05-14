@@ -1,5 +1,6 @@
 baseURL = "http://techblog.on-going.jp/"
 languageCode = "jp"
+title = "on-going's Tech Blog"
 theme = "anatole"
 hasCJKLanguage = true
 googleAnalytics = "UA-166112919-1"
