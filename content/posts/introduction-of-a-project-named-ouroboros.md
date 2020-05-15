@@ -2,7 +2,7 @@
 title: "#2 ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト『OUROBOROS』の紹介"
 date: 2020-05-15T01:45:55+09:00
 Description: ""
-thumbnail: images/ouroboros.png
+thumbnail: images/introduction-of-a-project-named-ouroboros/ouroboros.png
 Tags: ["OUROBOROS"]
 Categories: ["Introduction"]
 DisableComments: false
@@ -76,6 +76,6 @@ DisableComments: false
 
 &nbsp;
 
-![Ouroboros](/images/ouroboros.png)
+![Ouroboros](/images/introduction-of-a-project-named-ouroboros/ouroboros.png)
 
 &nbsp;

@@ -2,7 +2,7 @@
 title: "#1 Techブログはじめます！"
 date: 2020-05-12T21:54:40+09:00
 Description: ""
-thumbnail: /images/physical_raspi_kubernetes_cluster.jpg
+thumbnail: /images/starting-a-tech-blog/physical_raspi_kubernetes_cluster.jpg
 Tags: []
 Categories: []
 DisableComments: false
@@ -18,7 +18,7 @@ DisableComments: false
 
 &nbsp;
 
-![Physical Raspberry Pi Kubernetes Cluster](/images/physical_raspi_kubernetes_cluster.jpg)
+![Physical Raspberry Pi Kubernetes Cluster](/images/starting-a-tech-blog/physical_raspi_kubernetes_cluster.jpg)
 
 &nbsp;
 
@@ -39,7 +39,7 @@ DisableComments: false
 
 &nbsp;
 
-![Tech Blog CD Overvies](/images/on-going_cd_overview.png)
+![Tech Blog CD Overvies](/images/starting-a-tech-blog/on-going_cd_overview.png)
 
 &nbsp;
 
@@ -49,7 +49,7 @@ HUGOとGitを利用してブログ記事の作成と管理をしており、GitH
 
 &nbsp;
 
-![](/images/on-going.png)
+![Kubernetes Pods in ongoing namespace](/images/starting-a-tech-blog/on-going.png)
 
 &nbsp;
 
