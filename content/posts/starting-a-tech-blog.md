@@ -5,8 +5,10 @@ Description: ""
 thumbnail: /images/physical_raspi_kubernetes_cluster.jpg
 Tags: []
 Categories: []
-DisableComments: true
+DisableComments: false
 ---
+
+&nbsp;
 
 どうも、[@izewfktvy](https://twitter.com/izewfktvy)です。
 
@@ -57,3 +59,5 @@ HUGOとGitを利用してブログ記事の作成と管理をしており、GitH
 記事に対するコメントや感想はTwitterでお待ちしています。
 
 読者になっていただけると幸いです。
+
+&nbsp;

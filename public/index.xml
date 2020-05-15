@@ -6,10 +6,19 @@
     <description>Recent content on on-going&#39;s Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Tue, 12 May 2020 21:54:40 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 15 May 2020 01:45:55 +0900</lastBuildDate>
     
 	<atom:link href="http://techblog.on-going.jp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>#2 ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト『OUROBOROS』の紹介</title>
+      <link>http://techblog.on-going.jp/posts/introduction-of-a-project-named-ouroboros/</link>
+      <pubDate>Fri, 15 May 2020 01:45:55 +0900</pubDate>
+      
+      <guid>http://techblog.on-going.jp/posts/introduction-of-a-project-named-ouroboros/</guid>
+      <description>こんにちは、@izewfktvyです。 本稿は、「ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジ</description>
+    </item>
     
     <item>
       <title>#1 Techブログはじめます！</title>

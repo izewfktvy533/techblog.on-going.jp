@@ -3,26 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://techblog.on-going.jp/posts/starting-a-tech-blog/</loc>
-    <lastmod>2020-05-12T21:54:40+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/</loc>
-    <lastmod>2020-05-12T21:54:40+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://techblog.on-going.jp/posts/</loc>
-    <lastmod>2020-05-12T21:54:40+09:00</lastmod>
+    <loc>http://techblog.on-going.jp/posts/introduction-of-a-project-named-ouroboros/</loc>
+    <lastmod>2020-05-15T01:45:55+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://techblog.on-going.jp/categories/</loc>
+    <lastmod>2020-05-15T01:45:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://techblog.on-going.jp/categories/introduction/</loc>
+    <lastmod>2020-05-15T01:45:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://techblog.on-going.jp/</loc>
+    <lastmod>2020-05-15T01:45:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://techblog.on-going.jp/tags/ouroboros/</loc>
+    <lastmod>2020-05-15T01:45:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://techblog.on-going.jp/posts/</loc>
+    <lastmod>2020-05-15T01:45:55+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://techblog.on-going.jp/tags/</loc>
+    <lastmod>2020-05-15T01:45:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://techblog.on-going.jp/posts/starting-a-tech-blog/</loc>
+    <lastmod>2020-05-12T21:54:40+09:00</lastmod>
   </url>
   
 </urlset>
