@@ -6,10 +6,19 @@
     <description>Recent content in Posts on on-going&#39;s Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Fri, 15 May 2020 01:45:55 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2020 20:41:40 +0900</lastBuildDate>
     
 	<atom:link href="http://techblog.on-going.jp/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>#3 本ブログを運用している自宅インフラ『MAKINA』の紹介</title>
+      <link>http://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</link>
+      <pubDate>Sat, 16 May 2020 20:41:40 +0900</pubDate>
+      
+      <guid>http://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</guid>
+      <description>こんにちは、@izewfktvyです。 すでにこのブログの最初の記事で言及しておりますが、本ブログはRaspberry Piで構築した高可用性K</description>
+    </item>
     
     <item>
       <title>#2 ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト『OUROBOROS』の紹介</title>
