@@ -12,9 +12,9 @@ DisableComments: false
 
 こんにちは、[@izewfktvy](https://twitter.com/izewfktvy)です。
 
-すでに[このブログの最初の記事](http://techblog.on-going.jp/posts/starting-a-tech-blog/)で言及しておりますが、本ブログはRaspberry Piで構築した高可用性Kubernetesクラスターをインフラとして運用してます。
-
 本稿は、このブログを運用している自宅インフラのアーキテクチャーの紹介をしたいと思います。
+
+すでに[このブログの最初の記事](http://techblog.on-going.jp/posts/starting-a-tech-blog/)で言及しておりますが、本ブログはRaspberry Piで構築した高可用性Kubernetesクラスターをインフラとして運用してます。
 
 したがって、本稿ではRaspberry Piで構築したKubernetesクラスターのアーキテクチャーとネットワーク構成、このブログを公開するために構築したシステムの構成について紹介します。
 

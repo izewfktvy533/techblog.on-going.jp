@@ -17,7 +17,7 @@
       <pubDate>Sat, 16 May 2020 20:41:40 +0900</pubDate>
       
       <guid>http://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</guid>
-      <description>こんにちは、@izewfktvyです。 すでにこのブログの最初の記事で言及しておりますが、本ブログはRaspberry Piで構築した高可用性K</description>
+      <description>こんにちは、@izewfktvyです。 本稿は、このブログを運用している自宅インフラのアーキテクチャーの紹介をしたいと思います。 すでにこのブロ</description>
     </item>
     
     <item>
