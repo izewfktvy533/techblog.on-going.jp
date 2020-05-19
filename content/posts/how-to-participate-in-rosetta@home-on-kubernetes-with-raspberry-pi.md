@@ -10,6 +10,10 @@ DisableComments: false
 
 &nbsp;
 
+![thumnail.jpg](/images/how-to-participate-in-rosetta@home-on-kubernetes-with-raspberry-pi/thumbnail.jpg)
+
+&nbsp;
+
 Hello, I'm [@izewfktvy](https://twitter.com/izewfktvy).
 
 Last month, I made Kubernetes manifests and Docker containers to participate in [Rosetta@home project](https://boinc.bakerlab.org/) with Raspberry Pi Kubernetes Cluster.
