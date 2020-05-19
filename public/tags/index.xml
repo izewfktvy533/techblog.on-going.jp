@@ -6,10 +6,37 @@
     <description>Recent content in Tags on on-going&#39;s Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Sat, 16 May 2020 20:41:40 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2020 01:08:13 +0900</lastBuildDate>
     
 	<atom:link href="http://techblog.on-going.jp/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>http://techblog.on-going.jp/tags/kubernetes/</link>
+      <pubDate>Wed, 20 May 2020 01:08:13 +0900</pubDate>
+      
+      <guid>http://techblog.on-going.jp/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rasberry Pi</title>
+      <link>http://techblog.on-going.jp/tags/rasberry-pi/</link>
+      <pubDate>Wed, 20 May 2020 01:08:13 +0900</pubDate>
+      
+      <guid>http://techblog.on-going.jp/tags/rasberry-pi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rosseta@home</title>
+      <link>http://techblog.on-going.jp/tags/rossetahome/</link>
+      <pubDate>Wed, 20 May 2020 01:08:13 +0900</pubDate>
+      
+      <guid>http://techblog.on-going.jp/tags/rossetahome/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>MAKINA</title>
