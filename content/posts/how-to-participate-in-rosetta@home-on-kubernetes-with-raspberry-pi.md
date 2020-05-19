@@ -27,4 +27,6 @@ If you are interested, please check [follow link](https://github.com/izewfktvy53
 
 On this link, mentions prerequisites and how to use, so on.
 
+Thank you for reading!
+
 &nbsp;
