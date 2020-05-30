@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <title> techblog.on-going. | #5 本ブログを運営しているサービスアーキテクチャーの紹介 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    
+    <title>#5 本ブログを運営しているサービスアーキテクチャーの紹介</title>
+    <meta property="og:title" content="#5 本ブログを運営しているサービスアーキテクチャーの紹介" />
+    <meta name="twitter:title" content="#5 本ブログを運営しているサービスアーキテクチャーの紹介" />
+    
+
+    
+
+    <meta name="author" content="techblog.on-going."/>
+    <meta property="og:site_name" content="on-going&#39;s Tech Blog" />
+    <meta property="og:url" content="http://techblog.on-going.jp/posts/introducing-the-service-architecture-running-this-blog/" />
+
+    
+    <meta property="og:image" content="http://techblog.on-going.jp/images/introducing-the-service-architecture-running-this-blog/service_architecture.jpg" />
+    <meta name="twitter:image" content="http://techblog.on-going.jp/images/introducing-the-service-architecture-running-this-blog/service_architecture.jpg" />
+    
+    <meta name="twitter:card" content="summary" />
+
+    
+    <meta name="twitter:site" content="@izewfktvy" />
+    <meta name="twitter:creator" content="@izewfktvy" />
+    
+
+    
+    <meta property="og:type" content="article" />
+    
+    <meta name="generator" content="Hugo 0.71.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="http://techblog.on-going.jp/css/style.css" type="text/css">
+    
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <base href="http://techblog.on-going.jp/">
+    
+    <link rel="shortcut icon" href="http://techblog.on-going.jp/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://techblog.on-going.jp/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://techblog.on-going.jp/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://techblog.on-going.jp/favicon-16x16.png">
+
+    <link rel="canonical" href="http://techblog.on-going.jp/posts/introducing-the-service-architecture-running-this-blog/">
+</head>
+<body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="http://techblog.on-going.jp/images/profile.jpg" alt="profile picture" style="width:127px;border-radius: 50%;">
+        <h3 title=""><a href="/">on-going&#39;s Tech Blog</a></h3>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <a href="https://github.com/izewfktvy533zjmn" rel="me" >
+          <i class="fa fa-github" aria-hidden="true" title="GitHub"></i>
+        </a>
+        
+        <a href="https://twitter.com/izewfktvy" rel="me" >
+          <i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i>
+        </a>
+        
+        <a href="https://www.facebook.com/profile.php?id=100023692920069" rel="me" >
+          <i class="fa fa-facebook" aria-hidden="true" title="Facebook"></i>
+        </a>
+        
+        <a href="https://www.instagram.com/izewfktvy533zjmn/" rel="me" >
+          <i class="fa fa-instagram" aria-hidden="true" title="Instagram"></i>
+        </a>
+        
+        <a href="https://www.linkedin.com/in/taichi-soma" rel="me" >
+          <i class="fa fa-linkedin" aria-hidden="true" title="Linkedin"></i>
+        </a>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; 2020 techblog.on-going. </div>
+      </div>
+    </div>
+</div>
+<div class="main">
+            <div class="page-top animated fadeInDown">
+    <div class="nav">
+        
+        
+        <li><a  href="/" title="">Home</a></li>
+
+        
+        <li><a  href="/posts/" title="">Posts</a></li>
+
+        
+    </div>
+</div>
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>#5 本ブログを運営しているサービスアーキテクチャーの紹介
+        </h3>
+        
+        </div>
+
+    <p> </p>
+<p>最近、Go言語の勉強を兼ねて<a href="https://github.com/izewfktvy533zjmn/goliath">LISP(Scheme)インタプリタ</a>を作ってます、<a href="https://twitter.com/izewfktvy">@izewfktvy</a>です。</p>
+<p>先日、<a href="http://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/">本ブログを運用している自宅インフラの紹介</a>を行いました。
+本稿は、このブログを運営するために自宅インフラ上で稼働しているサービスとそのアーキテクチャーを紹介したいと思います。</p>
+<p> </p>
+<h3 id="サービスアーキテクチャー">サービスアーキテクチャー</h3>
+<p>すでにいくつかのブログ記事で言及しておりますが、本ブログはRaspberry Piで構築した高可用性Kuberntesクラスターである自宅インフラ上で運用しています。</p>
+<p>本ブログを運営するにあたって自宅インフラ上で稼働しているKubernetesリソース群とそれらの構成をまとめたサービスアーキテクチャーを下図に示します。</p>
+<p> </p>
+<p><img src="images/introducing-the-service-architecture-running-this-blog/service_architecture.jpg" alt="Service Architecture"></p>
+<p> </p>
+<p>本サービスアーキテクチャーは大きく4つのコンポーネントで構成されており、これらの連携によって本ブログの運営が可能となっています。</p>
+<p>以降では、それぞれのコンポーネントの役割や構成を説明していきたいと思います。</p>
+<p> </p>
+<p><img src="images/introducing-the-service-architecture-running-this-blog/deformation_service_architecture.jpg" alt="Deformation Service Architecture"></p>
+<p> </p>
+<h3 id="ongoing">ongoing</h3>
+<p>ますはじめに、このコンポーネントは本ブログを公開するwebサーバとしての役割を担っています。
+nginxのPodが3つ稼働しており、LoadBalancer Serviceを利用してそれぞれのPodに負荷分散しています。</p>
+<p><strong>* 自宅インフラでは、LoadBalancer Serviceを使用するためにKubernetesクラスター上に<a href="https://metallb.universe.tf/">MetalLB</a>を導入しています。</strong></p>
+<p>本ブログを公開するために、全てのブログ記事はNFS(Network File System)上に保管されています。
+そのため、PersistentVolumeリソースとPersistentVolumeClaimリソースを利用してNFS上にあるブログ記事を保存しているディレクトリを各Podに対して公開ディレクトリとしてマウントすることで本ブログの公開を可能にしています。</p>
+<p> </p>
+<h3 id="techblog-synchronizing">techblog-synchronizing</h3>
+<p>本ブログの運営には、HUGOとGitを利用してブログ記事の作成と管理をしています。
+また、ブログ記事の継続的デリバリーを実現させるために全てのブログ記事をGitHubリポジトリ上で管理しています。</p>
+<p>このコンポーネントは、ブログ記事を管理しているGitHubリポジトリ上のmasterブランチに対する更新があったとき、ブログ記事を保管しているNFSに対して更新内容を反映させる役割を担っています。</p>
+<p>これによって、GitHubリポジトリ上のmasterブランチへのpushをトリガーとして継続的デリバリーが行われるため、ブログの更新や内容の修正などが <em><strong>&ldquo;git push&rdquo;</strong></em> で行えるようになっています。</p>
+<p>Pod上では、以下のスクリプトが動作しています。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+LOOP_STOP_FLAG<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+trap <span style="color:#e6db74">&#39;LOOP_STOP_FLAG=1; trap 1 2 3 4 9 15&#39;</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">9</span> <span style="color:#ae81ff">15</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">${</span>GITHUB_ACCOUNT<span style="color:#e6db74">}</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">${</span>GITHUB_REPOSITORY_NAME<span style="color:#e6db74">}</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    exit <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">fi</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">${</span>DIRECTORY_NAME<span style="color:#e6db74">}</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    DIRECTORY_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>GITHUB_REPOSITORY_NAME<span style="color:#e6db74">}</span>
+<span style="color:#66d9ef">fi</span>
+
+rm -rf <span style="color:#e6db74">${</span>DIRECTORY_NAME<span style="color:#e6db74">}</span>
+git clone https://github.com/<span style="color:#e6db74">${</span>GITHUB_ACCOUNT<span style="color:#e6db74">}</span>/<span style="color:#e6db74">${</span>GITHUB_REPOSITORY_NAME<span style="color:#e6db74">}</span>.git <span style="color:#e6db74">${</span>DIRECTORY_NAME<span style="color:#e6db74">}</span>
+
+<span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> $LOOP_STOP_FLAG -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>
+<span style="color:#66d9ef">do</span>
+    git fetch origin
+
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">`</span>git diff origin/master | wc -l<span style="color:#e6db74">`</span> -ne <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+        git pull
+    <span style="color:#66d9ef">fi</span>
+
+    sleep <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">done</span>
+
+exit <span style="color:#ae81ff">0</span>
+</code></pre></div><p><em><strong>GITHUB_ACCOUNT</strong></em> や <em><strong>GITHUB_REPOSITORY_NAME</strong></em> などの環境変数はCofigMapリソースを利用して設定しています。</p>
+<p> </p>
+<h3 id="ngrok-tunneling">ngrok-tunneling</h3>
+<p>このコンポーネントは、ngrokに対してHTTPトンネリング接続することで外部公開用URLを取得する役割と、外部公開用URLに対するアクセスを本ブログのwebサーバとしての役割を担っているongoingコンポーネントにプロキシしたり、ローカル上でのみアクセス可能なngrokのwebインターフェースに対して外部からのアクセスを可能するリバースプロキシサーバとしての役割を担っています。</p>
+<p>前者の役割は <em><strong>ngrok-http</strong></em> コンテナ、後者は <em><strong>ngrok-proxy</strong></em> コンテナが担っています。</p>
+<p>ngrokのHTTPトンネリングに必要なAuthトークンはSecretリソースから環境変数として取得しています。
+また、リバースプロキシサーバにはnginxを利用しており、プロキシに関する設定にはConfigMapリソースを使用しています。</p>
+<p>筆者はngrokのFreeプランを利用しているのですが、Freeプランでは4つのリージョンにつき1コネクションのみ可能となっています。
+そのため、古い接続が残っていると新しい接続を試みても接続を確立させることがでません。
+したがって、Devlopmentのアップデート戦略には <em><strong>RollingUpdate</strong></em> を指定せず <em><strong>Recreate</strong></em> を指定しています。</p>
+<p> </p>
+<h3 id="ngrok-http-webhook">ngrok-http-webhook</h3>
+<p>最後に、このコンポーネントは、ngrokサービスから取得した外部公開用URLに変更があったときに指定したエンドポイントに対してwebhookする役割を担っています。</p>
+<p>Pod上では以下のスクリプトが動作しています。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+LOOP_STOP_FLAG<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+NGROK_URL<span style="color:#f92672">=</span>
+PREV_NGROK_URL<span style="color:#f92672">=</span>
+
+trap <span style="color:#e6db74">&#39;LOOP_STOP_FLAG=1; trap 1 2 3 4 9 15&#39;</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">9</span> <span style="color:#ae81ff">15</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">${</span>NGROK_INTERFACE<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#e6db74">}</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">${</span>WEBHOOK_ENDPOINT<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#e6db74">}</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    exit <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">fi</span>
+
+<span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> $LOOP_STOP_FLAG -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>
+<span style="color:#66d9ef">do</span>
+    NGROK_URL<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -m <span style="color:#ae81ff">1</span> -s <span style="color:#e6db74">${</span>NGROK_INTERFACE<span style="color:#e6db74">}</span>/api/tunnels | jq -r .tunnels<span style="color:#f92672">[]</span>.public_url | grep --color<span style="color:#f92672">=</span>never https://*<span style="color:#e6db74">`</span>
+    
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$NGROK_URL<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span>$PREV_NGROK_URL<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+        STATUS_CODE<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>curl -m <span style="color:#ae81ff">1</span> -X POST -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -d <span style="color:#e6db74">&#34;{\&#34;ngrok_url\&#34;:\&#34;</span>$NGROK_URL<span style="color:#e6db74">\&#34;}&#34;</span> $WEBHOOK_ENDPOINT -o /dev/null -w <span style="color:#e6db74">&#39;%{http_code}&#39;</span> -s<span style="color:#e6db74">`</span>
+    <span style="color:#66d9ef">fi</span>
+    
+    PREV_NGROK_URL<span style="color:#f92672">=</span>$NGROK_URL
+
+    sleep <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">done</span>
+
+exit <span style="color:#ae81ff">0</span>
+</code></pre></div><p><em><strong>NGROK_INTERFACE</strong></em> や <em><strong>WEBHOOK_ENDPOINT</strong></em> といった環境変数はComfigMapリソースを利用して設定しています。</p>
+<p> </p>
+<h3 id="最後に">最後に</h3>
+<p>このブログはKubernetesの勉強を兼ねて作成しました。</p>
+<p>次は何らかのWebサービスの開発を題材として、クラウドネイティブの勉強を行っていきたいと考えています。</p>
+<p> </p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+<span class="separator"><a class="category" href="/categories/introduction/">Introduction</a></span>
+
+        
+      </div>
+    </div>
+
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+<script type="text/javascript" src="http://techblog.on-going.jp/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://techblog.on-going.jp/js/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="http://techblog.on-going.jp/js/jquery-appear.min.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-166112919-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</html></body>
+
+</html>
