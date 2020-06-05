@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OUROBOROS on on-going&#39;s Tech Blog</title>
-    <link>http://techblog.on-going.jp/tags/ouroboros/</link>
+    <link>https://techblog.on-going.jp/tags/ouroboros/</link>
     <description>Recent content in OUROBOROS on on-going&#39;s Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
     <lastBuildDate>Fri, 15 May 2020 01:45:55 +0900</lastBuildDate>
     
-	<atom:link href="http://techblog.on-going.jp/tags/ouroboros/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://techblog.on-going.jp/tags/ouroboros/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>#2 ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト『OUROBOROS』の紹介</title>
-      <link>http://techblog.on-going.jp/posts/introduction-of-a-project-named-ouroboros/</link>
+      <link>https://techblog.on-going.jp/posts/introduction-of-a-project-named-ouroboros/</link>
       <pubDate>Fri, 15 May 2020 01:45:55 +0900</pubDate>
       
-      <guid>http://techblog.on-going.jp/posts/introduction-of-a-project-named-ouroboros/</guid>
+      <guid>https://techblog.on-going.jp/posts/introduction-of-a-project-named-ouroboros/</guid>
       <description>こんにちは、@izewfktvyです。 本稿は、「ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジ</description>
     </item>
     

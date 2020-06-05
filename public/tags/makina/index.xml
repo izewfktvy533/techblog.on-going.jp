@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MAKINA on on-going&#39;s Tech Blog</title>
-    <link>http://techblog.on-going.jp/tags/makina/</link>
+    <link>https://techblog.on-going.jp/tags/makina/</link>
     <description>Recent content in MAKINA on on-going&#39;s Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
     <lastBuildDate>Sat, 16 May 2020 20:41:40 +0900</lastBuildDate>
     
-	<atom:link href="http://techblog.on-going.jp/tags/makina/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://techblog.on-going.jp/tags/makina/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>#3 本ブログを運用している自宅インフラ『MAKINA』の紹介</title>
-      <link>http://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</link>
+      <link>https://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</link>
       <pubDate>Sat, 16 May 2020 20:41:40 +0900</pubDate>
       
-      <guid>http://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</guid>
+      <guid>https://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</guid>
       <description>こんにちは、@izewfktvyです。 本稿は、このブログを運用している自宅インフラのアーキテクチャーの紹介をしたいと思います。 すでにこのブロ</description>
     </item>
     

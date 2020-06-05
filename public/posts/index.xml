@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on on-going&#39;s Tech Blog</title>
-    <link>http://techblog.on-going.jp/posts/</link>
+    <link>https://techblog.on-going.jp/posts/</link>
     <description>Recent content in Posts on on-going&#39;s Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
     <lastBuildDate>Sat, 30 May 2020 15:06:15 +0900</lastBuildDate>
     
-	<atom:link href="http://techblog.on-going.jp/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://techblog.on-going.jp/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>#5 本ブログを運営しているサービスアーキテクチャーの紹介</title>
-      <link>http://techblog.on-going.jp/posts/introducing-the-service-architecture-running-this-blog/</link>
+      <link>https://techblog.on-going.jp/posts/introducing-the-service-architecture-running-this-blog/</link>
       <pubDate>Sat, 30 May 2020 15:06:15 +0900</pubDate>
       
-      <guid>http://techblog.on-going.jp/posts/introducing-the-service-architecture-running-this-blog/</guid>
+      <guid>https://techblog.on-going.jp/posts/introducing-the-service-architecture-running-this-blog/</guid>
       <description>最近、Go言語の勉強を兼ねてLISP(Scheme)インタプリタを作ってます、@izewfktvyです。 先日、本ブログを運用している自宅イン</description>
     </item>
     
     <item>
       <title>#4 How to Participate in Rosetta@home on Kubernetes with Raspberry Pi</title>
-      <link>http://techblog.on-going.jp/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</link>
+      <link>https://techblog.on-going.jp/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</link>
       <pubDate>Wed, 20 May 2020 01:08:13 +0900</pubDate>
       
-      <guid>http://techblog.on-going.jp/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</guid>
+      <guid>https://techblog.on-going.jp/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</guid>
       <description>Hello, I&amp;rsquo;m @izewfktvy.
 Last month, I made Kubernetes manifests and Docker containers to participate in Rosetta@home project with Raspberry Pi Kubernetes Cluster.
 Rosetta@home is a distributed computing project for protein structure prediction on the Berkeley Open Infrastructure for Network Computing (BOINC) platform, run by the Baker laboratory at the University of Washington. This project recently added support for fighting COVID-19.
@@ -34,28 +34,28 @@ If you have your RasPi K8s cluster, you can help analyzing COVID-19 through pari
     
     <item>
       <title>#3 本ブログを運用している自宅インフラ『MAKINA』の紹介</title>
-      <link>http://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</link>
+      <link>https://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</link>
       <pubDate>Sat, 16 May 2020 20:41:40 +0900</pubDate>
       
-      <guid>http://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</guid>
+      <guid>https://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</guid>
       <description>こんにちは、@izewfktvyです。 本稿は、このブログを運用している自宅インフラのアーキテクチャーの紹介をしたいと思います。 すでにこのブロ</description>
     </item>
     
     <item>
       <title>#2 ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト『OUROBOROS』の紹介</title>
-      <link>http://techblog.on-going.jp/posts/introduction-of-a-project-named-ouroboros/</link>
+      <link>https://techblog.on-going.jp/posts/introduction-of-a-project-named-ouroboros/</link>
       <pubDate>Fri, 15 May 2020 01:45:55 +0900</pubDate>
       
-      <guid>http://techblog.on-going.jp/posts/introduction-of-a-project-named-ouroboros/</guid>
+      <guid>https://techblog.on-going.jp/posts/introduction-of-a-project-named-ouroboros/</guid>
       <description>こんにちは、@izewfktvyです。 本稿は、「ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジ</description>
     </item>
     
     <item>
       <title>#1 Techブログはじめます！</title>
-      <link>http://techblog.on-going.jp/posts/starting-a-tech-blog/</link>
+      <link>https://techblog.on-going.jp/posts/starting-a-tech-blog/</link>
       <pubDate>Tue, 12 May 2020 21:54:40 +0900</pubDate>
       
-      <guid>http://techblog.on-going.jp/posts/starting-a-tech-blog/</guid>
+      <guid>https://techblog.on-going.jp/posts/starting-a-tech-blog/</guid>
       <description>どうも、@izewfktvyです。 この度、自宅プライベートクラウド上でTechブログの運用を行うことにしました。 しばらくの間、Techブログ</description>
     </item>
     

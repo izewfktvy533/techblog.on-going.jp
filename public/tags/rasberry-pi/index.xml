@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rasberry Pi on on-going&#39;s Tech Blog</title>
-    <link>http://techblog.on-going.jp/tags/rasberry-pi/</link>
+    <link>https://techblog.on-going.jp/tags/rasberry-pi/</link>
     <description>Recent content in Rasberry Pi on on-going&#39;s Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
     <lastBuildDate>Wed, 20 May 2020 01:08:13 +0900</lastBuildDate>
     
-	<atom:link href="http://techblog.on-going.jp/tags/rasberry-pi/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://techblog.on-going.jp/tags/rasberry-pi/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>#4 How to Participate in Rosetta@home on Kubernetes with Raspberry Pi</title>
-      <link>http://techblog.on-going.jp/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</link>
+      <link>https://techblog.on-going.jp/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</link>
       <pubDate>Wed, 20 May 2020 01:08:13 +0900</pubDate>
       
-      <guid>http://techblog.on-going.jp/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</guid>
+      <guid>https://techblog.on-going.jp/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</guid>
       <description>Hello, I&amp;rsquo;m @izewfktvy.
 Last month, I made Kubernetes manifests and Docker containers to participate in Rosetta@home project with Raspberry Pi Kubernetes Cluster.
 Rosetta@home is a distributed computing project for protein structure prediction on the Berkeley Open Infrastructure for Network Computing (BOINC) platform, run by the Baker laboratory at the University of Washington. This project recently added support for fighting COVID-19.
