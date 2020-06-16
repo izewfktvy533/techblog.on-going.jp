@@ -3,8 +3,8 @@ title: "#2 ラズパイで作る！Kubernetesクラスターを基盤とした�
 date: 2020-05-15T01:45:55+09:00
 Description: ""
 thumbnail: images/introduction-of-a-project-named-ouroboros/ouroboros.png
-Tags: ["OUROBOROS"]
-Categories: ["Introduction"]
+Tags: []
+Categories: []
 DisableComments: false
 ---
 

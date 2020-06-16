@@ -4,7 +4,7 @@ date: 2020-05-30T15:06:15+09:00
 Description: ""
 thumbnail: images/introducing-the-service-architecture-running-this-blog/service_architecture.jpg
 Tags: []
-Categories: ["Introduction"]
+Categories: []
 DisableComments: false
 ---
 

@@ -2,8 +2,8 @@
 title: "#3 本ブログを運用している自宅インフラ『MAKINA』の紹介"
 date: 2020-05-16T20:41:40+09:00
 Description: ""
-Tags: ["MAKINA"]
-Categories: ["Introduction"]
+Tags: []
+Categories: []
 thumbnail: /images/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/architecture.png
 DisableComments: false
 ---

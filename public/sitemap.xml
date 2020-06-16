@@ -8,16 +8,6 @@
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/categories/</loc>
-    <lastmod>2020-05-30T15:06:15+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://techblog.on-going.jp/categories/introduction/</loc>
-    <lastmod>2020-05-30T15:06:15+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://techblog.on-going.jp/</loc>
     <lastmod>2020-05-30T15:06:15+09:00</lastmod>
   </url>
@@ -33,32 +23,7 @@
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/tags/kubernetes/</loc>
-    <lastmod>2020-05-20T01:08:13+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://techblog.on-going.jp/tags/rasberry-pi/</loc>
-    <lastmod>2020-05-20T01:08:13+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://techblog.on-going.jp/tags/rossetahome/</loc>
-    <lastmod>2020-05-20T01:08:13+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://techblog.on-going.jp/tags/</loc>
-    <lastmod>2020-05-20T01:08:13+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</loc>
-    <lastmod>2020-05-16T20:41:40+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://techblog.on-going.jp/tags/makina/</loc>
     <lastmod>2020-05-16T20:41:40+09:00</lastmod>
   </url>
   
@@ -68,13 +33,16 @@
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/tags/ouroboros/</loc>
-    <lastmod>2020-05-15T01:45:55+09:00</lastmod>
+    <loc>https://techblog.on-going.jp/posts/starting-a-tech-blog/</loc>
+    <lastmod>2020-05-12T21:54:40+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/posts/starting-a-tech-blog/</loc>
-    <lastmod>2020-05-12T21:54:40+09:00</lastmod>
+    <loc>https://techblog.on-going.jp/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://techblog.on-going.jp/tags/</loc>
   </url>
   
 </urlset>
