@@ -6,10 +6,19 @@
     <description>Recent content in Posts on on-going&#39;s Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Sat, 30 May 2020 15:06:15 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2020 18:29:15 +0900</lastBuildDate>
     
 	<atom:link href="https://techblog.on-going.jp/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>#6 Kubernetes上にInfluxDBを導入してFitbitデータを保存してみた</title>
+      <link>https://techblog.on-going.jp/posts/store-fitbit-data-to-influxdb-on-kubernetes/</link>
+      <pubDate>Fri, 26 Jun 2020 18:29:15 +0900</pubDate>
+      
+      <guid>https://techblog.on-going.jp/posts/store-fitbit-data-to-influxdb-on-kubernetes/</guid>
+      <description>久しぶりの投稿なります、@izewfktvyです。 今回、Kubernetes上に導入したInfluxDBに対してFitbitデータの保存を試</description>
+    </item>
     
     <item>
       <title>#5 本ブログを運営しているサービスアーキテクチャーの紹介</title>

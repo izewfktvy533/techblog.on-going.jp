@@ -4,7 +4,7 @@ date: 2020-05-20T01:08:13+09:00
 Description: ""
 Tags: []
 Categories: []
-thumbnail: /images/how-to-participate-in-rosetta@home-on-kubernetes-with-raspberry-pi/thumbnail.jpg
+thumbnail: images/how-to-participate-in-rosetta@home-on-kubernetes-with-raspberry-pi/thumbnail.jpg
 DisableComments: false
 ---
 
