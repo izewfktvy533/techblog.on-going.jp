@@ -10,7 +10,7 @@ DisableComments: false
 
 &nbsp;
 
-久しぶりの投稿なります、[@izewfktvy](https://twitter.com/izewfktvy)です。
+久しぶりの投稿になります、[@izewfktvy](https://twitter.com/izewfktvy)です。
 
 今回、Kubernetes上に導入したInfluxDBに対してFitbitデータの保存を試みましたので、本稿でその紹介をしたいと思います。
 
@@ -24,7 +24,7 @@ DisableComments: false
 
 ### Kubernetes上にInfluxDBを導入する
 
-まず、[InfluxDB](https://www.influxdata.com/)とはInfluxData社が開発・提供している[オープンソース](https://github.com/influxdata/influxdb)の時系列データベースで、サーバのメトリクスやアプリケーションログ、IoTシステムなどから得られたセンシングデータなどの時系列データの取扱に特化したデータベースです。
+[InfluxDB](https://www.influxdata.com/)とはInfluxData社が開発・提供している[オープンソース](https://github.com/influxdata/influxdb)の時系列データベースで、サーバのメトリクスやアプリケーションログ、IoTシステムなどから得られたセンシングデータなどの時系列データの取扱に特化したデータベースです。
 
 [![influxdb logo](images/store-fitbit-data-to-influxdb-on-kubernetes/Influxdb_logo-960x504.png)](https://www.influxdata.com/)
 
@@ -139,7 +139,7 @@ InfluxDB用のボリュームポイントとしてPersistentVolumeリソース�
 
 InfluxDBには[ヘルスチェックのためのエンドポイント(/health)](https://docs.influxdata.com/influxdb/v1.8/tools/api/#health-http-endpoint)が用意されています。本環境ではKubernetesのヘルスチェック機能の一つであるLivenessProbeを用いてInfluxDBに対してヘルスチェックを行うようにしました。
 
-また、InfluxDBにアクセスするためのエンドポイントを提供するためにロードバランサの払い出しを行っています。
+また、InfluxDBにアクセスするためのエンドポイントを提供するために、ロードバランサの払い出しを行っています。
 
 このマニフェストファイルをKubernetesに適用した結果を下記に示します。
 
@@ -183,7 +183,7 @@ replicaset.apps/ngrok-fitbit-oauth-dp-5b9f8dd9b    1         1         1       6
 
 &nbsp;
 
-Kubernetesのヘルスチェック機能 LivenessProbeもしっかり動作しています。
+Kubernetesのヘルスチェック機能であるLivenessProbeが動作していることを確認してみます。
 
 &nbsp;
 
@@ -255,7 +255,7 @@ Date: Fri, 26 Jun 2020 12:01:17 GMT
 
 &nbsp;
 
-データが保存されていることを確認します。
+データが保存されていることを確認してみます。
 
 &nbsp;
 

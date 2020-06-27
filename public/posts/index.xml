@@ -17,7 +17,7 @@
       <pubDate>Fri, 26 Jun 2020 18:29:15 +0900</pubDate>
       
       <guid>https://techblog.on-going.jp/posts/store-fitbit-data-to-influxdb-on-kubernetes/</guid>
-      <description>久しぶりの投稿なります、@izewfktvyです。 今回、Kubernetes上に導入したInfluxDBに対してFitbitデータの保存を試</description>
+      <description>久しぶりの投稿になります、@izewfktvyです。 今回、Kubernetes上に導入したInfluxDBに対してFitbitデータの保存を</description>
     </item>
     
     <item>
