@@ -35,11 +35,6 @@ icon = "fa-facebook"
 title = "Facebook"
 url = "https://www.facebook.com/profile.php?id=100023692920069"
 
-[[params.socialIcons]]
-icon = "fa-linkedin"
-title = "Linkedin"
-url = "https://www.linkedin.com/in/taichi-soma"
-
 
 
 [menue]
