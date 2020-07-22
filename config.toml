@@ -23,7 +23,7 @@ use = "katex"  # options: "katex", "mathjax". default is "katex".
 [[params.socialIcons]]
 icon = "fa-github"
 title = "GitHub"
-url = "https://github.com/izewfktvy533jzmn"
+url = "https://github.com/izewfktvy533zjmn"
 
 [[params.socialIcons]]
 icon = "fa-twitter"
