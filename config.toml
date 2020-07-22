@@ -12,7 +12,7 @@ title = "on-going's Tech Blog"
 author = "techblog.on-going."
 profilePicture = "images/profile.jpg"
 thumbnail = "images/profile.jpg"
-twitter = "izewfktvy"
+twitter = "izewfktvy533"
 
 ## Math settings
 [params.math]
@@ -23,7 +23,7 @@ use = "katex"  # options: "katex", "mathjax". default is "katex".
 [[params.socialIcons]]
 icon = "fa-github"
 title = "GitHub"
-url = "https://github.com/izewfktvy533"
+url = "https://github.com/izewfktvy533jzmn"
 
 [[params.socialIcons]]
 icon = "fa-twitter"

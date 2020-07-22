@@ -23,7 +23,7 @@ This project recently added [support for fighting COVID-19](https://boinc.bakerl
 
 If you have your RasPi K8s cluster, you can help analyzing COVID-19 through pariticipating in Rosetta@home project by using this Kubernetes manifests. 
 
-If you are interested, please check [follow link](https://github.com/izewfktvy533/raspi-k8s-rah) that GitHub repository.
+If you are interested, please check [follow link](https://github.com/izewfktvy533zjmn/raspi-k8s-rah) that GitHub repository.
 
 On this link, mentions prerequisites and how to use, so on.
 
