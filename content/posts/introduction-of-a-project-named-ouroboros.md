@@ -10,9 +10,9 @@ DisableComments: false
 
 &nbsp;
 
-こんにちは、[@izewfktvy](https://twitter.com/izewfktvy)です。
+こんにちは、[@izewfktvy533](https://twitter.com/izewfktvy533)です。
 
-本稿は、「ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト[『**OUROBOROS**』](https://github.com/izewfktvy533zjmn/OUROBOROS)」という個人的興味で発足したプロジェクトの紹介です。
+本稿は、「ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト[『**OUROBOROS**』](https://github.com/izewfktvy533/OUROBOROS)」という個人的興味で発足したプロジェクトの紹介です。
 
 
 &nbsp;

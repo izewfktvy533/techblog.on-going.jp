@@ -10,7 +10,7 @@ DisableComments: false
 
 &nbsp;
 
-久しぶりの投稿になります、[@izewfktvy](https://twitter.com/izewfktvy)です。
+久しぶりの投稿になります、[@izewfktvy533](https://twitter.com/izewfktvy533)です。
 
 今回、Kubernetes上に導入したInfluxDBに対してFitbitデータの保存を試みましたので、本稿でその紹介をしたいと思います。
 

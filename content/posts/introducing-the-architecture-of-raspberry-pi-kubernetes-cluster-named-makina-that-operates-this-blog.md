@@ -10,7 +10,7 @@ DisableComments: false
 
 &nbsp;
 
-こんにちは、[@izewfktvy](https://twitter.com/izewfktvy)です。
+こんにちは、[@izewfktvy533](https://twitter.com/izewfktvy533)です。
 
 本稿は、このブログを運用している自宅インフラのアーキテクチャーの紹介をしたいと思います。
 
