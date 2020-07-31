@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://techblog.on-going.jp/posts/deploying-grafana-on-kubernetes-to-display-fitbit-data-stored-in-influxdb/</loc>
-    <lastmod>2020-07-01T22:02:52+09:00</lastmod>
+    <loc>https://techblog.on-going.jp/posts/commpost-a-comment-posting-system/</loc>
+    <lastmod>2020-07-31T20:12:49+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://techblog.on-going.jp/</loc>
-    <lastmod>2020-07-01T22:02:52+09:00</lastmod>
+    <lastmod>2020-07-31T20:12:49+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://techblog.on-going.jp/posts/</loc>
+    <lastmod>2020-07-31T20:12:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techblog.on-going.jp/posts/deploying-grafana-on-kubernetes-to-display-fitbit-data-stored-in-influxdb/</loc>
     <lastmod>2020-07-01T22:02:52+09:00</lastmod>
   </url>
   

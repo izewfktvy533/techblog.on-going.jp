@@ -6,10 +6,19 @@
     <description>Recent content in Posts on on-going&#39;s Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Wed, 01 Jul 2020 22:02:52 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 20:12:49 +0900</lastBuildDate>
     
 	<atom:link href="https://techblog.on-going.jp/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>#8 コメント投稿システム『COMMPOST』の紹介</title>
+      <link>https://techblog.on-going.jp/posts/commpost-a-comment-posting-system/</link>
+      <pubDate>Fri, 31 Jul 2020 20:12:49 +0900</pubDate>
+      
+      <guid>https://techblog.on-going.jp/posts/commpost-a-comment-posting-system/</guid>
+      <description>ご無沙汰してます。izewfktvy533です。 2020年もすでに半年過ぎてしまいました。 コロナの影響で世の中が大変な状況ではありますが、自</description>
+    </item>
     
     <item>
       <title>#7 Kubernetes上にGrafanaを導入してInfluxDBに保存されているFitbitデータを可視化してみた</title>
