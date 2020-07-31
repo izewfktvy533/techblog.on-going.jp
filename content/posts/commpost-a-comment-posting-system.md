@@ -28,7 +28,7 @@ DisableComments: false
 
 本稿では、本ブログにおいてコメント投稿機能を追加するために開発したコメント投稿システム[『COMMPOST』](https://commpost.on-going.jp)を紹介していきたいと思います。
 
-![COMMPOST LOGO](/images/commpost-a-comment-posting-system/thumbnail.png)
+![COMMPOST LOGO](/images/commpost-a-comment-posting-system/logo.png)
 
 &nbsp;
 
