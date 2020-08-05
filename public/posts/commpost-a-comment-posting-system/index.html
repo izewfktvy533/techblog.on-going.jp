@@ -107,7 +107,7 @@
 <p>本ブログは<a href="https://gohugo.io/">HUGO</a>という静的サイトジェネレータを用いて作成を行っているのですが、HUGOによって作成されたブログでは<a href="https://disqus.com/">DISQUS</a>というコメント投稿サービスを用いることで容易にコメント機能を追加することができます。</p>
 <p>しかし、今回、コメント投稿機能を追加するにあたってDISQUSは使用せずに独自のコメント投稿システムを開発し、運用していこうと考えました。</p>
 <p>本稿では、本ブログにおいてコメント投稿機能を追加するために開発したコメント投稿システム<a href="https://commpost.on-going.jp">『COMMPOST』</a>を紹介していきたいと思います。</p>
-<p><img src="/images/commpost-a-comment-posting-system/logo.png" alt="COMMPOST LOGO"></p>
+<p><img src="/images/commpost-a-comment-posting-system/logo_icon.png" alt="COMMPOST LOGO"></p>
 <p> </p>
 <h2 id="システム要件と構成">システム要件と構成</h2>
 <h3 id="要件定義">要件定義</h3>
@@ -354,26 +354,29 @@ ngrokサービスを利用することで、外部からCOMMPOSTのAPIサーバ�
     </div>
     <div class="post-footer">
 
-    <div id="commpost"></div>
-    <script type="text/javascript">
-    (function() {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'https://commpost.on-going.jp/js/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 
-        var dlq = document.createElement('link');
-        dlq.rel = 'stylesheet'; dlq.type = 'text/css'; dlq.href = 'https://commpost.on-going.jp/assets/css/embed.css';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dlq);
+      <div id="commpost"></div>
+      <script type="text/javascript">
+      (function() {
+          var dsq = document.createElement('script');
+          dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'https://commpost.on-going.jp/js/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://commpost.on-going.jp">comments powered by Commpost.</a></noscript>
-    <a href="https://commpost.on-going.jp/" class="dsq-brlink">comments powered by <span class="logo">Commpost</span></a>
+          var dlq = document.createElement('link');
+          dlq.rel = 'stylesheet'; dlq.type = 'text/css'; dlq.href = 'https://commpost.on-going.jp/assets/css/embed.css';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dlq);
+
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://commpost.on-going.jp">comments powered by Commpost.</a></noscript>
+      <a href="https://commpost.on-going.jp/" class="dsq-brlink">comments powered by <span class="logo">Commpost</span></a>
+
 
       <div class="info">
         
-        
+      
       </div>
+
     </div>
 
     
