@@ -13,6 +13,7 @@ author = "techblog.on-going."
 profilePicture = "images/profile.jpg"
 thumbnail = "images/profile.jpg"
 twitter = "izewfktvy533"
+commpost = true
 
 ## Math settings
 [params.math]

@@ -353,31 +353,10 @@ ngrokサービスを利用することで、外部からCOMMPOSTのAPIサーバ�
 
     </div>
     <div class="post-footer">
-
-
-      <div id="commpost"></div>
-      <script type="text/javascript">
-      (function() {
-          var dsq = document.createElement('script');
-          dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'https://commpost.on-going.jp/js/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-
-          var dlq = document.createElement('link');
-          dlq.rel = 'stylesheet'; dlq.type = 'text/css'; dlq.href = 'https://commpost.on-going.jp/assets/css/embed.css';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dlq);
-
-      })();
-      </script>
-      <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-      <noscript>Please enable JavaScript to view the <a href="https://commpost.on-going.jp">comments powered by Commpost.</a></noscript>
-      <a href="https://commpost.on-going.jp/" class="dsq-brlink">comments powered by <span class="logo">Commpost</span></a>
-
-
       <div class="info">
         
-      
+        
       </div>
-
     </div>
 
     
@@ -386,7 +365,20 @@ ngrokサービスを利用することで、外部からCOMMPOSTのAPIサーバ�
 
                 </div>
             </div>
-        </div>
+        </div><div id="commpost"></div>
+<script type="text/javascript">
+    (function() {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript'; dsq.async = true; dsq.src = './js/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+         var dlq = document.createElement('link');
+         dlq.rel = 'stylesheet'; dlq.type = 'text/css'; dlq.href = './assets/css/embed.css';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dlq);
+    })();
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
 </body>
 <script type="text/javascript" src="https://techblog.on-going.jp/js/jquery.min.js"></script>
 <script type="text/javascript" src="https://techblog.on-going.jp/js/jquery-migrate.min.js"></script>
