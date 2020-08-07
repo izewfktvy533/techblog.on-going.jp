@@ -15,7 +15,6 @@ DisableComments: false
 2020年もすでに半年過ぎてしまいました。 
 コロナの影響で世の中が大変な状況ではありますが、自分のやるべきことや挑戦したいことを行っていきたいと思います。
 
-
 &nbsp;
 
 このブログの運営を始めてから2ヶ月弱経過しました。
@@ -312,22 +311,20 @@ spec:
 
 &nbsp;
 
-```:embed.html
+```:commpost.html
 <div id="commpost"></div>
 <script type="text/javascript">
-(function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'https://commpost.on-going.jp/js/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    (function() {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'https://commpost.on-going.jp/js/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 
-    var dlq = document.createElement('link');
-    dlq.rel = 'stylesheet'; dlq.type = 'text/css'; dlq.href = 'https://commpost.on-going.jp/assets/css/embed.css';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dlq);
-
-})();
+         var dlq = document.createElement('link');
+         dlq.rel = 'stylesheet'; dlq.type = 'text/css'; dlq.href = 'https://commpost.on-going.jp/assets/css/embed.css';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dlq);
+    })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://commpost.on-going.jp">comments powered by Commpost.</a></noscript>
-<a href="https://commpost.on-going.jp/" class="dsq-brlink">comments powered by <span class="logo">Commpost</span></a>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 ```
 
 &nbsp;
