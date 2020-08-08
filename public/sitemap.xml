@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://techblog.on-going.jp/posts/commpost-a-comment-posting-system/</loc>
-    <lastmod>2020-07-31T20:12:49+09:00</lastmod>
+    <loc>https://techblog.on-going.jp/posts/expanded-the-hugo-theme-on-the-tech-blog-to-enable-the-commpost-which-is-comment-posting-system-to-be-used/</loc>
+    <lastmod>2020-08-08T00:10:36+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://techblog.on-going.jp/</loc>
-    <lastmod>2020-07-31T20:12:49+09:00</lastmod>
+    <lastmod>2020-08-08T00:10:36+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://techblog.on-going.jp/posts/</loc>
+    <lastmod>2020-08-08T00:10:36+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techblog.on-going.jp/posts/commpost-a-comment-posting-system/</loc>
     <lastmod>2020-07-31T20:12:49+09:00</lastmod>
   </url>
   

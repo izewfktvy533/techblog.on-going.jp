@@ -6,10 +6,19 @@
     <description>Recent content on on-going&#39;s Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Fri, 31 Jul 2020 20:12:49 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2020 00:10:36 +0900</lastBuildDate>
     
 	<atom:link href="https://techblog.on-going.jp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>#9 TechブログのHUGOテーマを拡張してコメント投稿システムである『COMMPOST』を利用できるようにした話</title>
+      <link>https://techblog.on-going.jp/posts/expanded-the-hugo-theme-on-the-tech-blog-to-enable-the-commpost-which-is-comment-posting-system-to-be-used/</link>
+      <pubDate>Sat, 08 Aug 2020 00:10:36 +0900</pubDate>
+      
+      <guid>https://techblog.on-going.jp/posts/expanded-the-hugo-theme-on-the-tech-blog-to-enable-the-commpost-which-is-comment-posting-system-to-be-used/</guid>
+      <description>izewfktvy533です。 前回の記事では、このTechブログにコメント機能を追加するために開発したコメント投稿システム『COMMPOST</description>
+    </item>
     
     <item>
       <title>#8 コメント投稿システム『COMMPOST』の紹介</title>
