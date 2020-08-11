@@ -2,6 +2,7 @@
 title: "#9 TechブログのHUGOテーマを拡張してコメント投稿システムである『COMMPOST』を利用できるようにした話"
 date: 2020-08-08T00:10:36+09:00
 Description: ""
+thumbnail: /images/expanded-the-hugo-theme-on-the-tech-blog-to-enable-the-commpost-which-is-comment-posting-system-to-be-used/thumbnail.png
 Tags: []
 Categories: []
 DisableComments: false
