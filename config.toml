@@ -53,9 +53,3 @@ url = "https://www.facebook.com/profile.php?id=100023692920069"
     identifier = "home"
     weight = 100
     url = "/"
-
-    [[menu.main]]
-    name = "Posts"
-    identifier = "posts"
-    weight = 200
-    url = "/posts/"
