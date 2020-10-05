@@ -1,5 +1,5 @@
 ---
-title: "#1 Techブログはじめます！"
+title: "Techブログはじめます！"
 date: 2020-05-12T21:54:40+09:00
 Description: ""
 thumbnail: /images/starting-a-tech-blog/physical_raspi_kubernetes_cluster.jpg

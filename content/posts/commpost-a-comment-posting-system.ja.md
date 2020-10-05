@@ -1,5 +1,5 @@
 ---
-title: "#8 コメント投稿システム『COMMPOST』の紹介"
+title: "コメント投稿システム『COMMPOST』の紹介"
 date: 2020-07-31T20:12:49+09:00
 Description: ""
 thumbnail: /images/commpost-a-comment-posting-system/thumbnail.png

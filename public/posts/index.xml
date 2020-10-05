@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>#9 TechブログのHUGOテーマを拡張してコメント投稿システムである『COMMPOST』を利用できるようにした話</title>
+      <title>TechブログのHUGOテーマを拡張してコメント投稿システムである『COMMPOST』を利用できるようにした話</title>
       <link>https://techblog.on-going.jp/posts/expanded-the-hugo-theme-on-the-tech-blog-to-enable-the-commpost-which-is-comment-posting-system-to-be-used/</link>
       <pubDate>Sat, 08 Aug 2020 00:10:36 +0900</pubDate>
       
@@ -21,7 +21,7 @@
     </item>
     
     <item>
-      <title>#8 コメント投稿システム『COMMPOST』の紹介</title>
+      <title>コメント投稿システム『COMMPOST』の紹介</title>
       <link>https://techblog.on-going.jp/posts/commpost-a-comment-posting-system/</link>
       <pubDate>Fri, 31 Jul 2020 20:12:49 +0900</pubDate>
       
@@ -30,7 +30,7 @@
     </item>
     
     <item>
-      <title>#7 Kubernetes上にGrafanaを導入してInfluxDBに保存されているFitbitデータを可視化してみた</title>
+      <title>Kubernetes上にGrafanaを導入してInfluxDBに保存されているFitbitデータを可視化してみた</title>
       <link>https://techblog.on-going.jp/posts/deploying-grafana-on-kubernetes-to-display-fitbit-data-stored-in-influxdb/</link>
       <pubDate>Wed, 01 Jul 2020 22:02:52 +0900</pubDate>
       
@@ -39,7 +39,7 @@
     </item>
     
     <item>
-      <title>#6 Kubernetes上にInfluxDBを導入してFitbitデータを保存してみた</title>
+      <title>Kubernetes上にInfluxDBを導入してFitbitデータを保存してみた</title>
       <link>https://techblog.on-going.jp/posts/store-fitbit-data-to-influxdb-on-kubernetes/</link>
       <pubDate>Fri, 26 Jun 2020 18:29:15 +0900</pubDate>
       
@@ -48,7 +48,7 @@
     </item>
     
     <item>
-      <title>#5 本ブログを運営しているサービスアーキテクチャーの紹介</title>
+      <title>本ブログを運営しているサービスアーキテクチャーの紹介</title>
       <link>https://techblog.on-going.jp/posts/introducing-the-service-architecture-running-this-blog/</link>
       <pubDate>Sat, 30 May 2020 15:06:15 +0900</pubDate>
       
@@ -57,19 +57,7 @@
     </item>
     
     <item>
-      <title>#4 How to Participate in Rosetta@home on Kubernetes with Raspberry Pi</title>
-      <link>https://techblog.on-going.jp/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</link>
-      <pubDate>Wed, 20 May 2020 01:08:13 +0900</pubDate>
-      
-      <guid>https://techblog.on-going.jp/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</guid>
-      <description>Hello, I&amp;rsquo;m @izewfktvy533.
-Last month, I made Kubernetes manifests and Docker containers to participate in Rosetta@home project with Raspberry Pi Kubernetes Cluster.
-Rosetta@home is a distributed computing project for protein structure prediction on the Berkeley Open Infrastructure for Network Computing (BOINC) platform, run by the Baker laboratory at the University of Washington. This project recently added support for fighting COVID-19.
-If you have your RasPi K8s cluster, you can help analyzing COVID-19 through pariticipating in Rosetta@home project by using this Kubernetes manifests.</description>
-    </item>
-    
-    <item>
-      <title>#3 本ブログを運用している自宅インフラ『MAKINA』の紹介</title>
+      <title>本ブログを運用している自宅インフラ『MAKINA』の紹介</title>
       <link>https://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</link>
       <pubDate>Sat, 16 May 2020 20:41:40 +0900</pubDate>
       
@@ -78,7 +66,7 @@ If you have your RasPi K8s cluster, you can help analyzing COVID-19 through pari
     </item>
     
     <item>
-      <title>#2 ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト『OUROBOROS』の紹介</title>
+      <title>ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト『OUROBOROS』の紹介</title>
       <link>https://techblog.on-going.jp/posts/introduction-of-a-project-named-ouroboros/</link>
       <pubDate>Fri, 15 May 2020 01:45:55 +0900</pubDate>
       
@@ -87,7 +75,7 @@ If you have your RasPi K8s cluster, you can help analyzing COVID-19 through pari
     </item>
     
     <item>
-      <title>#1 Techブログはじめます！</title>
+      <title>Techブログはじめます！</title>
       <link>https://techblog.on-going.jp/posts/starting-a-tech-blog/</link>
       <pubDate>Tue, 12 May 2020 21:54:40 +0900</pubDate>
       

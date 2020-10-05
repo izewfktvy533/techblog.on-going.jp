@@ -1,5 +1,5 @@
 ---
-title: "#7 Kubernetes上にGrafanaを導入してInfluxDBに保存されているFitbitデータを可視化してみた"
+title: "Kubernetes上にGrafanaを導入してInfluxDBに保存されているFitbitデータを可視化してみた"
 date: 2020-07-01T22:02:52+09:00
 Description: ""
 Tags: []

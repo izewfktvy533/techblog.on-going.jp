@@ -1,5 +1,5 @@
 ---
-title: "#6 Kubernetes上にInfluxDBを導入してFitbitデータを保存してみた"
+title: "Kubernetes上にInfluxDBを導入してFitbitデータを保存してみた"
 date: 2020-06-26T18:29:15+09:00
 Description: ""
 Tags: []

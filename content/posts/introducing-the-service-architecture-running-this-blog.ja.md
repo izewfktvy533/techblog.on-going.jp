@@ -1,5 +1,5 @@
 ---
-title: "#5 本ブログを運営しているサービスアーキテクチャーの紹介"
+title: "本ブログを運営しているサービスアーキテクチャーの紹介"
 date: 2020-05-30T15:06:15+09:00
 Description: ""
 thumbnail: images/introducing-the-service-architecture-running-this-blog/service_architecture.jpg

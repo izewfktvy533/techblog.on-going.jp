@@ -1,5 +1,5 @@
 ---
-title: "#4 How to Participate in Rosetta@home on Kubernetes with Raspberry Pi"
+title: "How to Participate in Rosetta@home on Kubernetes with Raspberry Pi"
 date: 2020-05-20T01:08:13+09:00
 Description: ""
 Tags: []

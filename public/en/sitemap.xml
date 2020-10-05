@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://techblog.on-going.jp/en/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</loc>
+    <lastmod>2020-05-20T01:08:13+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techblog.on-going.jp/en/</loc>
+    <lastmod>2020-05-20T01:08:13+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://techblog.on-going.jp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://techblog.on-going.jp/en/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://techblog.on-going.jp/en/posts/</loc>
+    <lastmod>2020-05-20T01:08:13+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://techblog.on-going.jp/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://techblog.on-going.jp/en/posts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://techblog.on-going.jp/en/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://techblog.on-going.jp/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://techblog.on-going.jp/en/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://techblog.on-going.jp/en/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://techblog.on-going.jp/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://techblog.on-going.jp/en/tags/"
+                />
+  </url>
+  
+</urlset>

@@ -4,7 +4,17 @@ title = "on-going's Tech Blog"
 theme = "anatole"
 hasCJKLanguage = true
 googleAnalytics = "UA-166112919-1"
+DefaultContentLanguage = "ja"
 
+
+[languages]
+  [languages.ja]
+    languageName = "Japanese"
+    weight = 100
+
+  [languages.en]
+    languageName = "English"
+    weight = 200
 
 
 [params]
@@ -35,7 +45,6 @@ url = "https://twitter.com/izewfktvy533"
 icon = "fa-facebook"
 title = "Facebook"
 url = "https://www.facebook.com/profile.php?id=100023692920069"
-
 
 
 [menue]
