@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+    <title> techblog.on-going. | コメント投稿システム『COMMPOST』の紹介 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    
+    <title>コメント投稿システム『COMMPOST』の紹介</title>
+    <meta property="og:title" content="コメント投稿システム『COMMPOST』の紹介" />
+    <meta name="twitter:title" content="コメント投稿システム『COMMPOST』の紹介" />
+    
+
+    
+
+    <meta name="author" content="techblog.on-going."/>
+    <meta property="og:site_name" content="on-going&#39;s Tech Blog" />
+    <meta property="og:url" content="https://techblog.on-going.jp/ja/posts/commpost-a-comment-posting-system/" />
+
+    
+    <meta property="og:image" content="https://techblog.on-going.jp/images/commpost-a-comment-posting-system/thumbnail.png" />
+    <meta name="twitter:image" content="https://techblog.on-going.jp/images/commpost-a-comment-posting-system/thumbnail.png" />
+    
+    <meta name="twitter:card" content="summary" />
+
+    
+    <meta name="twitter:site" content="@izewfktvy533" />
+    <meta name="twitter:creator" content="@izewfktvy533" />
+    
+
+    
+    <meta property="og:type" content="article" />
+    
+    <meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="https://techblog.on-going.jp/css/style.css" type="text/css">
+    
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <base href="https://techblog.on-going.jp/">
+    
+    <link rel="shortcut icon" href="https://techblog.on-going.jp/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://techblog.on-going.jp/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://techblog.on-going.jp/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://techblog.on-going.jp/favicon-16x16.png">
+
+    <link rel="canonical" href="https://techblog.on-going.jp/ja/posts/commpost-a-comment-posting-system/">
+</head>
+<body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://techblog.on-going.jp/images/profile.jpg" alt="profile picture" style="width:127px;border-radius: 50%;">
+        <h3 title=""><a href="/">on-going&#39;s Tech Blog</a></h3>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <a href="https://github.com/izewfktvy533zjmn" rel="me" >
+          <i class="fa fa-github" aria-hidden="true" title="GitHub"></i>
+        </a>
+        
+        <a href="https://twitter.com/izewfktvy533" rel="me" >
+          <i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i>
+        </a>
+        
+        <a href="https://www.facebook.com/profile.php?id=100023692920069" rel="me" >
+          <i class="fa fa-facebook" aria-hidden="true" title="Facebook"></i>
+        </a>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; 2020 techblog.on-going. </div>
+      </div>
+    </div>
+</div>
+<div class="main">
+            <div class="page-top animated fadeInDown">
+    <div class="nav">
+        
+        
+    </div>
+</div>
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>コメント投稿システム『COMMPOST』の紹介
+        </h3>
+        
+        </div>
+
+    <p> </p>
+<p>ご無沙汰してます。<a href="https://twitter.com/izewfktvy533">izewfktvy533</a>です。</p>
+<p>2020年もすでに半年過ぎてしまいました。
+コロナの影響で世の中が大変な状況ではありますが、自分のやるべきことや挑戦したいことを行っていきたいと思います。</p>
+<p> </p>
+<p>このブログの運営を始めてから2ヶ月弱経過しました。</p>
+<p>本ブログに何か新しい機能を追加したいと考え、すぐに思いついたのがコメント投稿機能でした。</p>
+<p>本ブログは<a href="https://gohugo.io/">HUGO</a>という静的サイトジェネレータを用いて作成を行っているのですが、HUGOによって作成されたブログでは<a href="https://disqus.com/">DISQUS</a>というコメント投稿サービスを用いることで容易にコメント機能を追加することができます。</p>
+<p>しかし、今回、コメント投稿機能を追加するにあたってDISQUSは使用せずに独自のコメント投稿システムを開発し、運用していこうと考えました。</p>
+<p>本稿では、本ブログにおいてコメント投稿機能を追加するために開発したコメント投稿システム<a href="https://commpost.on-going.jp">『COMMPOST』</a>を紹介していきたいと思います。</p>
+<p><img src="/images/commpost-a-comment-posting-system/logo_icon.png" alt="COMMPOST LOGO"></p>
+<p> </p>
+<h2 id="システム要件と構成">システム要件と構成</h2>
+<h3 id="要件定義">要件定義</h3>
+<p>このコメント投稿システムを開発するにあたって、考慮した点を下記にまとめました。</p>
+<h4 id="機能要件">機能要件</h4>
+<ul>
+<li>コメントを投稿することができる</li>
+<li>コメントを取得することができる</li>
+<li>コメントを削除することができる</li>
+<li>特定の記事に対するコメントを取得することができる</li>
+</ul>
+<p>コメント投稿システムに最低限必要な機能は有しているかと思われます。</p>
+<h4 id="非機能要件">非機能要件</h4>
+<ul>
+<li>Kubernetes上で稼働させること</li>
+<li>ヘルスチェック機能を有すること</li>
+<li>XSSへの対策をすること</li>
+</ul>
+<p>本システムはこのブログと同様、Kubernetesクラスター上で運用することを想定しています。
+また、基本的にこのコメント投稿システムを利用する本ブログは誰でもアクセスするとこができるため、XSS攻撃への対策は必須かと思われます。</p>
+<h4 id="実装しないこと">実装しないこと</h4>
+<ul>
+<li>ユーザ登録やユーザ認証</li>
+<li>コメントに対する返信コメント機能</li>
+<li>Webサービスのような機能提供</li>
+</ul>
+<p>DISQUSのようなWebサービスの開発・運用は行いません(行なえませんでした)。</p>
+<p> </p>
+<h3 id="システム構成">システム構成</h3>
+<p>本システムの構成を下図に示します。</p>
+<p>バックエンドにはコメント投稿機能を提供するAPIサーバを設置し、データベースにはMongoDBを利用しました。</p>
+<p>フロントエンドとしてブログ記事にスクリプトを組み込んでおき、ブログ記事が読み込まれた際にはコメント取得のAPIリクエストを送るスクリプトを実行することでコメントを取得し、コメントを表示することができるような仕組みです。また、コメントを投稿する際にはコメント投稿のAPIリクエストを送るスクリプトを実行することでコメントの投稿を行うことができます。</p>
+<p> </p>
+<p><img src="/images/commpost-a-comment-posting-system/constitution.jpg" alt="Constitution"></p>
+<p> </p>
+<h2 id="データベース">データベース</h2>
+<h3 id="mongodbのスキーマデザイン">MongoDBのスキーマデザイン</h3>
+<p>ブログ記事にコメント投稿するために最低限必要となるデータをモデル化しました。</p>
+<p><em><strong>&ldquo;article_id&rdquo;</strong></em> はあるブログ記事に対応する固有のIDであり、投稿されたコメントがどの記事のものなのか識別するために使用されます。
+<em><strong>&ldquo;poster_name&rdquo;</strong></em> はコメントの投稿者の名前、<em><strong>&ldquo;text&rdquo;</strong></em> はコメントそのものです。
+<em><strong>&ldquo;date&rdquo;</strong></em> はコメントを投稿した時刻を表します。</p>
+<p><img src="/images/commpost-a-comment-posting-system/schema_design.jpg" alt="Schema Design"></p>
+<p> </p>
+<h2 id="バックエンド">バックエンド</h2>
+<p>バックエンドのAPIサーバは<a href="https://github.com/izewfktvy533zjmn/commpost">こちらのGitHubリポジトリ</a>上で開発を行っています。</p>
+<h3 id="apiリファレンス">APIリファレンス</h3>
+<p>COMMPOSTのAPIリファレンスは<a href="https://github.com/izewfktvy533zjmn/commpost/wiki/Web-API-v1-:-Comments">こちらのGitHub Wiki</a>にまとめました。</p>
+<h3 id="kubernetes上でのサービス構成">Kubernetes上でのサービス構成</h3>
+<p>Kubernetes上でのサービス構成を下図に示します。</p>
+<p>本システムはMongoDBとAPIサーバををKuberentes上で動作させています。
+ngrokサービスを利用することで、外部からCOMMPOSTのAPIサーバにアクセスできるような構成となっています。</p>
+<p> </p>
+<p><img src="/images/commpost-a-comment-posting-system/microservices_architecture.jpg" alt="Microservices Architecture"></p>
+<p> </p>
+<h3 id="kubernetesマニフェストファイル">Kubernetesマニフェストファイル</h3>
+<p>上記の構成図の中からMongoDBとAPIサーバを稼働させているKubernetesマニフェストを紹介します。</p>
+<p>MongoDBを稼働させているKubernetesマニフェストファイルは下記の通りです。</p>
+<p> </p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:mongodb/manifest.yaml" data-lang=":mongodb/manifest.yaml">---
+
+<span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: PersistentVolume
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: mongodb-pv
+  <span style="color:#66d9ef">labels</span>:
+    <span style="color:#66d9ef">volume</span>: mongodb-pv
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">capacity</span>:
+    <span style="color:#66d9ef">storage</span>: 16Gi
+  <span style="color:#66d9ef">accessModes</span>:
+  - ReadWriteMany
+  <span style="color:#66d9ef">nfs</span>:
+    <span style="color:#66d9ef">server</span>: <span style="color:#ae81ff">192.168.11.100</span>
+    <span style="color:#66d9ef">path</span>: /srv/nfs/on-going/mongodb
+
+---
+
+<span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: PersistentVolumeClaim
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: mongodb-pvc
+  <span style="color:#66d9ef">namespace</span>: on-going
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">accessModes</span>:
+  - ReadWriteMany
+  <span style="color:#66d9ef">resources</span>:
+    <span style="color:#66d9ef">requests</span>:
+      <span style="color:#66d9ef">storage</span>: 16Gi
+  <span style="color:#66d9ef">selector</span>:
+    <span style="color:#66d9ef">matchLabels</span>:
+      <span style="color:#66d9ef">volume</span>: mongodb-pv
+
+---
+
+<span style="color:#66d9ef">apiVersion</span>: apps/v1
+<span style="color:#66d9ef">kind</span>: Deployment
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: mongodb-dp
+  <span style="color:#66d9ef">namespace</span>: on-going
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">replicas</span>: <span style="color:#ae81ff">1</span>
+  <span style="color:#66d9ef">selector</span>:
+    <span style="color:#66d9ef">matchLabels</span>:
+      <span style="color:#66d9ef">app</span>: mongodb
+  <span style="color:#66d9ef">strategy</span>:
+    <span style="color:#66d9ef">type</span>: Recreate
+  <span style="color:#66d9ef">template</span>:
+    <span style="color:#66d9ef">metadata</span>:
+      <span style="color:#66d9ef">labels</span>:
+        <span style="color:#66d9ef">app</span>: mongodb
+    <span style="color:#66d9ef">spec</span>:
+      <span style="color:#66d9ef">containers</span>:
+      - <span style="color:#66d9ef">name</span>: mongodb
+        <span style="color:#66d9ef">imagePullPolicy</span>: Always
+        <span style="color:#66d9ef">image</span>: mongo:<span style="color:#ae81ff">4.2.8</span>-bionic
+        <span style="color:#66d9ef">ports</span>:
+        - <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">27017</span>
+        <span style="color:#66d9ef">volumeMounts</span>:
+        - <span style="color:#66d9ef">name</span>: mongodb-volume
+          <span style="color:#66d9ef">mountPath</span>: /data/db
+      <span style="color:#66d9ef">volumes</span>:
+      - <span style="color:#66d9ef">name</span>: mongodb-volume
+        <span style="color:#66d9ef">persistentVolumeClaim</span>:
+          <span style="color:#66d9ef">claimName</span>: mongodb-pvc
+
+---
+
+<span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: Service
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: mongodb-svc-lb
+  <span style="color:#66d9ef">namespace</span>: on-going
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">type</span>: LoadBalancer
+  <span style="color:#66d9ef">ports</span>:
+  - <span style="color:#66d9ef">protocol</span>: TCP
+    <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">27017</span>
+    <span style="color:#66d9ef">targetPort</span>: <span style="color:#ae81ff">27017</span>
+  <span style="color:#66d9ef">selector</span>:
+    <span style="color:#66d9ef">app</span>: mongodb
+
+---
+</code></pre></div><p> </p>
+<p>APIサーバをMongoDBを稼働させているKubernetesマニフェストファイルは下記の通りです。</p>
+<p> </p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:commpost-api/manifest.yaml" data-lang=":commpost-api/manifest.yaml">---
+
+<span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: ConfigMap
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: commpost-api-cm
+  <span style="color:#66d9ef">namespace</span>: on-going
+<span style="color:#66d9ef">data</span>:
+  <span style="color:#66d9ef">endpoint</span>: mongodb://mongodb-svc-lb:<span style="color:#ae81ff">27017</span>/commpost
+
+---
+
+<span style="color:#66d9ef">apiVersion</span>: apps/v1
+<span style="color:#66d9ef">kind</span>: Deployment
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: commpost-api-dp
+  <span style="color:#66d9ef">namespace</span>: on-going
+  <span style="color:#66d9ef">labels</span>:
+    <span style="color:#66d9ef">app</span>: commpost-api
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">replicas</span>: <span style="color:#ae81ff">1</span>
+  <span style="color:#66d9ef">selector</span>:
+    <span style="color:#66d9ef">matchLabels</span>:
+      <span style="color:#66d9ef">app</span>: commpost-api
+  <span style="color:#66d9ef">template</span>:
+    <span style="color:#66d9ef">metadata</span>:
+      <span style="color:#66d9ef">labels</span>:
+        <span style="color:#66d9ef">app</span>: commpost-api
+    <span style="color:#66d9ef">spec</span>:
+      <span style="color:#66d9ef">containers</span>:
+      - <span style="color:#66d9ef">name</span>: commpost-api
+        <span style="color:#66d9ef">imagePullPolicy</span>: Always
+        <span style="color:#66d9ef">image</span>: <span style="color:#e6db74">&#34;izewfktvy533zjmn/commpost:arm64&#34;</span>
+        <span style="color:#66d9ef">livenessProbe</span>:
+          <span style="color:#66d9ef">httpGet</span>:
+            <span style="color:#66d9ef">path</span>: /api/v1/healthz
+            <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">3000</span>
+            <span style="color:#66d9ef">scheme</span>: HTTP
+          <span style="color:#66d9ef">initialDelaySeconds</span>: <span style="color:#ae81ff">30</span>
+          <span style="color:#66d9ef">periodSeconds</span>: <span style="color:#ae81ff">3</span>
+          <span style="color:#66d9ef">timeoutSeconds</span>: <span style="color:#ae81ff">3</span>
+          <span style="color:#66d9ef">successThreshold</span>: <span style="color:#ae81ff">1</span>
+          <span style="color:#66d9ef">failureThreshold</span>: <span style="color:#ae81ff">3</span>
+        <span style="color:#66d9ef">env</span>:
+        - <span style="color:#66d9ef">name</span>: ENDPOINT
+          <span style="color:#66d9ef">valueFrom</span>:
+            <span style="color:#66d9ef">configMapKeyRef</span>:
+              <span style="color:#66d9ef">name</span>: commpost-api-cm
+              <span style="color:#66d9ef">key</span>: endpoint
+
+---
+
+<span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: Service
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: commpost-api-svc-lb
+  <span style="color:#66d9ef">namespace</span>: on-going
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">type</span>: LoadBalancer
+  <span style="color:#66d9ef">ports</span>:
+  - <span style="color:#66d9ef">protocol</span>: TCP
+    <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">3000</span>
+    <span style="color:#66d9ef">targetPort</span>: <span style="color:#ae81ff">3000</span>
+  <span style="color:#66d9ef">selector</span>:
+    <span style="color:#66d9ef">app</span>: commpost-api
+
+---
+</code></pre></div><p> </p>
+<h2 id="フロントエンド">フロントエンド</h2>
+<p>フロントエンドは投稿されたコメントの表示とコメントを投稿するフォームを提供します。</p>
+<p>下記のHTMLをブログ記事に組み込むことでコメント投稿システム『COMMPOST』を利用することができます。</p>
+<p> </p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:commpost.html" data-lang=":commpost.html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;commpost&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+    (<span style="color:#66d9ef">function</span>() {
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dsq</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;script&#39;</span>);
+        <span style="color:#a6e22e">dsq</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;text/javascript&#39;</span>; <span style="color:#a6e22e">dsq</span>.<span style="color:#a6e22e">async</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>; <span style="color:#a6e22e">dsq</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://commpost.on-going.jp/js/embed.js&#39;</span>;
+        (document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#39;head&#39;</span>)[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">||</span> document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#39;body&#39;</span>)[<span style="color:#ae81ff">0</span>]).<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">dsq</span>);
+
+         <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dlq</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;link&#39;</span>);
+         <span style="color:#a6e22e">dlq</span>.<span style="color:#a6e22e">rel</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;stylesheet&#39;</span>; <span style="color:#a6e22e">dlq</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;text/css&#39;</span>; <span style="color:#a6e22e">dlq</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://commpost.on-going.jp/assets/css/embed.css&#39;</span>;
+         (document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#39;head&#39;</span>)[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">||</span> document.<span style="color:#a6e22e">getElementsByTagName</span>(<span style="color:#e6db74">&#39;body&#39;</span>)[<span style="color:#ae81ff">0</span>]).<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">dlq</span>);
+    })();
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://fonts.googleapis.com/css2?family=Fredoka+One&amp;display=swap&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span>&gt;
+</code></pre></div><p> </p>
+<p>実はまだ、フロントエンド側は開発途中です。</p>
+<p>というのも筆者はフロントエンド側の開発の経験がないので、試行錯誤しながら開発を進めいています。</p>
+<p>HTML + CSS + JavaScriptの勉強を兼ねて取り組んでいる状況です。</p>
+<p> </p>
+<h2 id="最後に">最後に</h2>
+<p>現状で稼働しているコメント投稿システム『COMMPOST』の機能を本ブログ記事の最後に組み込みました。</p>
+<p>今後はフロントエンド側のデザインを整えていきます。</p>
+<p>また、今回開発したコメント投稿システム『COMMPOST』を本ブログで安易に利用できるように、本ブログで使用しているHUGOのテンプレートを拡張したいと思っています。</p>
+<p> </p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+      </div>
+    </div>
+
+    
+    <div id="commpost"></div>
+<script type="text/javascript">
+    (function() {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'https://commpost.on-going.jp/js/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+         var dlq = document.createElement('link');
+         dlq.rel = 'stylesheet'; dlq.type = 'text/css'; dlq.href = 'https://commpost.on-going.jp/assets/css/embed.css';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dlq);
+    })();
+</script>
+
+    
+
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+<script type="text/javascript" src="https://techblog.on-going.jp/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://techblog.on-going.jp/js/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="https://techblog.on-going.jp/js/jquery-appear.min.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-166112919-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</html></body>
+
+</html>

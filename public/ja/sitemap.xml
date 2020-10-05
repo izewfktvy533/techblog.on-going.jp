@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://techblog.on-going.jp/</loc>
+    <loc>https://techblog.on-going.jp/ja/</loc>
     <lastmod>2020-08-08T00:10:36+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -13,12 +13,12 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://techblog.on-going.jp/"
+                href="https://techblog.on-going.jp/ja/"
                 />
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/posts/</loc>
+    <loc>https://techblog.on-going.jp/ja/posts/</loc>
     <lastmod>2020-08-08T00:10:36+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
@@ -28,52 +28,52 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://techblog.on-going.jp/posts/"
+                href="https://techblog.on-going.jp/ja/posts/"
                 />
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/posts/expanded-the-hugo-theme-on-the-tech-blog-to-enable-the-commpost-which-is-comment-posting-system-to-be-used/</loc>
+    <loc>https://techblog.on-going.jp/ja/posts/expanded-the-hugo-theme-on-the-tech-blog-to-enable-the-commpost-which-is-comment-posting-system-to-be-used/</loc>
     <lastmod>2020-08-08T00:10:36+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/posts/commpost-a-comment-posting-system/</loc>
+    <loc>https://techblog.on-going.jp/ja/posts/commpost-a-comment-posting-system/</loc>
     <lastmod>2020-07-31T20:12:49+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/posts/deploying-grafana-on-kubernetes-to-display-fitbit-data-stored-in-influxdb/</loc>
+    <loc>https://techblog.on-going.jp/ja/posts/deploying-grafana-on-kubernetes-to-display-fitbit-data-stored-in-influxdb/</loc>
     <lastmod>2020-07-01T22:02:52+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/posts/store-fitbit-data-to-influxdb-on-kubernetes/</loc>
+    <loc>https://techblog.on-going.jp/ja/posts/store-fitbit-data-to-influxdb-on-kubernetes/</loc>
     <lastmod>2020-06-26T18:29:15+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/posts/introducing-the-service-architecture-running-this-blog/</loc>
+    <loc>https://techblog.on-going.jp/ja/posts/introducing-the-service-architecture-running-this-blog/</loc>
     <lastmod>2020-05-30T15:06:15+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</loc>
+    <loc>https://techblog.on-going.jp/ja/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</loc>
     <lastmod>2020-05-16T20:41:40+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/posts/introduction-of-a-project-named-ouroboros/</loc>
+    <loc>https://techblog.on-going.jp/ja/posts/introduction-of-a-project-named-ouroboros/</loc>
     <lastmod>2020-05-15T01:45:55+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/posts/starting-a-tech-blog/</loc>
+    <loc>https://techblog.on-going.jp/ja/posts/starting-a-tech-blog/</loc>
     <lastmod>2020-05-12T21:54:40+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/categories/</loc>
+    <loc>https://techblog.on-going.jp/ja/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -82,12 +82,12 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://techblog.on-going.jp/categories/"
+                href="https://techblog.on-going.jp/ja/categories/"
                 />
   </url>
   
   <url>
-    <loc>https://techblog.on-going.jp/tags/</loc>
+    <loc>https://techblog.on-going.jp/ja/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -96,7 +96,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="ja"
-                href="https://techblog.on-going.jp/tags/"
+                href="https://techblog.on-going.jp/ja/tags/"
                 />
   </url>
   

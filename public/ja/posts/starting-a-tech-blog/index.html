@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <title> techblog.on-going. | How to Participate in Rosetta@home on Kubernetes with Raspberry Pi </title>
+<html lang="ja"><head>
+    <title> techblog.on-going. | Techブログはじめます！ </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     
-    <title>How to Participate in Rosetta@home on Kubernetes with Raspberry Pi</title>
-    <meta property="og:title" content="How to Participate in Rosetta@home on Kubernetes with Raspberry Pi" />
-    <meta name="twitter:title" content="How to Participate in Rosetta@home on Kubernetes with Raspberry Pi" />
+    <title>Techブログはじめます！</title>
+    <meta property="og:title" content="Techブログはじめます！" />
+    <meta name="twitter:title" content="Techブログはじめます！" />
     
 
     
 
     <meta name="author" content="techblog.on-going."/>
     <meta property="og:site_name" content="on-going&#39;s Tech Blog" />
-    <meta property="og:url" content="https://techblog.on-going.jp/en/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/" />
+    <meta property="og:url" content="https://techblog.on-going.jp/ja/posts/starting-a-tech-blog/" />
 
     
-    <meta property="og:image" content="https://techblog.on-going.jp/images/how-to-participate-in-rosetta@home-on-kubernetes-with-raspberry-pi/thumbnail.jpg" />
-    <meta name="twitter:image" content="https://techblog.on-going.jp/images/how-to-participate-in-rosetta@home-on-kubernetes-with-raspberry-pi/thumbnail.jpg" />
+    <meta property="og:image" content="https://techblog.on-going.jp/images/starting-a-tech-blog/physical_raspi_kubernetes_cluster.jpg" />
+    <meta name="twitter:image" content="https://techblog.on-going.jp/images/starting-a-tech-blog/physical_raspi_kubernetes_cluster.jpg" />
     
     <meta name="twitter:card" content="summary" />
 
@@ -41,7 +41,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://techblog.on-going.jp/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://techblog.on-going.jp/favicon-16x16.png">
 
-    <link rel="canonical" href="https://techblog.on-going.jp/en/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/">
+    <link rel="canonical" href="https://techblog.on-going.jp/ja/posts/starting-a-tech-blog/">
 </head>
 <body><div class="sidebar animated fadeInDown">
     <div class="logo-title">
@@ -86,22 +86,39 @@
     <div class="post-content">
 
       <div class="post-title">
-        <h3>How to Participate in Rosetta@home on Kubernetes with Raspberry Pi
+        <h3>Techブログはじめます！
         </h3>
         
         </div>
 
     <p> </p>
-<p><img src="/images/how-to-participate-in-rosetta@home-on-kubernetes-with-raspberry-pi/thumbnail.jpg" alt="thumnail.jpg"></p>
+<p>どうも、<a href="https://twitter.com/izewfktvy533">@izewfktvy533</a>です。</p>
+<p>この度、自宅プライベートクラウド上でTechブログの運用を行うことにしました。</p>
+<p>しばらくの間、Techブログとして<a href="https://qiita.com/izewfktvy533">Qiita</a>を利用しておりましたが、先月構築した<a href="https://qiita.com/izewfktvy533/items/efaa0c5fd6b6ea2c691b">高可用性ラズパイKubernetesクラスター</a>を自宅プライベートクラウドとして運用していく上で、何らかのサービスがあるとモチベーションの維持に繋がると考え、このブログを一種のサービスとて運用していきたいと思います。</p>
 <p> </p>
-<p>Hello, I&rsquo;m <a href="https://twitter.com/izewfktvy533">@izewfktvy533</a>.</p>
-<p>Last month, I made Kubernetes manifests and Docker containers to participate in <a href="https://boinc.bakerlab.org/">Rosetta@home project</a> with Raspberry Pi Kubernetes Cluster.</p>
-<p>Rosetta@home is a distributed computing project for protein structure prediction on the Berkeley Open Infrastructure for Network Computing (BOINC) platform, run by the Baker laboratory at the University of Washington.
-This project recently added <a href="https://boinc.bakerlab.org/rosetta/forum_thread.php?id=13702">support for fighting COVID-19</a>.</p>
-<p>If you have your RasPi K8s cluster, you can help analyzing COVID-19 through pariticipating in Rosetta@home project by using this Kubernetes manifests.</p>
-<p>If you are interested, please check <a href="https://github.com/izewfktvy533zjmn/raspi-k8s-rah">follow link</a> that GitHub repository.</p>
-<p>On this link, mentions prerequisites and how to use, so on.</p>
-<p>Thank you for reading!</p>
+<p><img src="/images/starting-a-tech-blog/physical_raspi_kubernetes_cluster.jpg" alt="Physical Raspberry Pi Kubernetes Cluster"></p>
+<p> </p>
+<h3 id="このブログで取り上げる内容">このブログで取り上げる内容</h3>
+<p>本プログでは、下記の内容に関して取り上げていきたいと考えています。</p>
+<ul>
+<li>ラズパイKubernetesクラスタを基盤とした自宅プライベートクラウド構築プロジェクトの紹介</li>
+<li>自宅プライベートクラウド上で稼働しているサービスの運用方法やシステムアーキテクチャーの紹介</li>
+<li>コンピュータ・サイエンスやソフトウェアエンジニアリングに関すること</li>
+</ul>
+<p> </p>
+<h3 id="このブログの継続的デリバリー">このブログの継続的デリバリー</h3>
+<p>本ブログで継続的デリバリーを行うために、下図のような構成を採っています。</p>
+<p> </p>
+<p><img src="/images/starting-a-tech-blog/on-going_cd_overview.png" alt="Tech Blog CD Overvies"></p>
+<p> </p>
+<p>HUGOとGitを利用してブログ記事の作成と管理をしており、GitHubリポジトリ上のmasterブランチへのpushをトリガーとして継続的デリバリーが行われる仕組みになっています。</p>
+<p>もちろんサービスはコンテナとして運用しています。</p>
+<p> </p>
+<p><img src="/images/starting-a-tech-blog/on-going.png" alt="Kubernetes Pods in ongoing namespace"></p>
+<p> </p>
+<h3 id="最後に">最後に</h3>
+<p>記事に対するコメントや感想はTwitterでお待ちしています。</p>
+<p>読者になっていただけると幸いです。</p>
 <p> </p>
 
     </div>

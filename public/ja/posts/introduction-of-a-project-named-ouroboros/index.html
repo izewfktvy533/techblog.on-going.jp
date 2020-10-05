@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+    <title> techblog.on-going. | ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト『OUROBOROS』の紹介 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    
+    <title>ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト『OUROBOROS』の紹介</title>
+    <meta property="og:title" content="ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト『OUROBOROS』の紹介" />
+    <meta name="twitter:title" content="ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト『OUROBOROS』の紹介" />
+    
+
+    
+
+    <meta name="author" content="techblog.on-going."/>
+    <meta property="og:site_name" content="on-going&#39;s Tech Blog" />
+    <meta property="og:url" content="https://techblog.on-going.jp/ja/posts/introduction-of-a-project-named-ouroboros/" />
+
+    
+    <meta property="og:image" content="https://techblog.on-going.jp/images/introduction-of-a-project-named-ouroboros/ouroboros.png" />
+    <meta name="twitter:image" content="https://techblog.on-going.jp/images/introduction-of-a-project-named-ouroboros/ouroboros.png" />
+    
+    <meta name="twitter:card" content="summary" />
+
+    
+    <meta name="twitter:site" content="@izewfktvy533" />
+    <meta name="twitter:creator" content="@izewfktvy533" />
+    
+
+    
+    <meta property="og:type" content="article" />
+    
+    <meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="https://techblog.on-going.jp/css/style.css" type="text/css">
+    
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <base href="https://techblog.on-going.jp/">
+    
+    <link rel="shortcut icon" href="https://techblog.on-going.jp/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://techblog.on-going.jp/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://techblog.on-going.jp/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://techblog.on-going.jp/favicon-16x16.png">
+
+    <link rel="canonical" href="https://techblog.on-going.jp/ja/posts/introduction-of-a-project-named-ouroboros/">
+</head>
+<body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://techblog.on-going.jp/images/profile.jpg" alt="profile picture" style="width:127px;border-radius: 50%;">
+        <h3 title=""><a href="/">on-going&#39;s Tech Blog</a></h3>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <a href="https://github.com/izewfktvy533zjmn" rel="me" >
+          <i class="fa fa-github" aria-hidden="true" title="GitHub"></i>
+        </a>
+        
+        <a href="https://twitter.com/izewfktvy533" rel="me" >
+          <i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i>
+        </a>
+        
+        <a href="https://www.facebook.com/profile.php?id=100023692920069" rel="me" >
+          <i class="fa fa-facebook" aria-hidden="true" title="Facebook"></i>
+        </a>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; 2020 techblog.on-going. </div>
+      </div>
+    </div>
+</div>
+<div class="main">
+            <div class="page-top animated fadeInDown">
+    <div class="nav">
+        
+        
+    </div>
+</div>
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト『OUROBOROS』の紹介
+        </h3>
+        
+        </div>
+
+    <p> </p>
+<p>こんにちは、<a href="https://twitter.com/izewfktvy533">@izewfktvy533</a>です。</p>
+<p>本稿は、「ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト<a href="https://github.com/izewfktvy533/OUROBOROS">『<strong>OUROBOROS</strong>』</a>」という個人的興味で発足したプロジェクトの紹介です。</p>
+<p> </p>
+<h3 id="本プロジェクトの背景">本プロジェクトの背景</h3>
+<p>筆者は先月、ラズパイでKubernetesクラスターを構築しており、<a href="http://techblog.on-going.jp/posts/starting-a-tech-blog/">本ブログはこの構築したラズパイK8sクラスター上で公開しています。</a></p>
+<p>すでに世界で多くの人たちがラズパイでKubernetesクラスター構築を実現させており、構築方法などのチュートリアルが公開されています。
+そのため比較的手軽にラズパイでKubernetesクラスターを構築することができるかと思います。
+しかし、ラズパイでK8sクラスターを構築したあと、それでどんなことができるでしょうか。
+人それぞれクラスター構築に取り組む理由があるとは思いますが、筆者自身はその中で下記のようなことができると考えています。</p>
+<p>一つ目として、純粋にKubernetesの学習用として使うことです。
+筆者もラズパイK8sクラスター上でKubernetesのマニュフェストファイルなどを実際に動かしてみながらKubernetesの学習を行っています。
+クラウドサービスを使ったり、1台のPCでKubernetesを動かしながら学習することは可能ではありますが、やはり物理的にクラスターとして存在している点に魅力を感じます。</p>
+<p>二つ目として何らかのWebサービスの開発・運用を行うことが可能なプライベートクラウドとして稼働させることです。
+筆者も、このブログをWebサービスと見立ててラズパイK8sクラスター上で運用しはじめました。
+開発・運用などのDevOpsに関することや、クラウドネイティブといった分野に対してWebサービスを開発・運用しながら学習することができるのでとてもオススメです。</p>
+<p> </p>
+<p>さて、本プロジェクトは、Kubernetesクラスターを構築し、そのクラスター上でAmazon EC2やGCEのような仮想マシンを動作させることができるある種のWebサービスである『はりぼてクラウドサービス』を提供するクラウドシステムが稼働する自宅プライベートクラウドを物理マシンにRaspberry Piを使用して構築に取り組んでいきます。</p>
+<p>そしてこのプロジェクトの最終成果物として、プロジェクトを通して構築した自宅プライベートクラウド上で稼働する『はりぼてクラウドサービス』を提供するクラウドシステムを利用して、自分自身である自宅プライベートクラウドを構築してみたいと思います。</p>
+<p>言い換えますとクラウド上にそのクラウド自身を構築することが可能な自己言及性のあるシステムの構築を目指します。</p>
+<p>これは自宅プライベートクラウドの構築にInfrastructure as Codeを用いることで、構築されたクラウド上で自身を構築することができると考えています。</p>
+<p>つまり、Ansibleのような構成管理ツールを使用してを構築されたK8sクラスター上でKubernetesマニュフェストファイルとして管理されているクラウドサービスを提供するクラウドシステムに対して、このシステムが提供するクラウドサービスを利用して構築された仮想マシン上にクラウドシステムを構成するこれらのコードを適用することで、クラウドシステム上に自分自身であるクラウドシステムを構築することが可能となるのです。</p>
+<p> </p>
+<h3 id="本プロジェクトの目的">本プロジェクトの目的</h3>
+<p>下記に本プロジェクトの目的を示します。</p>
+<hr>
+<p><em><strong>物理マシンにRaspberry Piを使用して、Infrastructure as Codeを適用して構築したKubernetesクラスター上でAmazon EC2やGCEのような仮想マシンを動作させることができるある種のWebサービスである『はりぼてクラウドサービス』を提供するクラウドシステムを稼働させることができ、さらに、このクラウドシステム上にそのクラウドシステム自身を構築することが可能な自己言及性を持つシステムとして自宅プライベートクラウドの構築を行う。</strong></em></p>
+<hr>
+<p> </p>
+<h3 id="本プロジェクトのおおまかな工程">本プロジェクトのおおまかな工程</h3>
+<ol>
+<li>Raspberry Piのセットアップと物理インフラの構築</li>
+<li>Ansibleを用いたKubernetesクラスターの構築</li>
+<li>KubernetesのチュートリアルとしてのWebサービス開発</li>
+<li>『はりぼてクラウドサービス』の開発とKubernetesクラスター上へのデプロイ</li>
+<li>クラウドシステム上で稼働する『はりぼてクラウドサービス』を利用した、Kubernetesクラスターの構築</li>
+<li>『はりぼてクラウドサービス』をクラウドシステム上に構築したKubernetesクラスター上にデプロイ</li>
+</ol>
+<p> </p>
+<p><img src="/images/introduction-of-a-project-named-ouroboros/ouroboros.png" alt="Ouroboros"></p>
+<p> </p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+      </div>
+    </div>
+
+    
+    <div id="commpost"></div>
+<script type="text/javascript">
+    (function() {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript'; dsq.async = true; dsq.src = 'https://commpost.on-going.jp/js/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+
+         var dlq = document.createElement('link');
+         dlq.rel = 'stylesheet'; dlq.type = 'text/css'; dlq.href = 'https://commpost.on-going.jp/assets/css/embed.css';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dlq);
+    })();
+</script>
+
+    
+
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+<script type="text/javascript" src="https://techblog.on-going.jp/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://techblog.on-going.jp/js/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="https://techblog.on-going.jp/js/jquery-appear.min.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-166112919-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</html></body>
+
+</html>

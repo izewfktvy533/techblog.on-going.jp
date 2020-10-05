@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on on-going&#39;s Tech Blog</title>
+    <link>https://techblog.on-going.jp/ja/posts/</link>
+    <description>Recent content in Posts on on-going&#39;s Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp</language>
+    <lastBuildDate>Sat, 08 Aug 2020 00:10:36 +0900</lastBuildDate>
+    
+	<atom:link href="https://techblog.on-going.jp/ja/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TechブログのHUGOテーマを拡張してコメント投稿システムである『COMMPOST』を利用できるようにした話</title>
+      <link>https://techblog.on-going.jp/ja/posts/expanded-the-hugo-theme-on-the-tech-blog-to-enable-the-commpost-which-is-comment-posting-system-to-be-used/</link>
+      <pubDate>Sat, 08 Aug 2020 00:10:36 +0900</pubDate>
+      
+      <guid>https://techblog.on-going.jp/ja/posts/expanded-the-hugo-theme-on-the-tech-blog-to-enable-the-commpost-which-is-comment-posting-system-to-be-used/</guid>
+      <description>izewfktvy533です。 前回の記事では、このTechブログにコメント機能を追加するために開発したコメント投稿システム『COMMPOST</description>
+    </item>
+    
+    <item>
+      <title>コメント投稿システム『COMMPOST』の紹介</title>
+      <link>https://techblog.on-going.jp/ja/posts/commpost-a-comment-posting-system/</link>
+      <pubDate>Fri, 31 Jul 2020 20:12:49 +0900</pubDate>
+      
+      <guid>https://techblog.on-going.jp/ja/posts/commpost-a-comment-posting-system/</guid>
+      <description>ご無沙汰してます。izewfktvy533です。 2020年もすでに半年過ぎてしまいました。 コロナの影響で世の中が大変な状況ではありますが、自</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes上にGrafanaを導入してInfluxDBに保存されているFitbitデータを可視化してみた</title>
+      <link>https://techblog.on-going.jp/ja/posts/deploying-grafana-on-kubernetes-to-display-fitbit-data-stored-in-influxdb/</link>
+      <pubDate>Wed, 01 Jul 2020 22:02:52 +0900</pubDate>
+      
+      <guid>https://techblog.on-going.jp/ja/posts/deploying-grafana-on-kubernetes-to-display-fitbit-data-stored-in-influxdb/</guid>
+      <description>今月は井筒俊彦の著作を読み漁りたい、@izewfktvy533です。 先日、『Kubernetes上にInfluxDBを導入してFitbitデ</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes上にInfluxDBを導入してFitbitデータを保存してみた</title>
+      <link>https://techblog.on-going.jp/ja/posts/store-fitbit-data-to-influxdb-on-kubernetes/</link>
+      <pubDate>Fri, 26 Jun 2020 18:29:15 +0900</pubDate>
+      
+      <guid>https://techblog.on-going.jp/ja/posts/store-fitbit-data-to-influxdb-on-kubernetes/</guid>
+      <description>久しぶりの投稿になります、@izewfktvy533です。 今回、Kubernetes上に導入したInfluxDBに対してFitbitデータの</description>
+    </item>
+    
+    <item>
+      <title>本ブログを運営しているサービスアーキテクチャーの紹介</title>
+      <link>https://techblog.on-going.jp/ja/posts/introducing-the-service-architecture-running-this-blog/</link>
+      <pubDate>Sat, 30 May 2020 15:06:15 +0900</pubDate>
+      
+      <guid>https://techblog.on-going.jp/ja/posts/introducing-the-service-architecture-running-this-blog/</guid>
+      <description>最近、Go言語の勉強を兼ねてLISP(Scheme)インタプリタを作ってます、@izewfktvy533です。 先日、本ブログを運用している自</description>
+    </item>
+    
+    <item>
+      <title>本ブログを運用している自宅インフラ『MAKINA』の紹介</title>
+      <link>https://techblog.on-going.jp/ja/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</link>
+      <pubDate>Sat, 16 May 2020 20:41:40 +0900</pubDate>
+      
+      <guid>https://techblog.on-going.jp/ja/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</guid>
+      <description>こんにちは、@izewfktvy533です。 本稿は、このブログを運用している自宅インフラのアーキテクチャーの紹介をしたいと思います。 すでにこ</description>
+    </item>
+    
+    <item>
+      <title>ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト『OUROBOROS』の紹介</title>
+      <link>https://techblog.on-going.jp/ja/posts/introduction-of-a-project-named-ouroboros/</link>
+      <pubDate>Fri, 15 May 2020 01:45:55 +0900</pubDate>
+      
+      <guid>https://techblog.on-going.jp/ja/posts/introduction-of-a-project-named-ouroboros/</guid>
+      <description>こんにちは、@izewfktvy533です。 本稿は、「ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築</description>
+    </item>
+    
+    <item>
+      <title>Techブログはじめます！</title>
+      <link>https://techblog.on-going.jp/ja/posts/starting-a-tech-blog/</link>
+      <pubDate>Tue, 12 May 2020 21:54:40 +0900</pubDate>
+      
+      <guid>https://techblog.on-going.jp/ja/posts/starting-a-tech-blog/</guid>
+      <description>どうも、@izewfktvy533です。 この度、自宅プライベートクラウド上でTechブログの運用を行うことにしました。 しばらくの間、Tech</description>
+    </item>
+    
+  </channel>
+</rss>

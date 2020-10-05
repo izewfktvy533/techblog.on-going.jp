@@ -5,7 +5,7 @@ theme = "anatole"
 hasCJKLanguage = true
 googleAnalytics = "UA-166112919-1"
 DefaultContentLanguage = "ja"
-
+DefaultContentLanguageInSubdir = true
 
 [languages]
   [languages.ja]
@@ -15,7 +15,6 @@ DefaultContentLanguage = "ja"
   [languages.en]
     languageName = "English"
     weight = 200
-
 
 [params]
 title = "on-going's Tech Blog"
@@ -46,10 +45,3 @@ icon = "fa-facebook"
 title = "Facebook"
 url = "https://www.facebook.com/profile.php?id=100023692920069"
 
-
-[menue]
-    [[menu.main]]
-    name = "Home"
-    identifier = "home"
-    weight = 100
-    url = "/"
