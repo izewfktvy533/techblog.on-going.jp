@@ -5,16 +5,7 @@ theme = "anatole"
 hasCJKLanguage = true
 googleAnalytics = "UA-166112919-1"
 DefaultContentLanguage = "ja"
-DefaultContentLanguageInSubdir = true
 
-[languages]
-  [languages.ja]
-    languageName = "Japanese"
-    weight = 100
-
-  [languages.en]
-    languageName = "English"
-    weight = 200
 
 [params]
 title = "on-going's Tech Blog"
@@ -24,24 +15,38 @@ thumbnail = "images/profile.jpg"
 twitter = "izewfktvy533"
 commpost = true
 
+
 ## Math settings
 [params.math]
 enable = true  # options: true, false. Enable math support globally, default: false. You can always enable math on per page.
 use = "katex"  # options: "katex", "mathjax". default is "katex".
 
 ## Social links
-[[params.socialIcons]]
-icon = "fa-github"
-title = "GitHub"
-url = "https://github.com/izewfktvy533zjmn"
+    [[params.socialIcons]]
+    icon = "fa-github"
+    title = "GitHub"
+    url = "https://github.com/izewfktvy533zjmn"
 
-[[params.socialIcons]]
-icon = "fa-twitter"
-title = "Twitter"
-url = "https://twitter.com/izewfktvy533"
+    [[params.socialIcons]]
+    icon = "fa-twitter"
+    title = "Twitter"
+    url = "https://twitter.com/izewfktvy533"
 
-[[params.socialIcons]]
-icon = "fa-facebook"
-title = "Facebook"
-url = "https://www.facebook.com/profile.php?id=100023692920069"
+    [[params.socialIcons]]
+    icon = "fa-facebook"
+    title = "Facebook"
+    url = "https://www.facebook.com/profile.php?id=100023692920069"
 
+
+[menue]
+    [[menu.main]]
+    name = "Home"
+    identifier = "home"
+    weight = 100
+    url = "/"
+
+    [[menu.main]]
+    name = "Posts"
+    identifier = "posts"
+    weight = 200
+    url = "/posts/"
