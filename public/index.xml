@@ -57,6 +57,15 @@
     </item>
     
     <item>
+      <title>ラズパイKubernetesクラスターでRosetta@homeに参加する</title>
+      <link>https://techblog.on-going.jp/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</link>
+      <pubDate>Wed, 20 May 2020 01:08:13 +0900</pubDate>
+      
+      <guid>https://techblog.on-going.jp/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</guid>
+      <description>こんにちは、@izewfktvy533です。 先月、ラズパイKubernetesクラスターでRosetta@homeに参加するためのKuber</description>
+    </item>
+    
+    <item>
       <title>本ブログを運用している自宅インフラ『MAKINA』の紹介</title>
       <link>https://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</link>
       <pubDate>Sat, 16 May 2020 20:41:40 +0900</pubDate>
