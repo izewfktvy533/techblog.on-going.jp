@@ -29,7 +29,7 @@
     
     <meta property="og:type" content="article" />
     
-    <meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="generator" content="Hugo 0.79.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="">
     <link rel="stylesheet" href="https://techblog.on-going.jp/css/style.css" type="text/css">
     
@@ -113,95 +113,95 @@ InfluxDBのDockerイメージにはRaspberry Piで動作可能な<a href="https:
 <p> </p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
 
-<span style="color:#66d9ef">apiVersion</span>: v1
-<span style="color:#66d9ef">kind</span>: PersistentVolume
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: influxdb-nfs-pv
-  <span style="color:#66d9ef">labels</span>:
-    <span style="color:#66d9ef">volume</span>: influxdb-nfs-pv
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">capacity</span>:
-    <span style="color:#66d9ef">storage</span>: 16Gi
-  <span style="color:#66d9ef">accessModes</span>:
-  - ReadWriteMany
-  <span style="color:#66d9ef">nfs</span>:
-    <span style="color:#66d9ef">server</span>: <span style="color:#ae81ff">192.168.3.241</span>
-    <span style="color:#66d9ef">path</span>: /srv/nfs/experiment/influxdb
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">PersistentVolume</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">influxdb-nfs-pv</span>
+  <span style="color:#f92672">labels</span>:
+    <span style="color:#f92672">volume</span>: <span style="color:#ae81ff">influxdb-nfs-pv</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">capacity</span>:
+    <span style="color:#f92672">storage</span>: <span style="color:#ae81ff">16Gi</span>
+  <span style="color:#f92672">accessModes</span>:
+  - <span style="color:#ae81ff">ReadWriteMany</span>
+  <span style="color:#f92672">nfs</span>:
+    <span style="color:#f92672">server</span>: <span style="color:#ae81ff">192.168.3.241</span>
+    <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/srv/nfs/experiment/influxdb</span>
 
 ---
 
-<span style="color:#66d9ef">apiVersion</span>: v1
-<span style="color:#66d9ef">kind</span>: PersistentVolumeClaim
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: influxdb-nfs-pvc
-  <span style="color:#66d9ef">namespace</span>: experiment
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">accessModes</span>:
-  - ReadWriteMany
-  <span style="color:#66d9ef">resources</span>:
-    <span style="color:#66d9ef">requests</span>:
-      <span style="color:#66d9ef">storage</span>: 16Gi
-  <span style="color:#66d9ef">selector</span>:
-    <span style="color:#66d9ef">matchLabels</span>:
-      <span style="color:#66d9ef">volume</span>: influxdb-nfs-pv
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">PersistentVolumeClaim</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">influxdb-nfs-pvc</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">experiment</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">accessModes</span>:
+  - <span style="color:#ae81ff">ReadWriteMany</span>
+  <span style="color:#f92672">resources</span>:
+    <span style="color:#f92672">requests</span>:
+      <span style="color:#f92672">storage</span>: <span style="color:#ae81ff">16Gi</span>
+  <span style="color:#f92672">selector</span>:
+    <span style="color:#f92672">matchLabels</span>:
+      <span style="color:#f92672">volume</span>: <span style="color:#ae81ff">influxdb-nfs-pv</span>
 
 ---
 
-<span style="color:#66d9ef">apiVersion</span>: apps/v1
-<span style="color:#66d9ef">kind</span>: Deployment
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: influxdb
-  <span style="color:#66d9ef">namespace</span>: experiment
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">replicas</span>: <span style="color:#ae81ff">1</span>
-  <span style="color:#66d9ef">selector</span>:
-    <span style="color:#66d9ef">matchLabels</span>:
-      <span style="color:#66d9ef">app</span>: influxdb
-  <span style="color:#66d9ef">strategy</span>:
-    <span style="color:#66d9ef">type</span>: Recreate
-  <span style="color:#66d9ef">template</span>:
-    <span style="color:#66d9ef">metadata</span>:
-      <span style="color:#66d9ef">labels</span>:
-        <span style="color:#66d9ef">app</span>: influxdb
-    <span style="color:#66d9ef">spec</span>:
-      <span style="color:#66d9ef">containers</span>:
-      - <span style="color:#66d9ef">name</span>: influxdb
-        <span style="color:#66d9ef">image</span>: arm32v7/influxdb:<span style="color:#ae81ff">1.8.0</span>
-        <span style="color:#66d9ef">livenessProbe</span>:
-          <span style="color:#66d9ef">httpGet</span>:
-            <span style="color:#66d9ef">path</span>: /health
-            <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">8086</span>
-            <span style="color:#66d9ef">scheme</span>: HTTP
-          <span style="color:#66d9ef">initialDelaySeconds</span>: <span style="color:#ae81ff">15</span>
-          <span style="color:#66d9ef">periodSeconds</span>: <span style="color:#ae81ff">3</span>
-          <span style="color:#66d9ef">timeoutSeconds</span>: <span style="color:#ae81ff">3</span>
-          <span style="color:#66d9ef">successThreshold</span>: <span style="color:#ae81ff">1</span>
-          <span style="color:#66d9ef">failureThreshold</span>: <span style="color:#ae81ff">3</span>
-        <span style="color:#66d9ef">ports</span>:
-        - <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">8086</span>
-        <span style="color:#66d9ef">volumeMounts</span>:
-        - <span style="color:#66d9ef">name</span>: influxdb-volume
-          <span style="color:#66d9ef">mountPath</span>: /var/lib/influxdb
-      <span style="color:#66d9ef">volumes</span>:
-      - <span style="color:#66d9ef">name</span>: influxdb-volume
-        <span style="color:#66d9ef">persistentVolumeClaim</span>:
-          <span style="color:#66d9ef">claimName</span>: influxdb-nfs-pvc
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">influxdb</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">experiment</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
+  <span style="color:#f92672">selector</span>:
+    <span style="color:#f92672">matchLabels</span>:
+      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">influxdb</span>
+  <span style="color:#f92672">strategy</span>:
+    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">Recreate</span>
+  <span style="color:#f92672">template</span>:
+    <span style="color:#f92672">metadata</span>:
+      <span style="color:#f92672">labels</span>:
+        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">influxdb</span>
+    <span style="color:#f92672">spec</span>:
+      <span style="color:#f92672">containers</span>:
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">influxdb</span>
+        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">arm32v7/influxdb:1.8.0</span>
+        <span style="color:#f92672">livenessProbe</span>:
+          <span style="color:#f92672">httpGet</span>:
+            <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/health</span>
+            <span style="color:#f92672">port</span>: <span style="color:#ae81ff">8086</span>
+            <span style="color:#f92672">scheme</span>: <span style="color:#ae81ff">HTTP</span>
+          <span style="color:#f92672">initialDelaySeconds</span>: <span style="color:#ae81ff">15</span>
+          <span style="color:#f92672">periodSeconds</span>: <span style="color:#ae81ff">3</span>
+          <span style="color:#f92672">timeoutSeconds</span>: <span style="color:#ae81ff">3</span>
+          <span style="color:#f92672">successThreshold</span>: <span style="color:#ae81ff">1</span>
+          <span style="color:#f92672">failureThreshold</span>: <span style="color:#ae81ff">3</span>
+        <span style="color:#f92672">ports</span>:
+        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">8086</span>
+        <span style="color:#f92672">volumeMounts</span>:
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">influxdb-volume</span>
+          <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/var/lib/influxdb</span>
+      <span style="color:#f92672">volumes</span>:
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">influxdb-volume</span>
+        <span style="color:#f92672">persistentVolumeClaim</span>:
+          <span style="color:#f92672">claimName</span>: <span style="color:#ae81ff">influxdb-nfs-pvc</span>
 
 ---
 
-<span style="color:#66d9ef">apiVersion</span>: v1
-<span style="color:#66d9ef">kind</span>: Service
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: influxdb-svc-lb
-  <span style="color:#66d9ef">namespace</span>: experiment
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">type</span>: LoadBalancer
-  <span style="color:#66d9ef">ports</span>:
-  - <span style="color:#66d9ef">protocol</span>: TCP
-    <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">8086</span>
-    <span style="color:#66d9ef">targetPort</span>: <span style="color:#ae81ff">8086</span>
-  <span style="color:#66d9ef">selector</span>:
-    <span style="color:#66d9ef">app</span>: influxdb
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">influxdb-svc-lb</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">experiment</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">LoadBalancer</span>
+  <span style="color:#f92672">ports</span>:
+  - <span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">TCP</span>
+    <span style="color:#f92672">port</span>: <span style="color:#ae81ff">8086</span>
+    <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">8086</span>
+  <span style="color:#f92672">selector</span>:
+    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">influxdb</span>
 
 ---
 </code></pre></div><p> </p>

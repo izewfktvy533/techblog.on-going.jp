@@ -29,7 +29,7 @@
     
     <meta property="og:type" content="article" />
     
-    <meta name="generator" content="Hugo 0.74.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="generator" content="Hugo 0.79.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="">
     <link rel="stylesheet" href="https://techblog.on-going.jp/css/style.css" type="text/css">
     
@@ -119,55 +119,55 @@
 <p> </p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:grafana/manifest.yaml" data-lang=":grafana/manifest.yaml">---
 
-<span style="color:#66d9ef">apiVersion</span>: apps/v1
-<span style="color:#66d9ef">kind</span>: Deployment
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: grafana
-  <span style="color:#66d9ef">namespace</span>: experiment
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">replicas</span>: <span style="color:#ae81ff">1</span>
-  <span style="color:#66d9ef">selector</span>:
-    <span style="color:#66d9ef">matchLabels</span>:
-      <span style="color:#66d9ef">app</span>: grafana
-  <span style="color:#66d9ef">strategy</span>:
-    <span style="color:#66d9ef">type</span>: Recreate
-  <span style="color:#66d9ef">template</span>:
-    <span style="color:#66d9ef">metadata</span>:
-      <span style="color:#66d9ef">labels</span>:
-        <span style="color:#66d9ef">app</span>: grafana
-    <span style="color:#66d9ef">spec</span>:
-      <span style="color:#66d9ef">containers</span>:
-      - <span style="color:#66d9ef">name</span>: grafana
-        <span style="color:#66d9ef">imagePullPolicy</span>: Always
-        <span style="color:#66d9ef">image</span>: grafana/grafana:<span style="color:#ae81ff">7.0.5</span>
-        <span style="color:#66d9ef">livenessProbe</span>:
-          <span style="color:#66d9ef">httpGet</span>:
-            <span style="color:#66d9ef">path</span>: /api/health
-            <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">3000</span>
-            <span style="color:#66d9ef">scheme</span>: HTTP
-          <span style="color:#66d9ef">initialDelaySeconds</span>: <span style="color:#ae81ff">180</span>
-          <span style="color:#66d9ef">periodSeconds</span>: <span style="color:#ae81ff">3</span>
-          <span style="color:#66d9ef">timeoutSeconds</span>: <span style="color:#ae81ff">3</span>
-          <span style="color:#66d9ef">successThreshold</span>: <span style="color:#ae81ff">1</span>
-          <span style="color:#66d9ef">failureThreshold</span>: <span style="color:#ae81ff">3</span>
-        <span style="color:#66d9ef">ports</span>:
-        - <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">3000</span>
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">grafana</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">experiment</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
+  <span style="color:#f92672">selector</span>:
+    <span style="color:#f92672">matchLabels</span>:
+      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">grafana</span>
+  <span style="color:#f92672">strategy</span>:
+    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">Recreate</span>
+  <span style="color:#f92672">template</span>:
+    <span style="color:#f92672">metadata</span>:
+      <span style="color:#f92672">labels</span>:
+        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">grafana</span>
+    <span style="color:#f92672">spec</span>:
+      <span style="color:#f92672">containers</span>:
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">grafana</span>
+        <span style="color:#f92672">imagePullPolicy</span>: <span style="color:#ae81ff">Always</span>
+        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">grafana/grafana:7.0.5</span>
+        <span style="color:#f92672">livenessProbe</span>:
+          <span style="color:#f92672">httpGet</span>:
+            <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/api/health</span>
+            <span style="color:#f92672">port</span>: <span style="color:#ae81ff">3000</span>
+            <span style="color:#f92672">scheme</span>: <span style="color:#ae81ff">HTTP</span>
+          <span style="color:#f92672">initialDelaySeconds</span>: <span style="color:#ae81ff">180</span>
+          <span style="color:#f92672">periodSeconds</span>: <span style="color:#ae81ff">3</span>
+          <span style="color:#f92672">timeoutSeconds</span>: <span style="color:#ae81ff">3</span>
+          <span style="color:#f92672">successThreshold</span>: <span style="color:#ae81ff">1</span>
+          <span style="color:#f92672">failureThreshold</span>: <span style="color:#ae81ff">3</span>
+        <span style="color:#f92672">ports</span>:
+        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">3000</span>
 
 ---
 
-<span style="color:#66d9ef">apiVersion</span>: v1
-<span style="color:#66d9ef">kind</span>: Service
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: grafana-svc-lb
-  <span style="color:#66d9ef">namespace</span>: experiment
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">type</span>: LoadBalancer
-  <span style="color:#66d9ef">ports</span>:
-  - <span style="color:#66d9ef">protocol</span>: TCP
-    <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">3000</span>
-    <span style="color:#66d9ef">targetPort</span>: <span style="color:#ae81ff">3000</span>
-  <span style="color:#66d9ef">selector</span>:
-    <span style="color:#66d9ef">app</span>: grafana
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">grafana-svc-lb</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">experiment</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">LoadBalancer</span>
+  <span style="color:#f92672">ports</span>:
+  - <span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">TCP</span>
+    <span style="color:#f92672">port</span>: <span style="color:#ae81ff">3000</span>
+    <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">3000</span>
+  <span style="color:#f92672">selector</span>:
+    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">grafana</span>
 
 ---
 </code></pre></div><p> </p>
@@ -175,154 +175,154 @@
 <p> </p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:ngrok-grafana/manifest.yaml" data-lang=":ngrok-grafana/manifest.yaml">---
 
-<span style="color:#66d9ef">apiVersion</span>: v1
-<span style="color:#66d9ef">kind</span>: Secret
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: ngrok-grafana-auth-secret
-  <span style="color:#66d9ef">namespace</span>: experiment
-<span style="color:#66d9ef">type</span>: Opaque
-<span style="color:#66d9ef">data</span>:
-  <span style="color:#66d9ef">ngrok_auth_token</span>: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX=
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Secret</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ngrok-grafana-auth-secret</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">experiment</span>
+<span style="color:#f92672">type</span>: <span style="color:#ae81ff">Opaque</span>
+<span style="color:#f92672">data</span>:
+  <span style="color:#f92672">ngrok_auth_token</span>: <span style="color:#ae81ff">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX=</span>
 
 ---
 
-<span style="color:#66d9ef">apiVersion</span>: v1
-<span style="color:#66d9ef">kind</span>: ConfigMap
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: ngrok-grafana-proxy-cm
-  <span style="color:#66d9ef">namespace</span>: experiment
-<span style="color:#66d9ef">data</span>:
-  <span style="color:#66d9ef">nginx.conf</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">    user  nginx;</span>
-    worker_processes  <span style="color:#ae81ff">1</span>;
-
-    error_log  /var/log/nginx/error.log warn;
-    pid        /var/run/nginx.pid;
-
-
-    events {
-        worker_connections  <span style="color:#ae81ff">1024</span>;
-    }
-
-
-    http {
-        default_type  application/octet-stream;
-
-        log_format  main  <span style="color:#e6db74">&#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39;</span>
-                          <span style="color:#e6db74">&#39;$status $body_bytes_sent &#34;$http_referer&#34; &#39;</span>
-                          <span style="color:#e6db74">&#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;</span>;
-
-        access_log  /var/log/nginx/access.log  main;
-
-        sendfile        on;
-        <span style="color:#75715e">#tcp_nopush     on;</span>
-
-        keepalive_timeout  <span style="color:#ae81ff">65</span>;
-
-        <span style="color:#75715e">#gzip  on;</span>
-
-        include /etc/nginx/conf.d/<span style="color:#75715e">*.conf;</span>
-
-        server {
-            listen <span style="color:#ae81ff">4039</span>;
-
-            location / {
-                proxy_pass http://localhost:<span style="color:#ae81ff">4040</span>/;
-            }
-
-        }
-        
-        server {
-            listen <span style="color:#ae81ff">8080</span>;
-            
-            location / {
-                proxy_pass http://grafana-svc-lb:<span style="color:#ae81ff">3000</span>/;
-            }
-
-        }
-        
-    }
-
----
-
-<span style="color:#66d9ef">apiVersion</span>: apps/v1
-<span style="color:#66d9ef">kind</span>: Deployment
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: ngrok-grafana-dp
-  <span style="color:#66d9ef">namespace</span>: experiment
-  <span style="color:#66d9ef">labels</span>:
-    <span style="color:#66d9ef">app</span>: ngrok-grafana
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">strategy</span>:
-    <span style="color:#66d9ef">type</span>: Recreate
-  <span style="color:#66d9ef">replicas</span>: <span style="color:#ae81ff">1</span>
-  <span style="color:#66d9ef">selector</span>:
-    <span style="color:#66d9ef">matchLabels</span>:
-      <span style="color:#66d9ef">app</span>: ngrok-grafana
-  <span style="color:#66d9ef">template</span>:
-    <span style="color:#66d9ef">metadata</span>:
-      <span style="color:#66d9ef">labels</span>:
-        <span style="color:#66d9ef">app</span>: ngrok-grafana
-    <span style="color:#66d9ef">spec</span>:
-      <span style="color:#66d9ef">volumes</span>:
-      - <span style="color:#66d9ef">name</span>: ngrok-grafana-proxy-nginx-config
-        <span style="color:#66d9ef">configMap</span>: 
-          <span style="color:#66d9ef">name</span>: ngrok-grafana-proxy-cm
-      <span style="color:#66d9ef">containers</span>:
-      - <span style="color:#66d9ef">name</span>: ngrok-proxy
-        <span style="color:#66d9ef">imagePullPolicy</span>: Always
-        <span style="color:#66d9ef">image</span>: <span style="color:#e6db74">&#34;izewfktvy533zjmn/ngrok-proxy:latest&#34;</span>
-        <span style="color:#66d9ef">ports</span>:
-        - <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">4039</span>
-        <span style="color:#66d9ef">volumeMounts</span>:
-        - <span style="color:#66d9ef">name</span>: ngrok-grafana-proxy-nginx-config
-          <span style="color:#66d9ef">mountPath</span>: /etc/nginx
-          <span style="color:#66d9ef">readOnly</span>: <span style="color:#66d9ef">true</span>
-        <span style="color:#66d9ef">livenessProbe</span>:
-          <span style="color:#66d9ef">httpGet</span>:
-            <span style="color:#66d9ef">path</span>: /api/tunnels
-            <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">4039</span>
-            <span style="color:#66d9ef">scheme</span>: HTTP
-          <span style="color:#66d9ef">initialDelaySeconds</span>: <span style="color:#ae81ff">3</span>
-          <span style="color:#66d9ef">periodSeconds</span>: <span style="color:#ae81ff">1</span>
-          <span style="color:#66d9ef">timeoutSeconds</span>: <span style="color:#ae81ff">1</span>
-          <span style="color:#66d9ef">successThreshold</span>: <span style="color:#ae81ff">1</span>
-          <span style="color:#66d9ef">failureThreshold</span>: <span style="color:#ae81ff">3</span>
-      - <span style="color:#66d9ef">name</span>: ngrok-http
-        <span style="color:#66d9ef">imagePullPolicy</span>: Always
-        <span style="color:#66d9ef">image</span>: <span style="color:#e6db74">&#34;izewfktvy533zjmn/ngrok-http:arm32v7&#34;</span>
-        <span style="color:#66d9ef">livenessProbe</span>:
-          <span style="color:#66d9ef">httpGet</span>:
-            <span style="color:#66d9ef">path</span>: /api/tunnels
-            <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">4039</span>
-            <span style="color:#66d9ef">scheme</span>: HTTP
-          <span style="color:#66d9ef">initialDelaySeconds</span>: <span style="color:#ae81ff">5</span>
-          <span style="color:#66d9ef">periodSeconds</span>: <span style="color:#ae81ff">1</span>
-          <span style="color:#66d9ef">timeoutSeconds</span>: <span style="color:#ae81ff">1</span>
-          <span style="color:#66d9ef">successThreshold</span>: <span style="color:#ae81ff">1</span>
-          <span style="color:#66d9ef">failureThreshold</span>: <span style="color:#ae81ff">3</span>
-        <span style="color:#66d9ef">env</span>:
-        - <span style="color:#66d9ef">name</span>: NGROK_AUTH_TOKEN
-          <span style="color:#66d9ef">valueFrom</span>:
-            <span style="color:#66d9ef">secretKeyRef</span>:
-              <span style="color:#66d9ef">name</span>: ngrok-grafana-auth-secret
-              <span style="color:#66d9ef">key</span>: ngrok_auth_token
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ConfigMap</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ngrok-grafana-proxy-cm</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">experiment</span>
+<span style="color:#f92672">data</span>:
+  <span style="color:#f92672">nginx.conf</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">    user  nginx;
+</span><span style="color:#e6db74">    worker_processes  1;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">    error_log  /var/log/nginx/error.log warn;
+</span><span style="color:#e6db74">    pid        /var/run/nginx.pid;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">    events {
+</span><span style="color:#e6db74">        worker_connections  1024;
+</span><span style="color:#e6db74">    }
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">    http {
+</span><span style="color:#e6db74">        default_type  application/octet-stream;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        log_format  main  &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39;
+</span><span style="color:#e6db74">                          &#39;$status $body_bytes_sent &#34;$http_referer&#34; &#39;
+</span><span style="color:#e6db74">                          &#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        access_log  /var/log/nginx/access.log  main;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        sendfile        on;
+</span><span style="color:#e6db74">        #tcp_nopush     on;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        keepalive_timeout  65;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        #gzip  on;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        include /etc/nginx/conf.d/*.conf;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        server {
+</span><span style="color:#e6db74">            listen 4039;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">            location / {
+</span><span style="color:#e6db74">                proxy_pass http://localhost:4040/;
+</span><span style="color:#e6db74">            }
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        }
+</span><span style="color:#e6db74">        
+</span><span style="color:#e6db74">        server {
+</span><span style="color:#e6db74">            listen 8080;
+</span><span style="color:#e6db74">            
+</span><span style="color:#e6db74">            location / {
+</span><span style="color:#e6db74">                proxy_pass http://grafana-svc-lb:3000/;
+</span><span style="color:#e6db74">            }
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        }
+</span><span style="color:#e6db74">        
+</span><span style="color:#e6db74">    }</span>    
 
 ---
 
-<span style="color:#66d9ef">apiVersion</span>: v1
-<span style="color:#66d9ef">kind</span>: Service
-<span style="color:#66d9ef">metadata</span>:  
-  <span style="color:#66d9ef">name</span>: ngrok-grafana-svc-lb
-  <span style="color:#66d9ef">namespace</span>: experiment
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">type</span>: LoadBalancer
-  <span style="color:#66d9ef">ports</span>:  
-  - <span style="color:#66d9ef">protocol</span>: TCP
-    <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">4039</span>
-    <span style="color:#66d9ef">targetPort</span>: <span style="color:#ae81ff">4039</span>
-  <span style="color:#66d9ef">selector</span>:    
-    <span style="color:#66d9ef">app</span>: ngrok-grafana
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ngrok-grafana-dp</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">experiment</span>
+  <span style="color:#f92672">labels</span>:
+    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">ngrok-grafana</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">strategy</span>:
+    <span style="color:#f92672">type</span>: <span style="color:#ae81ff">Recreate</span>
+  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">1</span>
+  <span style="color:#f92672">selector</span>:
+    <span style="color:#f92672">matchLabels</span>:
+      <span style="color:#f92672">app</span>: <span style="color:#ae81ff">ngrok-grafana</span>
+  <span style="color:#f92672">template</span>:
+    <span style="color:#f92672">metadata</span>:
+      <span style="color:#f92672">labels</span>:
+        <span style="color:#f92672">app</span>: <span style="color:#ae81ff">ngrok-grafana</span>
+    <span style="color:#f92672">spec</span>:
+      <span style="color:#f92672">volumes</span>:
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ngrok-grafana-proxy-nginx-config</span>
+        <span style="color:#f92672">configMap</span>: 
+          <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ngrok-grafana-proxy-cm</span>
+      <span style="color:#f92672">containers</span>:
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ngrok-proxy</span>
+        <span style="color:#f92672">imagePullPolicy</span>: <span style="color:#ae81ff">Always</span>
+        <span style="color:#f92672">image</span>: <span style="color:#e6db74">&#34;izewfktvy533zjmn/ngrok-proxy:latest&#34;</span>
+        <span style="color:#f92672">ports</span>:
+        - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">4039</span>
+        <span style="color:#f92672">volumeMounts</span>:
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ngrok-grafana-proxy-nginx-config</span>
+          <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/etc/nginx</span>
+          <span style="color:#f92672">readOnly</span>: <span style="color:#66d9ef">true</span>
+        <span style="color:#f92672">livenessProbe</span>:
+          <span style="color:#f92672">httpGet</span>:
+            <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/api/tunnels</span>
+            <span style="color:#f92672">port</span>: <span style="color:#ae81ff">4039</span>
+            <span style="color:#f92672">scheme</span>: <span style="color:#ae81ff">HTTP</span>
+          <span style="color:#f92672">initialDelaySeconds</span>: <span style="color:#ae81ff">3</span>
+          <span style="color:#f92672">periodSeconds</span>: <span style="color:#ae81ff">1</span>
+          <span style="color:#f92672">timeoutSeconds</span>: <span style="color:#ae81ff">1</span>
+          <span style="color:#f92672">successThreshold</span>: <span style="color:#ae81ff">1</span>
+          <span style="color:#f92672">failureThreshold</span>: <span style="color:#ae81ff">3</span>
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ngrok-http</span>
+        <span style="color:#f92672">imagePullPolicy</span>: <span style="color:#ae81ff">Always</span>
+        <span style="color:#f92672">image</span>: <span style="color:#e6db74">&#34;izewfktvy533zjmn/ngrok-http:arm32v7&#34;</span>
+        <span style="color:#f92672">livenessProbe</span>:
+          <span style="color:#f92672">httpGet</span>:
+            <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/api/tunnels</span>
+            <span style="color:#f92672">port</span>: <span style="color:#ae81ff">4039</span>
+            <span style="color:#f92672">scheme</span>: <span style="color:#ae81ff">HTTP</span>
+          <span style="color:#f92672">initialDelaySeconds</span>: <span style="color:#ae81ff">5</span>
+          <span style="color:#f92672">periodSeconds</span>: <span style="color:#ae81ff">1</span>
+          <span style="color:#f92672">timeoutSeconds</span>: <span style="color:#ae81ff">1</span>
+          <span style="color:#f92672">successThreshold</span>: <span style="color:#ae81ff">1</span>
+          <span style="color:#f92672">failureThreshold</span>: <span style="color:#ae81ff">3</span>
+        <span style="color:#f92672">env</span>:
+        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">NGROK_AUTH_TOKEN</span>
+          <span style="color:#f92672">valueFrom</span>:
+            <span style="color:#f92672">secretKeyRef</span>:
+              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ngrok-grafana-auth-secret</span>
+              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">ngrok_auth_token</span>
+
+---
+
+<span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
+<span style="color:#f92672">metadata</span>:  
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ngrok-grafana-svc-lb</span>
+  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">experiment</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">LoadBalancer</span>
+  <span style="color:#f92672">ports</span>:  
+  - <span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">TCP</span>
+    <span style="color:#f92672">port</span>: <span style="color:#ae81ff">4039</span>
+    <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">4039</span>
+  <span style="color:#f92672">selector</span>:    
+    <span style="color:#f92672">app</span>: <span style="color:#ae81ff">ngrok-grafana</span>
 
 ---
 </code></pre></div><p> </p>
