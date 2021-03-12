@@ -14,7 +14,7 @@ DisableComments: false
 
 &nbsp;
 
-こんにちは、[@izewfktvy533](https://twitter.com/izewfktvy533)です。
+こんにちは、[sosomasox](https://twitter.com/sosomasox)です。
 
 先月、ラズパイKubernetesクラスターでRosetta@homeに参加するためのKuberentesマニフェストファイルとDockerfileを作成しました。
 

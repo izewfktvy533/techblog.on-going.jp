@@ -10,7 +10,7 @@ DisableComments: false
 
 &nbsp;
 
-こんにちは、[@izewfktvy533](https://twitter.com/izewfktvy533)です。
+こんにちは、[sosomasox](https://twitter.com/sosomasox)です。
 
 本稿は、このブログを運用している自宅インフラのアーキテクチャーの紹介をしたいと思います。
 

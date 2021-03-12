@@ -10,7 +10,7 @@ DisableComments: false
 
 &nbsp;
 
-[izewfktvy533](https://twitter.com/izewfktvy533)です。
+[sosomasox](https://twitter.com/sosomasox)です。
 
 [前回の記事](https://techblog.on-going.jp/posts/commpost-a-comment-posting-system/)では、このTechブログにコメント機能を追加するために開発したコメント投稿システム『COMMPOST』を紹介しました。
 

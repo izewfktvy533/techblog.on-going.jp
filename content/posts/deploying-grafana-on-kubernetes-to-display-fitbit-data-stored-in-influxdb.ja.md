@@ -10,7 +10,7 @@ DisableComments: false
 
 &nbsp;
 
-今月は井筒俊彦の著作を読み漁りたい、[@izewfktvy533](https://twitter.com/izewfktvy533)です。
+今月は井筒俊彦の著作を読み漁りたい、[sosomasox](https://twitter.com/izewfktvy533)です。
 
 先日、[『Kubernetes上にInfluxDBを導入してFitbitデータを保存してみた』](https://techblog.on-going.jp/posts/store-fitbit-data-to-influxdb-on-kubernetes/)という記事を書きました。
 

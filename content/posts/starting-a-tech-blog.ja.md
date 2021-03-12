@@ -10,7 +10,7 @@ DisableComments: false
 
 &nbsp;
 
-どうも、[@izewfktvy533](https://twitter.com/izewfktvy533)です。
+どうも、[sosomasox](https://twitter.com/sosomasox)です。
 
 この度、自宅プライベートクラウド上でTechブログの運用を行うことにしました。
 

@@ -12,7 +12,7 @@ title = "on-going's Tech Blog"
 author = "techblog.on-going."
 profilePicture = "images/profile.jpg"
 thumbnail = "images/profile.jpg"
-twitter = "izewfktvy533"
+twitter = "sosomasox"
 commpost = true
 
 
@@ -25,12 +25,12 @@ use = "katex"  # options: "katex", "mathjax". default is "katex".
     [[params.socialIcons]]
     icon = "fa-github"
     title = "GitHub"
-    url = "https://github.com/izewfktvy533zjmn"
+    url = "https://github.com/sosomasox"
 
     [[params.socialIcons]]
     icon = "fa-twitter"
     title = "Twitter"
-    url = "https://twitter.com/izewfktvy533"
+    url = "https://twitter.com/sosomasox"
 
     [[params.socialIcons]]
     icon = "fa-facebook"

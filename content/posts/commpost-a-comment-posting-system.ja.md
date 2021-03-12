@@ -10,7 +10,7 @@ DisableComments: false
 
 &nbsp;
 
-ご無沙汰してます。[izewfktvy533](https://twitter.com/izewfktvy533)です。
+ご無沙汰してます。[sosomasox](https://twitter.com/sosomasox)です。
 
 2020年もすでに半年過ぎてしまいました。 
 コロナの影響で世の中が大変な状況ではありますが、自分のやるべきことや挑戦したいことを行っていきたいと思います。

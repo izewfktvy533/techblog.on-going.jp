@@ -13,7 +13,7 @@
       <pubDate>Sat, 08 Aug 2020 00:10:36 +0900</pubDate>
       
       <guid>https://techblog.on-going.jp/posts/expanded-the-hugo-theme-on-the-tech-blog-to-enable-the-commpost-which-is-comment-posting-system-to-be-used/</guid>
-      <description>izewfktvy533です。 前回の記事では、このTechブログにコメント機能を追加するために開発したコメント投稿システム『COMMPOST</description>
+      <description>sosomasoxです。 前回の記事では、このTechブログにコメント機能を追加するために開発したコメント投稿システム『COMMPOST』を紹</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Fri, 31 Jul 2020 20:12:49 +0900</pubDate>
       
       <guid>https://techblog.on-going.jp/posts/commpost-a-comment-posting-system/</guid>
-      <description>ご無沙汰してます。izewfktvy533です。 2020年もすでに半年過ぎてしまいました。 コロナの影響で世の中が大変な状況ではありますが、自</description>
+      <description>ご無沙汰してます。sosomasoxです。 2020年もすでに半年過ぎてしまいました。 コロナの影響で世の中が大変な状況ではありますが、自分のや</description>
     </item>
     
     <item>
@@ -31,7 +31,7 @@
       <pubDate>Wed, 01 Jul 2020 22:02:52 +0900</pubDate>
       
       <guid>https://techblog.on-going.jp/posts/deploying-grafana-on-kubernetes-to-display-fitbit-data-stored-in-influxdb/</guid>
-      <description>今月は井筒俊彦の著作を読み漁りたい、@izewfktvy533です。 先日、『Kubernetes上にInfluxDBを導入してFitbitデ</description>
+      <description>今月は井筒俊彦の著作を読み漁りたい、sosomasoxです。 先日、『Kubernetes上にInfluxDBを導入してFitbitデータを保</description>
     </item>
     
     <item>
@@ -40,7 +40,7 @@
       <pubDate>Fri, 26 Jun 2020 18:29:15 +0900</pubDate>
       
       <guid>https://techblog.on-going.jp/posts/store-fitbit-data-to-influxdb-on-kubernetes/</guid>
-      <description>久しぶりの投稿になります、@izewfktvy533です。 今回、Kubernetes上に導入したInfluxDBに対してFitbitデータの</description>
+      <description>久しぶりの投稿になります、sosomasoxです。 今回、Kubernetes上に導入したInfluxDBに対してFitbitデータの保存を試</description>
     </item>
     
     <item>
@@ -49,7 +49,7 @@
       <pubDate>Sat, 30 May 2020 15:06:15 +0900</pubDate>
       
       <guid>https://techblog.on-going.jp/posts/introducing-the-service-architecture-running-this-blog/</guid>
-      <description>最近、Go言語の勉強を兼ねてLISP(Scheme)インタプリタを作ってます、@izewfktvy533です。 先日、本ブログを運用している自</description>
+      <description>最近、Go言語の勉強を兼ねてLISP(Scheme)インタプリタを作ってます、sosomasoxです。 先日、本ブログを運用している自宅インフ</description>
     </item>
     
     <item>
@@ -58,7 +58,7 @@
       <pubDate>Wed, 20 May 2020 01:08:13 +0900</pubDate>
       
       <guid>https://techblog.on-going.jp/posts/how-to-participate-in-rosettahome-on-kubernetes-with-raspberry-pi/</guid>
-      <description>こんにちは、@izewfktvy533です。 先月、ラズパイKubernetesクラスターでRosetta@homeに参加するためのKuber</description>
+      <description>こんにちは、sosomasoxです。 先月、ラズパイKubernetesクラスターでRosetta@homeに参加するためのKuberente</description>
     </item>
     
     <item>
@@ -67,7 +67,7 @@
       <pubDate>Sat, 16 May 2020 20:41:40 +0900</pubDate>
       
       <guid>https://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/</guid>
-      <description>こんにちは、@izewfktvy533です。 本稿は、このブログを運用している自宅インフラのアーキテクチャーの紹介をしたいと思います。 すでにこ</description>
+      <description>こんにちは、sosomasoxです。 本稿は、このブログを運用している自宅インフラのアーキテクチャーの紹介をしたいと思います。 すでにこのブログ</description>
     </item>
     
     <item>
@@ -85,7 +85,7 @@
       <pubDate>Tue, 12 May 2020 21:54:40 +0900</pubDate>
       
       <guid>https://techblog.on-going.jp/posts/starting-a-tech-blog/</guid>
-      <description>どうも、@izewfktvy533です。 この度、自宅プライベートクラウド上でTechブログの運用を行うことにしました。 しばらくの間、Tech</description>
+      <description>どうも、sosomasoxです。 この度、自宅プライベートクラウド上でTechブログの運用を行うことにしました。 しばらくの間、Techブログと</description>
     </item>
     
   </channel>
