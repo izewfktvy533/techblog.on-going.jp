@@ -6,5 +6,6 @@
 
 ```
 git clone https://github.com/sosomasox/techblog.on-going.jp.git
+cd techblog.on-going.jp.git
 git submodule update --init --recursive
 ```
