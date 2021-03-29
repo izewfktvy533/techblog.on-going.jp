@@ -12,7 +12,7 @@ DisableComments: false
 
 先日、Raspberry Pi上でKubernetes The Hard Wayに挑戦しました。
 
-本記事はその時の構築手順をまとめたものです。
+本記事はそのときの手順をまとめたものです。
 
 ![Thumbnail](/images/kubernetes-the-hard-way-on-raspberry-pi/thumbnail.jpg)
 
@@ -1717,8 +1717,10 @@ oom_score = 0
 下記のコマンドを実行し、kubeletをインストールします。
 
 ```bash
+KUBERNETES_VERSION=v1.20.4
+
 wget -q --show-progress --https-only --timestamping \
-    https://storage.googleapis.com/kubernetes-release/release/${KUBERNETES_VERSIO}/bin/linux/arm64/kubelet
+    https://storage.googleapis.com/kubernetes-release/release/${KUBERNETES_VERSION}/bin/linux/arm64/kubelet
 chmod +x kubelet
 sudo mv kubelet /usr/local/bin/
 ```
@@ -1791,12 +1793,27 @@ sudo systemctl start kubelet
 &nbsp;
 
 
+kubeletに対してヘルスチェックを行います。
+
+下記のような応答があればkubeletは正常に動作しています。
+
+```bash
+curl localhost:10248/healthz
+ok
+```
+
+
+&nbsp;
+
+
 ### kube-proxyのデプロイ
 下記のコマンドを実行し、kube-proxyをインストールします。
 
 ```bash
+KUBERNETES_VERSION=v1.20.4
+
 wget -q --show-progress --https-only --timestamping \
-   https://storage.googleapis.com/kubernetes-release/release/${KUBERNETES_VERSIO}/bin/linux/arm64/kube-proxy
+   https://storage.googleapis.com/kubernetes-release/release/${KUBERNETES_VERSION}/bin/linux/arm64/kube-proxy
 chmod +x kube-proxy
 sudo mv kube-proxy /usr/local/bin/
 ```
@@ -1820,7 +1837,7 @@ sudo mv \
 &nbsp;
 
 
-下記の内容を/var/lib/kube-proxyフォルダ配下にkube-proxy.serviceファイルとして保存します。
+下記の内容を/var/lib/kube-proxyフォルダ配下にkube-proxy-config.yamlファイルとして保存します。
 
 ```/var/lib/kube-proxy/kube-proxy-config.yaml
 kind: KubeProxyConfiguration
@@ -1867,6 +1884,22 @@ sudo systemctl start kube-proxy
 ```
 
 
+&nbsp;
+
+
+kube-proxyに対してヘルスチェックを行います。
+
+下記のような応答があればkube-proxyは正常に動作しています。
+
+```bash
+curl localhost:10256/healthz
+{"lastUpdated": "2021-03-29 16:19:51.774807039 +0000 UTC m=+973.895724187","currentTime": "2021-03-29 16:19:51.774807039 +0000 UTC m=+973.895724187"}
+```
+
+
+&nbsp;
+
+
 ### flanneldのデプロイ
 下記のコマンドを実行し、flanneldをインストールします。
 
@@ -1875,6 +1908,34 @@ wget https://github.com/flannel-io/flannel/releases/download/v0.13.0/flannel-v0.
 tar -zxvf flannel-v0.13.0-linux-arm64.tar.gz
 sudo mv flanneld /usr/local/bin/
 rm flannel-v0.13.0-linux-arm64.tar.gz README.md mk-docker-opts.sh
+```
+
+
+&nbsp;
+
+
+下記の内容を/etc/cni/net.dフォルダ配下に10-flannel.conflistファイルとして保存します。
+
+```:/etc/cni/net.d/10-flannel.conflist
+{
+  "name": "cbr0",
+  "cniVersion": "0.3.1",
+  "plugins": [
+    {
+      "type": "flannel",
+      "delegate": {
+        "hairpinMode": true,
+        "isDefaultGateway": true
+      }
+    },
+    {
+      "type": "portmap",
+      "capabilities": {
+        "portMappings": true
+      }
+    }
+  ]
+}
 ```
 
 
@@ -1919,6 +1980,103 @@ sudo systemctl enable flanneld
 sudo systemctl start flanneld
 ```
 
+
+&nbsp;
+
+
+flanneldに対してヘルスチェックを行います。
+
+下記のような応答があればflanneldは正常に動作しています。
+
+```bash
+curl localhost:9999/healthz
+flanneld is running
+```
+
+
+&nbsp;
+
+
+また、flanneldがPod Networkの構築を行ったことを確認します。
+
+/run/flannel/subnet.envファイルに対してPod Networkの情報が記載されていれば構築が正常に行われています。
+
+```bash
+cat /run/flannel/subnet.env
+FLANNEL_NETWORK=10.244.0.0/16
+FLANNEL_SUBNET=10.244.94.1/24
+FLANNEL_MTU=1450
+FLANNEL_IPMASQ=true
+```
+
+
+&nbsp;
+&nbsp;
+
+
+ワーカーノード上での作業は以上です。
+
+
+&nbsp;
+&nbsp;
+
+
+### Kubernetesクラスターの動作確認
+
+
+```bash
+kubectl get nodes -o wide
+NAME          STATUS   ROLES    AGE     VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
+k8s-worker1   Ready    <none>   24m     v1.20.4   172.29.156.14   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker2   Ready    <none>   6m16s   v1.20.4   172.29.156.15   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker3   Ready    <none>   4m21s   v1.20.4   172.29.156.16   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker4   Ready    <none>   2m49s   v1.20.4   172.29.156.17   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker5   Ready    <none>   2m52s   v1.20.4   172.29.156.18   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+```
+
+
+&nbsp;
+
+
+```bash
+kubectl get nodes -o wide
+NAME          STATUS   ROLES    AGE     VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
+k8s-master1   Ready    <none>   3m9s    v1.20.4   172.29.156.11   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-master2   Ready    <none>   108s    v1.20.4   172.29.156.12   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-master3   Ready    <none>   22s     v1.20.4   172.29.156.13   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker1   Ready    <none>   27m     v1.20.4   172.29.156.14   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker2   Ready    <none>   9m50s   v1.20.4   172.29.156.15   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker3   Ready    <none>   7m55s   v1.20.4   172.29.156.16   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker4   Ready    <none>   6m23s   v1.20.4   172.29.156.17   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker5   Ready    <none>   6m26s   v1.20.4   172.29.156.18   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+```
+
+
+&nbsp;
+
+
+```bash
+kubectl label node `hostname` node-role.kubernetes.io/master=''
+kubectl label node `hostname` node-role.kubernetes.io/control-plane=''
+kubectl taint node `hostname` node-role.kubernetes.io/master=:NoSchedule
+```
+
+
+&nbsp;
+
+
+```bash
+kubectl get nodes -o wide
+NAME          STATUS   ROLES                  AGE     VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
+k8s-master1   Ready    control-plane,master   9m11s   v1.20.4   172.29.156.11   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-master2   Ready    control-plane,master   7m50s   v1.20.4   172.29.156.12   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-master3   Ready    control-plane,master   6m24s   v1.20.4   172.29.156.13   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker1   Ready    <none>                 34m     v1.20.4   172.29.156.14   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker2   Ready    <none>                 15m     v1.20.4   172.29.156.15   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker3   Ready    <none>                 13m     v1.20.4   172.29.156.16   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker4   Ready    <none>                 12m     v1.20.4   172.29.156.17   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+k8s-worker5   Ready    <none>                 12m     v1.20.4   172.29.156.18   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
+```
 
 
 &nbsp;
