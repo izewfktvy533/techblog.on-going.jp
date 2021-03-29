@@ -95,6 +95,59 @@ DisableComments: false
 
 
 ### ローカル環境上での作業
+### ルート認証局の作成用設定ファイルの作成
+ルート認証局の作成に必要な以下の3つの設定ファイルをconfigフォルダ配下にを用意します。
+
+設定ファイルの内容はリンク先を参考にして下さい。
+
+- [etcd-ca-config.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/etcd-ca-config.json)
+- [kubernetes-ca-config.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kubernetes-ca-config.json)
+- [kubernetes-front-proxy-ca-config.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kubernetes-front-proxy-ca-config.json)
+
+
+&nbsp;
+
+
+### 各種証明書生成用設定ファイルの作成
+各種証明書を生成するために、本環境では以下の設定ファイルをconfigフォルダ配下にを用意します。
+
+設定ファイルの内容はリンク先を参考にして下さい。
+
+- [admin-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/admin-csr.json)
+- [etcd-ca-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/admin-csr.json)
+- [front-proxy-client-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/front-proxy-client-csr.json)
+- [k8s-master1-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/k8s-master1-csr.json)
+- [k8s-master2-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/k8s-master2-csr.json)
+- [k8s-master3-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/k8s-master3-csr.json)
+- [k8s-worker1-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/k8s-worker1-csr.json)
+- [k8s-worker2-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/k8s-worker2-csr.json)
+- [k8s-worker3-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/k8s-worker3-csr.json)
+- [k8s-worker4-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/k8s-worker4-csr.json)
+- [k8s-worker5-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/k8s-worker5-csr.json)
+- [kube-apiserver-etcd-client-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-apiserver-etcd-client-csr.json)
+- [kube-apiserver-k8s-master1-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-apiserver-k8s-master1-csr.json)
+- [kube-apiserver-k8s-master2-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-apiserver-k8s-master2-csr.json)
+- [kube-apiserver-k8s-master3-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-apiserver-k8s-master3-csr.json)
+- [kube-apiserver-kubelet-client-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-apiserver-kubelet-client-csr.json)
+- [kube-controller-manager-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-controller-manager-csr.json)
+- [kube-etcd-flanneld-client-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-etcd-flanneld-client-csr.json)
+- [kube-etcd-healthcheck-client-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-etcd-healthcheck-client-csr.json)
+- [kube-etcd-k8s-master1-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-etcd-k8s-master1-csr.json)
+- [kube-etcd-k8s-master2-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-etcd-k8s-master2-csr.json)
+- [kube-etcd-k8s-master3-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-etcd-k8s-master3-csr.json)
+- [kube-etcd-peer-k8s-master1-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-etcd-peer-k8s-master1-csr.json)
+- [kube-etcd-peer-k8s-master2-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-etcd-peer-k8s-master2-csr.json)
+- [kube-etcd-peer-k8s-master3-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-etcd-peer-k8s-master3-csr.json)
+- [kube-proxy-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-proxy-csr.json)
+- [kube-scheduler-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kube-scheduler-csr.json)
+- [kubernetes-ca-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kubernetes-ca-csr.json)
+- [kubernetes-front-proxy-ca-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/kubernetes-front-proxy-ca-csr.json)
+- [service-account-csr.json](https://github.com/sosomasox/kubernetes-the-hard-way-on-raspberry-pi/blob/main/config/service-account-csr.json)
+
+
+&nbsp;
+
+
 ### 各種証明書の生成
 Kubernetesを構成する各コンポーネント間の接続に必要な証明書の作成を行います。
 
@@ -103,6 +156,10 @@ Kubernetesを構成する各コンポーネント間の接続に必要な証明�
 ```bash
 sudo apt install -y golang-cfssl kubectl
 ```
+
+
+&nbsp;
+
 
 次に、下記のスクリプトを実行し、証明書の生成を行います。
 
@@ -692,7 +749,7 @@ rm -f etcd-${ETCD_VER}-linux-arm64.tar.gz
 &nbsp;
 
 
-下記のコマンドを実行し、設定ファイルの領域の作成や証明書の配置を行います。
+下記のコマンドを実行し、設定ファイルの配置領域の作成や証明書の配置を行います。
 
 ```bash
 sudo mkdir -p \
@@ -851,7 +908,7 @@ sudo mv kube-apiserver /usr/local/bin
 &nbsp;
 
 
-下記のコマンドを実行し、設定ファイルの領域の作成や設定ファイルの配置を行います。
+下記のコマンドを実行し、設定ファイルの配置領域の作成や設定ファイルの配置を行います。
 
 ```bash
 sudo mkdir -p \
@@ -993,6 +1050,7 @@ sudo mv \
     kube-controller-manager.kubeconfig \
     /var/lib/kubernetes/
 ```
+
 
 &nbsp;
 
@@ -1250,7 +1308,7 @@ etcd-2               Healthy   {"health":"true"}
 下記のコマンドを実行し、Keepalivedをインストールします。
 
 ```bash
-sudo apt install -y keepalibed=1:2.0.19-2
+sudo apt install -y keepalived=1:2.0.19-2
 ```
 
 
@@ -1289,11 +1347,12 @@ vrrp_instance HA-CLUSTER {
 &nbsp;
 
 
-下記のコマンドを実行し、Keepalivedを再起動します。
+下記のコマンドを実行し、Keepalivedを起動します。
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl restart keepalived
+sudo systemctl enable keepalived
+sudo systemctl start keepalived
 ```
 
 
@@ -1367,11 +1426,12 @@ backend kube-apiserver
 &nbsp;
 
 
-下記のコマンドを実行し、HAProxyを再起動します。
+下記のコマンドを実行し、HAProxyを起動します。
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl restart haproxy
+sudo systemctl enable haproxy
+sudo systemctl start haproxy
 ```
 
 
@@ -1428,6 +1488,30 @@ curl -s \
 
 
 ### ワーカーノード上での作業
+### 証明書配置領域の作成と各種証明書の配置
+下記のコマンドを実行し、証明書の配置領域の作成と各種証明書の配置を行います。
+
+```bash
+sudo mkdir -p \
+    /etc/etcd/ \
+    /var/lib/kubernetes/
+
+sudo mv  \
+    kube-etcd-flanneld-client.pem \
+    kube-etcd-flanneld-client-key.pem \
+    etcd-ca.pem \
+    /etc/etcd/
+
+
+sudo mv \
+    kubernetes-ca.pem \
+    /var/lib/kubernetes/
+```
+
+
+&nbsp;
+
+
 ### cni-pluginsとcrictlのインストール
 下記のコマンドを実行し、cni-pluginsとcrictlをインストールします。
 
@@ -1477,13 +1561,23 @@ sudo sysctl --system
 &nbsp;
 
 
-
 下記のコマンドを実行し、containerdとruncをインストールします。
 
+```bash
+sudo apt install -y \
+    containerd=1.3.3-0ubuntu2.3 \
+    runc=1.0.0~rc10-0ubuntu1
 ```
+
+
+&nbsp;
+
+
+/etc/containerdフォルダを作成します。
+
+```bash
 sudo mkdir -p \
     /etc/containerd/
-sudo apt -y install containerd=1.3.3-0ubuntu2.3 runc=1.0.0~rc10-0ubuntu1
 ```
 
 
@@ -1492,7 +1586,7 @@ sudo apt -y install containerd=1.3.3-0ubuntu2.3 runc=1.0.0~rc10-0ubuntu1
 
 /etc/containerdフォルダ配下に下記の内容をconfig.tomlファイルとして保存します。
 
-```config.toml
+```:config.toml
 version = 2
 root = "/var/lib/containerd"
 state = "/run/containerd"
@@ -1620,6 +1714,7 @@ oom_score = 0
 
 
 ### kubeletのデプロイ
+下記のコマンドを実行し、kubeletをインストールします。
 
 ```bash
 wget -q --show-progress --https-only --timestamping \
@@ -1632,7 +1727,72 @@ sudo mv kubelet /usr/local/bin/
 &nbsp;
 
 
+下記のコマンドを実行し、設定ファイルの配置領域の作成と設定ファイルの配置を行います。
+
+```bash
+sudo mkdir -p \
+    /var/lib/kubelet/
+
+sudo mv \
+    `hostname`.kubeconfig \
+    /var/lib/kubelet/kubeconfig
+
+sudo mv \
+    `hostname`.pem \
+    `hostname`-key.pem \
+    kubelet-config.yaml \
+    /var/lib/kubelet/
+```
+
+
+&nbsp;
+
+
+/etc/systemd/systemフォルダ配下にユニットファイルを作成します。
+
+下記の内容をkubelet.serviceファイルとして保存します。
+
+```:/etc/systemd/system/kubelet.service
+[Unit]
+Description=Kubernetes Kubelet
+Documentation=https://github.com/kubernetes/kubernetes
+After=containerd.service
+Requires=containerd.service
+
+[Service]
+ExecStart=/usr/local/bin/kubelet \
+  --config=/var/lib/kubelet/kubelet-config.yaml \
+  --container-runtime=remote \
+  --container-runtime-endpoint=unix:///var/run/containerd/containerd.sock \
+  --image-pull-progress-deadline=3m \
+  --kubeconfig=/var/lib/kubelet/kubeconfig \
+  --register-node=true \
+  --v=2
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
+&nbsp;
+
+
+下記のコマンドを実行し、kubeletを起動します。
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable kubelet
+sudo systemctl start kubelet
+```
+
+
+&nbsp;
+
+
 ### kube-proxyのデプロイ
+下記のコマンドを実行し、kube-proxyをインストールします。
 
 ```bash
 wget -q --show-progress --https-only --timestamping \
@@ -1645,7 +1805,70 @@ sudo mv kube-proxy /usr/local/bin/
 &nbsp;
 
 
+下記のコマンドを実行し、設定ファイルの配置領域の作成と設定ファイルの配置を行います。
+
+```bash
+sudo mkdir -p \
+    /var/lib/kube-proxy/
+
+sudo mv \
+    kube-proxy.kubeconfig \
+    /var/lib/kube-proxy/
+```
+
+
+&nbsp;
+
+
+下記の内容を/var/lib/kube-proxyフォルダ配下にkube-proxy.serviceファイルとして保存します。
+
+```/var/lib/kube-proxy/kube-proxy-config.yaml
+kind: KubeProxyConfiguration
+apiVersion: kubeproxy.config.k8s.io/v1alpha1
+clientConnection:
+  kubeconfig: /var/lib/kube-proxy/kube-proxy.kubeconfig
+mode: iptables
+clusterCIDR: 10.244.0.0/16
+```
+
+
+&nbsp;
+
+
+/etc/systemd/systemフォルダ配下にユニットファイルを作成します。
+
+下記の内容をkube-proxy.serviceファイルとして保存します。
+
+```:/etc/systemd/system/kube-proxy.service
+[Unit]
+Description=Kubernetes Kube Proxy
+Documentation=https://github.com/kubernetes/kubernetes
+
+[Service]
+ExecStart=/usr/local/bin/kube-proxy \
+  --config=/var/lib/kube-proxy/kube-proxy-config.yaml
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
+&nbsp;
+
+
+下記のコマンドを実行し、kube-proxyを起動します。
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable kube-proxy
+sudo systemctl start kube-proxy
+```
+
+
 ### flanneldのデプロイ
+下記のコマンドを実行し、flanneldをインストールします。
 
 ```bash
 wget https://github.com/flannel-io/flannel/releases/download/v0.13.0/flannel-v0.13.0-linux-arm64.tar.gz
@@ -1653,6 +1876,49 @@ tar -zxvf flannel-v0.13.0-linux-arm64.tar.gz
 sudo mv flanneld /usr/local/bin/
 rm flannel-v0.13.0-linux-arm64.tar.gz README.md mk-docker-opts.sh
 ```
+
+
+&nbsp;
+
+
+/etc/systemd/systemフォルダ配下にユニットファイルを作成します。
+
+下記の内容をflanneld.serviceファイルとして保存します。
+
+```:/etc/systemd/system/flanneld.service
+[Unit]
+Description=Flanneld overlay address etcd agent
+Documentation=https://github.com/flannel-io/flannel
+
+[Service]
+ExecStart=/usr/local/bin/flanneld \
+  --etcd-endpoints=https://172.29.156.11:2379,https://172.29.156.12:2379,https://172.29.156.13:2379 \
+  --etcd-keyfile=/etc/etcd/kube-etcd-flanneld-client-key.pem \
+  --etcd-certfile=/etc/etcd/kube-etcd-flanneld-client.pem \
+  --etcd-cafile=/etc/etcd/etcd-ca.pem \
+  --healthz-port=9999 \
+  --ip-masq=true \
+  --kube-subnet-mgr=false \
+  --v=2
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
+&nbsp;
+
+
+下記のコマンドを実行し、flanneldを起動します。
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable flanneld
+sudo systemctl start flanneld
+```
+
 
 
 &nbsp;
