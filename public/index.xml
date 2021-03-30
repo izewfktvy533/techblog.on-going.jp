@@ -6,7 +6,16 @@
     <description>Recent content on on-going&#39;s Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
-    <lastBuildDate>Sat, 08 Aug 2020 00:10:36 +0900</lastBuildDate><atom:link href="https://techblog.on-going.jp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Mar 2021 13:56:00 +0900</lastBuildDate><atom:link href="https://techblog.on-going.jp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes The Hard Way on Raspberry Piをやった話</title>
+      <link>https://techblog.on-going.jp/posts/kubernetes-the-hard-way-on-raspberry-pi/</link>
+      <pubDate>Tue, 30 Mar 2021 13:56:00 +0900</pubDate>
+      
+      <guid>https://techblog.on-going.jp/posts/kubernetes-the-hard-way-on-raspberry-pi/</guid>
+      <description>先日、Raspberry Pi上でKubernetes The Hard Wayに挑戦しました。 本記事はそのときの手順をまとめたものです。 物理環境 Raspberry Pi 4 Model B 8GB</description>
+    </item>
+    
     <item>
       <title>TechブログのHUGOテーマを拡張してコメント投稿システムである『COMMPOST』を利用できるようにした話</title>
       <link>https://techblog.on-going.jp/posts/expanded-the-hugo-theme-on-the-tech-blog-to-enable-the-commpost-which-is-comment-posting-system-to-be-used/</link>

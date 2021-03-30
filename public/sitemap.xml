@@ -3,13 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://techblog.on-going.jp/posts/kubernetes-the-hard-way-on-raspberry-pi/</loc>
+    <lastmod>2021-03-30T13:56:00+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://techblog.on-going.jp/</loc>
-    <lastmod>2020-08-08T00:10:36+09:00</lastmod>
+    <lastmod>2021-03-30T13:56:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://techblog.on-going.jp/posts/</loc>
-    <lastmod>2020-08-08T00:10:36+09:00</lastmod>
+    <lastmod>2021-03-30T13:56:00+09:00</lastmod>
   </url>
   
   <url>

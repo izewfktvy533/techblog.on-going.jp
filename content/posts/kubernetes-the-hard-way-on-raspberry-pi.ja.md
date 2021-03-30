@@ -1,6 +1,6 @@
 ---
 title: "Kubernetes The Hard Way on Raspberry Piをやった話"
-date: 2021-03-29T15:47:50+09:00
+date: 2021-03-30T13:56:00+09:00
 Description: ""
 Tags: []
 Categories: []
@@ -13,6 +13,10 @@ DisableComments: false
 先日、Raspberry Pi上でKubernetes The Hard Wayに挑戦しました。
 
 本記事はそのときの手順をまとめたものです。
+
+
+&nbsp;
+
 
 ![Thumbnail](/images/kubernetes-the-hard-way-on-raspberry-pi/thumbnail.jpg)
 
@@ -852,7 +856,11 @@ etcdに対してヘルスチェックを行います。
 下記のような応答があればetcdは正常に動作しています。
 
 ```bash
-curl --cacert /etc/etcd/etcd-ca.pem --cert /etc/etcd/kube-etcd-healthcheck-client.pem --key /etc/etcd/kube-etcd-healthcheck-client-key.pem https://127.0.0.1:2379/health
+$ curl \
+    --cacert /etc/etcd/etcd-ca.pem \
+    --cert /etc/etcd/kube-etcd-healthcheck-client.pem \
+    --key /etc/etcd/kube-etcd-healthcheck-client-key.pem \
+    https://127.0.0.1:2379/health
 {"health":"true"}
 ```
 
@@ -860,11 +868,16 @@ curl --cacert /etc/etcd/etcd-ca.pem --cert /etc/etcd/kube-etcd-healthcheck-clien
 &nbsp;
 
 
-下記のコマンドを実行することでetcdの状態を見ることができます。
+etcdの状態を確認します。
 
 
 ```bash
-etcdctl --write-out=table endpoint status --cacert /etc/etcd/etcd-ca.pem --cert /etc/etcd/kube-etcd-healthcheck-client.pem --key /etc/etcd/kube-etcd-healthcheck-client-key.pem
+$ etcdctl \
+    endpoint status \
+    --write-out=table \
+    --cacert /etc/etcd/etcd-ca.pem \
+    --cert /etc/etcd/kube-etcd-healthcheck-client.pem \
+    --key /etc/etcd/kube-etcd-healthcheck-client-key.pem
 +----------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
 |    ENDPOINT    |        ID        | VERSION | DB SIZE | IS LEADER | IS LEARNER | RAFT TERM | RAFT INDEX | RAFT APPLIED INDEX | ERRORS |
 +----------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
@@ -876,10 +889,16 @@ etcdctl --write-out=table endpoint status --cacert /etc/etcd/etcd-ca.pem --cert 
 &nbsp;
 
 
-全てのマスターノード上にetcdをデプロイした後、下記のコマンドを実行することで全てのetcdの状態を見ることができます。
+全てのマスターノード上にetcdをデプロイした後、etcdの状態を確認します。
 
 ```bash
-etcdctl --write-out=table endpoint status --endpoints=172.29.156.11:2379,172.29.156.12:2379,172.29.156.13:2379 --cacert /etc/etcd/etcd-ca.pem --cert /etc/etcd/kube-etcd-healthcheck-client.pem --key /etc/etcd/kube-etcd-healthcheck-client-key.pem
+$ etcdctl \
+    endpoint status \
+    --write-out=table \
+    --endpoints=172.29.156.11:2379,172.29.156.12:2379,172.29.156.13:2379 \
+    --cacert /etc/etcd/etcd-ca.pem \
+    --cert /etc/etcd/kube-etcd-healthcheck-client.pem \
+    --key /etc/etcd/kube-etcd-healthcheck-client-key.pem
 +--------------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
 |      ENDPOINT      |        ID        | VERSION | DB SIZE | IS LEADER | IS LEARNER | RAFT TERM | RAFT INDEX | RAFT APPLIED INDEX | ERRORS |
 +--------------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
@@ -947,6 +966,7 @@ sudo mv \
 - --tls-cert-file
 - --tls-private-key-file
 
+--service-cluster-ip-rangeパラメータにはClusterIP用サブネットを指定します。
 
 ```:/etc/systemd/system/kube-apiserver.service
 [Unit]
@@ -1017,10 +1037,20 @@ kube-apiserverに対してヘルスチェックを行います。
 下記のような応答があればkube-apiserverは正常に動作しています。
 
 ```bash
-curl --cacert /var/lib/kubernetes/kubernetes-ca.pem --cert /var/lib/kubernetes/kube-apiserver-kubelet-client.pem --key /var/lib/kubernetes/kube-apiserver-kubelet-client-key.pem https://127.0.0.1:6443/healthz
+$ curl \
+    --cacert /var/lib/kubernetes/kubernetes-ca.pem \
+    --cert /var/lib/kubernetes/kube-apiserver-kubelet-client.pem \
+    --key /var/lib/kubernetes/kube-apiserver-kubelet-client-key.pem \
+    https://127.0.0.1:6443/healthz
 ok
+```
 
-curl --cacert /var/lib/kubernetes/kubernetes-ca.pem --cert /var/lib/kubernetes/kube-apiserver-kubelet-client.pem --key /var/lib/kubernetes/kube-apiserver-kubelet-client-key.pem https://127.0.0.1:6443/livez
+```bash
+$ curl \
+    --cacert /var/lib/kubernetes/kubernetes-ca.pem \
+    --cert /var/lib/kubernetes/kube-apiserver-kubelet-client.pem \
+    --key /var/lib/kubernetes/kube-apiserver-kubelet-client-key.pem \
+    https://127.0.0.1:6443/livez
 ok
 ```
 
@@ -1058,6 +1088,10 @@ sudo mv \
 /etc/systemd/systemフォルダ配下にユニットファイルを作成します。
 
 下記の内容をkube-controller-manager.serviceファイルとして保存します。
+
+
+--cluster-cidrパラメータにはPod用のサブネットを、
+--service-cluster-ip-rangeパラメータにはClusterIP用サブネットを指定します。
 
 ```:/etc/systemd/system/kube-controller-manager.service
 [Unit]
@@ -1116,7 +1150,7 @@ kube-controller-managerに対してヘルスチェックを行います。
 
 
 ```bash
-curl http://localhost:10252/healthz
+$ curl http://localhost:10252/healthz
 ok
 ```
 
@@ -1129,7 +1163,7 @@ ok
 下記のコマンドを実行することでリーダーかどうか確認することができます。
 
 ```bash
-curl -s http://localhost:10252/metrics | grep leader
+$ curl -s http://localhost:10252/metrics | grep leader
 # HELP leader_election_master_status [ALPHA] Gauge of if the reporting system is master of the relevant lease, 0 indicates backup, 1 indicates master. 'name' is the string used to identify the lease. Please make sure to group by name.
 # TYPE leader_election_master_status gauge
 leader_election_master_status{name="kube-controller-manager"} 1
@@ -1235,7 +1269,7 @@ kube-schedulerに対してヘルスチェックを行います。
 
 
 ```bash
-curl http://localhost:10251/healthz
+$ curl http://localhost:10251/healthz
 ok
 ```
 
@@ -1248,7 +1282,7 @@ ok
 下記のコマンドを実行することでリーダーかどうか確認することができます。
 
 ```bash
-curl -s http://localhost:10251/metrics | grep leader
+$ curl -s http://localhost:10251/metrics | grep leader
 # HELP leader_election_master_status [ALPHA] Gauge of if the reporting system is master of the relevant lease, 0 indicates backup, 1 indicates master. 'name' is the string used to identify the lease. Please make sure to group by name.
 # TYPE leader_election_master_status gauge
 leader_election_master_status{name="kube-scheduler"} 1
@@ -1286,10 +1320,10 @@ mv admin.kubeconfig .kube/config
 &nbsp;
 
 
-下記のコマンドを実行し、各コンポーネントが認識されているか確認します。
+kubeletコマンドを通して、Kubernetesの各コンポーネントが認識されているか確認します。
 
 ```bash
-kubectl get cs
+$ kubectl get cs
 Warning: v1 ComponentStatus is deprecated in v1.19+
 NAME                 STATUS    MESSAGE             ERROR
 controller-manager   Healthy   ok                  
@@ -1353,6 +1387,17 @@ vrrp_instance HA-CLUSTER {
 sudo systemctl daemon-reload
 sudo systemctl enable keepalived
 sudo systemctl start keepalived
+```
+
+
+&nbsp;
+
+
+Keepalivedが動作していることを確認します。
+
+```bash
+$ systemctl is-active keepalived
+active
 ```
 
 
@@ -1438,6 +1483,17 @@ sudo systemctl start haproxy
 &nbsp;
 
 
+HAProxyが動作していることを確認します。
+
+```bash
+$ systemctl is-active haproxy
+active
+```
+
+
+&nbsp;
+
+
 ### flanneldを機能させるための準備
 下記のコマンドを実行し、flanneldを機能させるための設定をetcdサーバに保存します。
 
@@ -1458,7 +1514,7 @@ curl \
 etcdサーバ上にflanneldの設定が保存されていることを確認します。
 
 ```bash
-curl -s \
+$ curl -s \
     --cacert /etc/etcd/etcd-ca.pem \
     --cert /etc/etcd/kube-etcd-flanneld-client.pem \
     --key /etc/etcd/kube-etcd-flanneld-client-key.pem \
@@ -1488,6 +1544,30 @@ curl -s \
 
 
 ### ワーカーノード上での作業
+### 事前準備
+
+cgroupsのMemory Subsystemを有効化します。
+/boot/firmware/cmdline.txtに下記を追記して再起動してください。
+
+```:/boot/firmware/cmdline.txt
+cgroup_memory=1 cgroup_enable=memory
+```
+
+
+&nbsp;
+
+
+次に、依存関係のあるパッケージをインストールします。
+
+```bash
+sudo apt update
+sudo apt -y install socat conntrack ipset
+```
+
+
+&nbsp;
+
+
 ### 証明書配置領域の作成と各種証明書の配置
 下記のコマンドを実行し、証明書の配置領域の作成と各種証明書の配置を行います。
 
@@ -1501,7 +1581,6 @@ sudo mv  \
     kube-etcd-flanneld-client-key.pem \
     etcd-ca.pem \
     /etc/etcd/
-
 
 sudo mv \
     kubernetes-ca.pem \
@@ -1522,13 +1601,16 @@ sudo mkdir -p \
 
 wget -q --show-progress --https-only --timestamping \
   https://github.com/containernetworking/plugins/releases/download/v0.9.1/cni-plugins-linux-arm64-v0.9.1.tgz
+
 sudo tar -xvf cni-plugins-linux-arm64-v0.9.1.tgz -C /opt/cni/bin/
 
 wget -q --show-progress --https-only --timestamping \
     https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.20.0/crictl-v1.20.0-linux-arm64.tar.gz
+
 tar -xvf crictl-v1.20.0-linux-arm64.tar.gz
 chmod +x crictl
 sudo mv crictl /usr/local/bin/
+
 rm crictl-v1.20.0-linux-arm64.tar.gz cni-plugins-linux-arm64-v0.9.1.tgz
 ```
 
@@ -1798,7 +1880,7 @@ kubeletに対してヘルスチェックを行います。
 下記のような応答があればkubeletは正常に動作しています。
 
 ```bash
-curl localhost:10248/healthz
+$ curl localhost:10248/healthz
 ok
 ```
 
@@ -1892,7 +1974,7 @@ kube-proxyに対してヘルスチェックを行います。
 下記のような応答があればkube-proxyは正常に動作しています。
 
 ```bash
-curl localhost:10256/healthz
+$ curl localhost:10256/healthz
 {"lastUpdated": "2021-03-29 16:19:51.774807039 +0000 UTC m=+973.895724187","currentTime": "2021-03-29 16:19:51.774807039 +0000 UTC m=+973.895724187"}
 ```
 
@@ -1916,7 +1998,7 @@ rm flannel-v0.13.0-linux-arm64.tar.gz README.md mk-docker-opts.sh
 
 下記の内容を/etc/cni/net.dフォルダ配下に10-flannel.conflistファイルとして保存します。
 
-```:/etc/cni/net.d/10-flannel.conflist
+```:.cfg
 {
   "name": "cbr0",
   "cniVersion": "0.3.1",
@@ -1989,7 +2071,7 @@ flanneldに対してヘルスチェックを行います。
 下記のような応答があればflanneldは正常に動作しています。
 
 ```bash
-curl localhost:9999/healthz
+$ curl localhost:9999/healthz
 flanneld is running
 ```
 
@@ -2002,7 +2084,7 @@ flanneld is running
 /run/flannel/subnet.envファイルに対してPod Networkの情報が記載されていれば構築が正常に行われています。
 
 ```bash
-cat /run/flannel/subnet.env
+$ cat /run/flannel/subnet.env
 FLANNEL_NETWORK=10.244.0.0/16
 FLANNEL_SUBNET=10.244.94.1/24
 FLANNEL_MTU=1450
@@ -2021,11 +2103,11 @@ FLANNEL_IPMASQ=true
 &nbsp;
 
 
-### Kubernetesクラスターの動作確認
-
+### Kubernetesクラスターの状態確認
+Kubernetesクラスターの状態を確認します。
 
 ```bash
-kubectl get nodes -o wide
+$ kubectl get nodes -o wide
 NAME          STATUS   ROLES    AGE     VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
 k8s-worker1   Ready    <none>   24m     v1.20.4   172.29.156.14   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
 k8s-worker2   Ready    <none>   6m16s   v1.20.4   172.29.156.15   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
@@ -2038,8 +2120,11 @@ k8s-worker5   Ready    <none>   2m52s   v1.20.4   172.29.156.18   <none>        
 &nbsp;
 
 
+マスターノードに対してもワーカーノードとして動作できるように設定を行った場合のKubernetesクラスターの状態は以下のようになります。
+
+
 ```bash
-kubectl get nodes -o wide
+$ kubectl get nodes -o wide
 NAME          STATUS   ROLES    AGE     VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
 k8s-master1   Ready    <none>   3m9s    v1.20.4   172.29.156.11   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
 k8s-master2   Ready    <none>   108s    v1.20.4   172.29.156.12   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
@@ -2055,6 +2140,8 @@ k8s-worker5   Ready    <none>   6m26s   v1.20.4   172.29.156.18   <none>        
 &nbsp;
 
 
+下記のようなコマンドを実行し、マスターノードに対しては基本的にPodが作成されないようにroleとtaintを追加します。
+
 ```bash
 kubectl label node `hostname` node-role.kubernetes.io/master=''
 kubectl label node `hostname` node-role.kubernetes.io/control-plane=''
@@ -2065,8 +2152,10 @@ kubectl taint node `hostname` node-role.kubernetes.io/master=:NoSchedule
 &nbsp;
 
 
+上記のコマンド実行後のKubernetesクラスターの状態は以下のようになります。
+
 ```bash
-kubectl get nodes -o wide
+$ kubectl get nodes -o wide
 NAME          STATUS   ROLES                  AGE     VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
 k8s-master1   Ready    control-plane,master   9m11s   v1.20.4   172.29.156.11   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
 k8s-master2   Ready    control-plane,master   7m50s   v1.20.4   172.29.156.12   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
@@ -2077,6 +2166,537 @@ k8s-worker3   Ready    <none>                 13m     v1.20.4   172.29.156.16   
 k8s-worker4   Ready    <none>                 12m     v1.20.4   172.29.156.17   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
 k8s-worker5   Ready    <none>                 12m     v1.20.4   172.29.156.18   <none>        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
 ```
+
+
+&nbsp;
+
+
+### CoreDNSのデプロイ
+Kubernetesクラスター内部の名前解決を行うためにCoreDNSをデプロイします。
+
+下記の内容のマニフェストファイルを作成します。
+
+```:coredns.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: coredns
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+  name: system:coredns
+rules:
+  - apiGroups:
+    - ""
+    resources:
+    - endpoints
+    - services
+    - pods
+    - namespaces
+    verbs:
+    - list
+    - watch
+  - apiGroups:
+    - discovery.k8s.io
+    resources:
+    - endpointslices
+    verbs:
+    - list
+    - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+  name: system:coredns
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:coredns
+subjects:
+- kind: ServiceAccount
+  name: coredns
+  namespace: kube-system
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns
+  namespace: kube-system
+data:
+  Corefile: |
+    .:53 {
+        log
+        errors
+        health {
+          lameduck 5s
+        }
+        ready
+        kubernetes cluster.local in-addr.arpa ip6.arpa {
+          fallthrough in-addr.arpa ip6.arpa
+        }
+        prometheus :9153
+        forward . /etc/resolv.conf {
+          max_concurrent 1000
+        }
+        cache 30
+        loop
+        reload
+        loadbalance
+    }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coredns
+  namespace: kube-system
+  labels:
+    k8s-app: kube-dns
+    kubernetes.io/name: "CoreDNS"
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      k8s-app: kube-dns
+  template:
+    metadata:
+      labels:
+        k8s-app: kube-dns
+    spec:
+      priorityClassName: system-cluster-critical
+      serviceAccountName: coredns
+      tolerations:
+        - key: "CriticalAddonsOnly"
+          operator: "Exists"
+      nodeSelector:
+        kubernetes.io/os: linux
+      affinity:
+         podAntiAffinity:
+           preferredDuringSchedulingIgnoredDuringExecution:
+           - weight: 100
+             podAffinityTerm:
+               labelSelector:
+                 matchExpressions:
+                   - key: k8s-app
+                     operator: In
+                     values: ["kube-dns"]
+               topologyKey: kubernetes.io/hostname
+      containers:
+      - name: coredns
+        image: coredns/coredns:1.8.3
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: 170Mi
+          requests:
+            cpu: 100m
+            memory: 70Mi
+        args: [ "-conf", "/etc/coredns/Corefile" ]
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/coredns
+          readOnly: true
+        ports:
+        - containerPort: 53
+          name: dns
+          protocol: UDP
+        - containerPort: 53
+          name: dns-tcp
+          protocol: TCP
+        - containerPort: 9153
+          name: metrics
+          protocol: TCP
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            add:
+            - NET_BIND_SERVICE
+            drop:
+            - all
+          readOnlyRootFilesystem: true
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 60
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 5
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8181
+            scheme: HTTP
+      dnsPolicy: Default
+      volumes:
+        - name: config-volume
+          configMap:
+            name: coredns
+            items:
+            - key: Corefile
+              path: Corefile
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-dns
+  namespace: kube-system
+  annotations:
+    prometheus.io/port: "9153"
+    prometheus.io/scrape: "true"
+  labels:
+    k8s-app: kube-dns
+    kubernetes.io/cluster-service: "true"
+    kubernetes.io/name: "CoreDNS"
+spec:
+  selector:
+    k8s-app: kube-dns
+  clusterIP: 10.96.0.10
+  ports:
+  - name: dns
+    port: 53
+    protocol: UDP
+  - name: dns-tcp
+    port: 53
+    protocol: TCP
+  - name: metrics
+    port: 9153
+    protocol: TCP
+```
+
+
+&nbsp;
+
+
+CoreDNSをデプロイします。
+
+```bash
+$ kubectl apply -f coredns.yaml 
+serviceaccount/coredns created
+clusterrole.rbac.authorization.k8s.io/system:coredns created
+clusterrolebinding.rbac.authorization.k8s.io/system:coredns created
+configmap/coredns created
+deployment.apps/coredns created
+service/kube-dns created
+```
+
+
+&nbsp;
+
+
+リソースが作成されたことを確認します。
+
+```bash
+$ kubectl -n kube-system get all
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/coredns-867bfd96bd-9g87v   1/1     Running   0          49s
+pod/coredns-867bfd96bd-9tbz7   1/1     Running   0          49s
+
+NAME               TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+service/kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   49s
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/coredns   2/2     2            2           49s
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/coredns-867bfd96bd   2         2         2       49s
+```
+
+
+&nbsp;
+
+
+名前解決の機能がちゃんと動作しているか確認します。
+
+下記の内容のマニフェストファイルを作成し、リソースを作成します。
+
+```dnsutils.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dnsutils
+  namespace: default
+spec:
+  containers:
+  - name: dnsutils
+    image: gcr.io/kubernetes-e2e-test-images/dnsutils:1.3
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+  restartPolicy: Always
+```
+
+
+&nbsp;
+
+
+リソースが作成されたことを確認します。
+
+```bash
+$ kubectl apply -f dnsutils.yaml
+pod/dnsutils created
+
+$kubectl get all
+NAME           READY   STATUS    RESTARTS   AGE
+pod/dnsutils   1/1     Running   0          24s
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   14h
+```
+
+
+&nbsp;
+
+
+名前解決が行えることを確認します。
+
+```bash
+$ kubectl exec -i -t dnsutils -- nslookup kubernetes.default
+Server:		10.96.0.10
+Address:	10.96.0.10#53
+
+Name:	kubernetes.default.svc.cluster.local
+Address: 10.96.0.1
+
+```
+
+```bash
+$ kubectl exec -i -t dnsutils -- nslookup google.com
+Server:		10.96.0.10
+Address:	10.96.0.10#53
+
+Non-authoritative answer:
+Name:	google.com
+Address: 172.217.175.110
+Name:	google.com
+Address: 2404:6800:4004:80e::200e
+```
+
+
+確認後、リソースを削除します。
+
+```bash
+$ kubectl delete -f dnsutils.yaml
+pod "dnsutils" deleted
+```
+
+
+&nbsp;
+
+
+### Kubernetesクラスターの最終動作確認
+最後にKubernetesクラスターがちゃんと動作しているか確認を行います。
+
+Secret が暗号化されて保存されていることを確認します。
+
+本来は base64 encoded な値が表示されますが、そうでない暗号化されたデータが見えれば OK です。
+
+
+```bash
+$ kubectl create secret generic kubernetes-the-hard-way \
+>   --from-literal="mykey=mydata"
+secret/kubernetes-the-hard-way created
+
+$ etcdctl get \
+>     --endpoints=https://127.0.0.1:2379 \
+>     --cacert /etc/etcd/etcd-ca.pem \
+>     --cert /etc/etcd/kube-etcd-healthcheck-client.pem \
+>     --key /etc/etcd/kube-etcd-healthcheck-client-key.pem \
+>     /registry/secrets/default/kubernetes-the-hard-way | hexdump -C
+00000000  2f 72 65 67 69 73 74 72  79 2f 73 65 63 72 65 74  |/registry/secret|
+00000010  73 2f 64 65 66 61 75 6c  74 2f 6b 75 62 65 72 6e  |s/default/kubern|
+00000020  65 74 65 73 2d 74 68 65  2d 68 61 72 64 2d 77 61  |etes-the-hard-wa|
+00000030  79 0a 6b 38 73 3a 65 6e  63 3a 61 65 73 63 62 63  |y.k8s:enc:aescbc|
+00000040  3a 76 31 3a 6b 65 79 31  3a 33 69 69 f4 08 80 eb  |:v1:key1:3ii....|
+00000050  3a 90 28 18 fe 30 2f ef  25 da f2 e7 6c 03 4b 2c  |:.(..0/.%...l.K,|
+00000060  49 f3 8f 5d ca 4b 6e 70  31 5a dd 98 28 f0 8c e8  |I..].Knp1Z..(...|
+00000070  1e 3f 44 07 0a f6 fb cd  5b 08 5b 41 e4 da 0a 25  |.?D.....[.[A...%|
+00000080  d1 2d 46 fb ab 88 40 49  3a b2 e1 39 65 93 3b e3  |.-F...@I:..9e.;.|
+00000090  8b 10 25 53 4e 97 c7 aa  0f 98 2f ab b7 49 6c cc  |..%SN...../..Il.|
+000000a0  d5 98 5a 9b 9c d4 22 6e  50 b4 20 5c a5 7d 63 5c  |..Z..."nP. \.}c\|
+000000b0  ec b6 98 fb f0 1d 07 ba  16 91 61 fe ab 84 99 ae  |..........a.....|
+000000c0  ff 4f 53 f8 15 75 c8 67  9d d1 de 5d 4a d4 ab 73  |.OS..u.g...]J..s|
+000000d0  0c 1f 62 df ad bd 86 b3  10 55 fb 32 39 3d 7b ae  |..b......U.29={.|
+000000e0  5c 3d 59 10 85 de 57 c9  c9 6e b9 e1 12 59 be f9  |\=Y...W..n...Y..|
+000000f0  47 a9 82 d2 fb 07 ee f5  3a 3d 88 15 dd f6 4d 0f  |G.......:=....M.|
+00000100  44 1c 68 36 7e ff 44 b9  b7 e9 2b b8 96 e9 40 9d  |D.h6~.D...+...@.|
+00000110  f7 bc a0 e9 f9 a2 f4 07  f8 59 e7 9c f5 65 4f 91  |.........Y...eO.|
+00000120  74 e6 65 57 9f c7 3a 1d  26 0a 58 26 70 2e 51 33  |t.eW..:.&.X&p.Q3|
+00000130  9b 7e 40 3a 2e e2 32 92  9f f2 c1 8e 15 fa da 0a  |.~@:..2.........|
+00000140  c3 f0 c6 7a cb 49 65 74  1b 47 8e 0e 63 17 b9 23  |...z.Iet.G..c..#|
+00000150  ab 8a a6 bf 35 67 4e ab  e4 0a                    |....5gN...|
+0000015a
+```
+
+
+&nbsp;
+
+
+作成したリソースを削除します。
+
+```bash
+$ kubectl delete secrets/kubernetes-the-hard-way
+secret "kubernetes-the-hard-way" deleted
+```
+
+
+&nbsp;
+
+
+Podが起動できることを確認します。
+
+nginxをデプロイするために、下記の内容のマニフェストファイルを作成します。
+
+
+```:nginx.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.15
+        ports:
+        - containerPort: 80
+```
+
+
+&nbsp;
+
+
+nginxをデプロイします。
+
+```bash
+$ kubectl apply -f nginx.yaml
+deployment.apps/nginx created
+```
+
+
+&nbsp;
+
+
+Port Forwardingが機能することを確認します。
+
+```bash
+$ POD_NAME=$(kubectl get pods -l app=nginx -o jsonpath="{.items[0].metadata.name}")
+$ kubectl port-forward $POD_NAME 8080:80
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+
+$ curl --head http://127.0.0.1:8080
+HTTP/1.1 200 OK
+Server: nginx/1.15.12
+Date: Tue, 30 Mar 2021 03:51:42 GMT
+Content-Type: text/html
+Content-Length: 612
+Last-Modified: Tue, 16 Apr 2019 13:08:19 GMT
+Connection: keep-alive
+ETag: "5cb5d3c3-264"
+Accept-Ranges: bytes
+
+```
+
+
+&nbsp;
+
+
+Pod のログにアクセスできることを確認します。
+
+```bash
+$ kubectl logs $POD_NAME
+127.0.0.1 - - [30/Mar/2021:03:51:42 +0000] "HEAD / HTTP/1.1" 200 0 "-" "curl/7.68.0" "-"
+```
+
+
+&nbsp;
+
+
+Pod 上でコマンドを実行できることを確認します。
+
+```bash
+$ kubectl exec -ti $POD_NAME -- nginx -v
+nginx version: nginx/1.15.12
+```
+
+
+&nbsp;
+
+
+NodePort を通じてアクセスできることを確認します。
+
+```bash
+$ kubectl expose deployment nginx --port 80 --type NodePort
+service/nginx exposed
+
+$ kubectl get svc
+NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+kubernetes   ClusterIP   10.96.0.1      <none>        443/TCP        15h
+nginx        NodePort    10.111.137.3   <none>        80:32577/TCP   5s
+
+curl -I http://10.111.137.3
+HTTP/1.1 200 OK
+Server: nginx/1.15.12
+Date: Tue, 30 Mar 2021 03:54:15 GMT
+Content-Type: text/html
+Content-Length: 612
+Last-Modified: Tue, 16 Apr 2019 13:08:19 GMT
+Connection: keep-alive
+ETag: "5cb5d3c3-264"
+Accept-Ranges: bytes
+
+```
+
+&nbsp;
+
+
+最終動作確認後、作成したリソースを削除します。
+
+```bash
+$ kubectl delete svc/nginx
+service "nginx" deleted
+
+$ kubectl delete -f nginx.yaml 
+deployment.apps "nginx" deleted
+```
+
+
+&nbsp;
+
+
+### 最後に
+以上でKubernetes The Hard Way on Raspberry Piは終了です。
+
+本記事が少しでも皆様のお役に立てれば幸いです。
+
+
+&nbsp;
+
+
+### Copyright
+本手順は株式会社サイバーエージェント様の[CyberAgentHack/home-kubernetes-2020/how-to-create-cluster-logical-hardway](https://github.com/CyberAgentHack/home-kubernetes-2020/tree/master/how-to-create-cluster-logical-hardway)をもとに学習用に書いたものであり、[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)の下に公開されています。
 
 
 &nbsp;
