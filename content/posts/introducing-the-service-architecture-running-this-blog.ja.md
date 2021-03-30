@@ -10,8 +10,6 @@ DisableComments: false
 
 &nbsp;
 
-最近、Go言語の勉強を兼ねて[LISP(Scheme)インタプリタ](https://github.com/izewfktvy533/goliath)を作ってます、[sosomasox](https://twitter.com/sosomasox)です。
-
 先日、[本ブログを運用している自宅インフラの紹介](http://techblog.on-going.jp/posts/introducing-the-architecture-of-raspberry-pi-kubernetes-cluster-named-makina-that-operates-this-blog/)を行いました。
 本稿は、このブログを運営するために自宅インフラ上で稼働しているサービスとそのアーキテクチャーを紹介したいと思います。
 

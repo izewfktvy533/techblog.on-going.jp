@@ -10,8 +10,6 @@ DisableComments: false
 
 &nbsp;
 
-[sosomasox](https://twitter.com/sosomasox)です。
-
 [前回の記事](https://techblog.on-going.jp/posts/commpost-a-comment-posting-system/)では、このTechブログにコメント機能を追加するために開発したコメント投稿システム『COMMPOST』を紹介しました。
 
 本稿では、HUGOのテーマを拡張して『COMMPOST』を利用できるようにしましたのでそのお話をさせて頂きます。

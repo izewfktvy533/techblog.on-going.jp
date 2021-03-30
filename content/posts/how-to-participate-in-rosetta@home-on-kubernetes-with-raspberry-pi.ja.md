@@ -14,8 +14,6 @@ DisableComments: false
 
 &nbsp;
 
-こんにちは、[sosomasox](https://twitter.com/sosomasox)です。
-
 先月、ラズパイKubernetesクラスターでRosetta@homeに参加するためのKuberentesマニフェストファイルとDockerfileを作成しました。
 
 もし、ラズパイKubernetesクラスターをお持ちでしたらこのマニフェストファイルを使用することでRosetta@homeへの参加を通じてCOVID-19の解析に貢献することができます。

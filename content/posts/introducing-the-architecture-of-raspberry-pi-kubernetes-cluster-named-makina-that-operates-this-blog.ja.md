@@ -10,8 +10,6 @@ DisableComments: false
 
 &nbsp;
 
-こんにちは、[sosomasox](https://twitter.com/sosomasox)です。
-
 本稿は、このブログを運用している自宅インフラのアーキテクチャーの紹介をしたいと思います。
 
 すでに[このブログの最初の記事](http://techblog.on-going.jp/posts/starting-a-tech-blog/)で言及しておりますが、本ブログはRaspberry Piで構築した高可用性Kubernetesクラスターをインフラとして運用してます。

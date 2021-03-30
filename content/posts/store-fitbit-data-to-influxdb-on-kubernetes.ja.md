@@ -10,8 +10,6 @@ DisableComments: false
 
 &nbsp;
 
-久しぶりの投稿になります、[sosomasox](https://twitter.com/sosomasox)です。
-
 今回、Kubernetes上に導入したInfluxDBに対してFitbitデータの保存を試みましたので、本稿でその紹介をしたいと思います。
 
 余談ですが筆者はFitbitユーザであり、使い始めて今年で3年目になります。
