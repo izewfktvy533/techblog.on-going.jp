@@ -963,6 +963,10 @@ sudo mv <span style="color:#ae81ff">\
 <span style="color:#e6db74">  --tls-cert-file=/var/lib/kubernetes/kube-apiserver-k8s-master1.pem </span>\
 <span style="color:#e6db74">  --tls-private-key-file=/var/lib/kubernetes/kube-apiserver-k8s-master1-key.pem </span>\
 <span style="color:#e6db74">  --requestheader-client-ca-file=/var/lib/kubernetes/kubernetes-front-proxy-ca.pem </span>\
+<span style="color:#e6db74">  --requestheader-allowed-names=front-proxy-client </span>\
+<span style="color:#e6db74">  --requestheader-extra-headers-prefix=X-Remote-Extra- </span>\
+<span style="color:#e6db74">  --requestheader-group-headers=X-Remote-Group </span>\
+<span style="color:#e6db74">  --requestheader-username-headers=X-Remote-User </span>\
 <span style="color:#e6db74">  --proxy-client-cert-file=/var/lib/kubernetes/front-proxy-client.pem </span>\
 <span style="color:#e6db74">  --proxy-client-key-file=/var/lib/kubernetes/front-proxy-client-key.pem </span>\
 <span style="color:#e6db74">  --v=2 </span>
