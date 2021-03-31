@@ -749,6 +749,7 @@ WORKER5_HOSTNAME<span style="color:#f92672">=</span>k8s-worker5
 </span><span style="color:#ae81ff"></span>        cert/kube-etcd-flanneld-client.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>        cert/kube-etcd-flanneld-client-key.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>        cert/etcd-ca.pem <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>        cert/kubernetes-front-proxy-ca.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>        kubeconfig/<span style="color:#e6db74">${</span>instance<span style="color:#e6db74">}</span>.kubeconfig <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>        kubeconfig/kube-proxy.kubeconfig <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>        ubuntu@<span style="color:#e6db74">${</span>instance<span style="color:#e6db74">}</span>:/home/ubuntu
@@ -1306,6 +1307,7 @@ sudo mv  <span style="color:#ae81ff">\
 
 sudo mv <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    kubernetes-ca.pem <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    kubernetes-front-proxy-ca.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /var/lib/kubernetes/
 </code></pre></div><p> </p>
 <h3 id="cni-pluginsとcrictlのインストール">cni-pluginsとcrictlのインストール</h3>

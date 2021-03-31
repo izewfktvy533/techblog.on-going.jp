@@ -710,6 +710,7 @@ for instance in ${MASTER1_HOSTNAME} ${MASTER2_HOSTNAME} ${MASTER3_HOSTNAME} ${WO
         cert/kube-etcd-flanneld-client.pem \
         cert/kube-etcd-flanneld-client-key.pem \
         cert/etcd-ca.pem \
+        cert/kubernetes-front-proxy-ca.pem \
         kubeconfig/${instance}.kubeconfig \
         kubeconfig/kube-proxy.kubeconfig \
         ubuntu@${instance}:/home/ubuntu
@@ -1588,6 +1589,7 @@ sudo mv  \
 
 sudo mv \
     kubernetes-ca.pem \
+    kubernetes-front-proxy-ca.pem \
     /var/lib/kubernetes/
 ```
 
