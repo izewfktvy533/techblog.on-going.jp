@@ -2040,11 +2040,11 @@ deployment.apps/nginx created
 </code></pre></div><p> </p>
 <p>Port Forwardingが機能することを確認します。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ POD_NAME<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>kubectl get pods -l app<span style="color:#f92672">=</span>nginx -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{.items[0].metadata.name}&#34;</span><span style="color:#66d9ef">)</span>
-$ kubectl port-forward $POD_NAME 8080:80
-Forwarding from 127.0.0.1:8080 -&gt; <span style="color:#ae81ff">80</span>
-Forwarding from <span style="color:#f92672">[</span>::1<span style="color:#f92672">]</span>:8080 -&gt; <span style="color:#ae81ff">80</span>
+$ kubectl port-forward $POD_NAME 8081:80
+Forwarding from 127.0.0.1:8081 -&gt; <span style="color:#ae81ff">80</span>
+Forwarding from <span style="color:#f92672">[</span>::1<span style="color:#f92672">]</span>:8081 -&gt; <span style="color:#ae81ff">80</span>
 
-$ curl --head http://127.0.0.1:8080
+$ curl --head http://127.0.0.1:8081
 HTTP/1.1 <span style="color:#ae81ff">200</span> OK
 Server: nginx/1.15.12
 Date: Tue, <span style="color:#ae81ff">30</span> Mar <span style="color:#ae81ff">2021</span> 03:51:42 GMT

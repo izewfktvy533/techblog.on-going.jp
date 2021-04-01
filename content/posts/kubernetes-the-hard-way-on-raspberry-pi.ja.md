@@ -2608,11 +2608,11 @@ Port Forwardingが機能することを確認します。
 
 ```bash
 $ POD_NAME=$(kubectl get pods -l app=nginx -o jsonpath="{.items[0].metadata.name}")
-$ kubectl port-forward $POD_NAME 8080:80
-Forwarding from 127.0.0.1:8080 -> 80
-Forwarding from [::1]:8080 -> 80
+$ kubectl port-forward $POD_NAME 8081:80
+Forwarding from 127.0.0.1:8081 -> 80
+Forwarding from [::1]:8081 -> 80
 
-$ curl --head http://127.0.0.1:8080
+$ curl --head http://127.0.0.1:8081
 HTTP/1.1 200 OK
 Server: nginx/1.15.12
 Date: Tue, 30 Mar 2021 03:51:42 GMT
