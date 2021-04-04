@@ -1681,8 +1681,11 @@ k8s-worker5   Ready    &lt;none&gt;   6m26s   v1.20.4   172.29.156.18   &lt;none
 </code></pre></div><p> </p>
 <p>下記のようなコマンドを実行し、マスターノードに対しては基本的にPodが作成されないようにroleとtaintを追加します。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl label node <span style="color:#e6db74">`</span>hostname<span style="color:#e6db74">`</span> node-role.kubernetes.io/master<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
-kubectl label node <span style="color:#e6db74">`</span>hostname<span style="color:#e6db74">`</span> node-role.kubernetes.io/control-plane<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
+kubectl label node <span style="color:#e6db74">`</span>hostname<span style="color:#e6db74">`</span> node-role.kubernetes.io/controlplane<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
+kubectl label node <span style="color:#e6db74">`</span>hostname<span style="color:#e6db74">`</span> node-role.kubernetes.io/etcd<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
 kubectl taint node <span style="color:#e6db74">`</span>hostname<span style="color:#e6db74">`</span> node-role.kubernetes.io/master<span style="color:#f92672">=</span>:NoSchedule
+kubectl taint node <span style="color:#e6db74">`</span>hostname<span style="color:#e6db74">`</span> node-role.kubernetes.io/controlplane<span style="color:#f92672">=</span>:NoSchedule
+kubectl taint node <span style="color:#e6db74">`</span>hostname<span style="color:#e6db74">`</span> node-role.kubernetes.io/etcd<span style="color:#f92672">=</span>:NoExecute
 </code></pre></div><p> </p>
 <p>上記のコマンド実行後のKubernetesクラスターの状態は以下のようになります。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get nodes -o wide
