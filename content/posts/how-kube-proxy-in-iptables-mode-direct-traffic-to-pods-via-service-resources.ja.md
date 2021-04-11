@@ -1,5 +1,5 @@
 ---
-title: "iptablesモードのkube-proxyはどのようにServiceリソースを経由してトラフィックをPodに転送するのか"
+title: "iptablesモードのkube-proxyはどのようにServiceリソースへのトラフィックをPodに転送するのか"
 date: 2021-04-10T20:28:03+09:00
 Description: ""
 Tags: []
