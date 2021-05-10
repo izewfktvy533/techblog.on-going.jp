@@ -10,7 +10,7 @@ DisableComments: false
 
 &nbsp;
 
-こんにちは、[@izewfktvy533](https://twitter.com/izewfktvy533)です。
+こんにちは、[@sosomasox](https://twitter.com/sosomasox)です。
 
 本稿は、「ラズパイで作る！Kubernetesクラスターを基盤とした自宅プライベートクラウド構築プロジェクト[『**OUROBOROS**』](https://github.com/izewfktvy533/OUROBOROS)」という個人的興味で発足したプロジェクトの紹介です。
 

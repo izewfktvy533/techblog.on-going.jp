@@ -12,7 +12,7 @@ DisableComments: false
 
 この度、自宅プライベートクラウド上でTechブログの運用を行うことにしました。
 
-しばらくの間、Techブログとして[Qiita](https://qiita.com/izewfktvy533)を利用しておりましたが、先月構築した[高可用性ラズパイKubernetesクラスター](https://qiita.com/izewfktvy533/items/efaa0c5fd6b6ea2c691b)を自宅プライベートクラウドとして運用していく上で、何らかのサービスがあるとモチベーションの維持に繋がると考え、このブログを一種のサービスとて運用していきたいと思います。
+しばらくの間、Techブログとして[Qiita](https://qiita.com/sosomasox)を利用しておりましたが、先月構築した[高可用性ラズパイKubernetesクラスター](https://qiita.com/izewfktvy533/items/efaa0c5fd6b6ea2c691b)を自宅プライベートクラウドとして運用していく上で、何らかのサービスがあるとモチベーションの維持に繋がると考え、このブログを一種のサービスとて運用していきたいと思います。
 
 &nbsp;
 
