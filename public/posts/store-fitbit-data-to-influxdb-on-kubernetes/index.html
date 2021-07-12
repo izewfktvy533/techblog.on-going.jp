@@ -29,7 +29,7 @@
     
     <meta property="og:type" content="article" />
     
-    <meta name="generator" content="Hugo 0.83.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="generator" content="Hugo 0.85.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="">
     <link rel="stylesheet" href="https://techblog.on-going.jp/css/style.css" type="text/css">
     
@@ -414,7 +414,7 @@ client_influxdb <span style="color:#f92672">=</span> InfluxDBClient(host<span st
 
     <span style="color:#66d9ef">try</span>:
         result <span style="color:#f92672">=</span> client_influxdb<span style="color:#f92672">.</span>write_points(_data)
-        <span style="color:#66d9ef">print</span>(_data, result)
+        print(_data, result)
 
         <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> result:
             exit(<span style="color:#ae81ff">1</span>)
