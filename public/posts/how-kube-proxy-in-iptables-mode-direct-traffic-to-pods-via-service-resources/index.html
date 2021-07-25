@@ -29,7 +29,7 @@
     
     <meta property="og:type" content="article" />
     
-    <meta name="generator" content="Hugo 0.85.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="generator" content="Hugo 0.86.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="">
     <link rel="stylesheet" href="https://techblog.on-going.jp/css/style.css" type="text/css">
     
@@ -61,10 +61,6 @@
         
         <a href="https://twitter.com/sosomasox" rel="me" >
           <i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i>
-        </a>
-        
-        <a href="https://www.facebook.com/profile.php?id=100023692920069" rel="me" >
-          <i class="fa fa-facebook" aria-hidden="true" title="Facebook"></i>
         </a>
         
     </ul>
@@ -104,7 +100,7 @@
 <p>本記事ではkubernetesのコンポーネントの一つであるkube-proxyがiptablesモードで稼働している際、どのようにiptablesを使用しているのか、また、どのようにアプリケーションサービスを提供しているPodに対してトラフィックを転送しているかを理解することを目的とします。</p>
 <p>今回は、Serviceリソースのタイプの一つであるClusterIPを対象にします。</p>
 <p>また、本記事のゴールはKubernetesで下記のようなServiceリソースを作成した際に、iptablesモードで稼働しているkube-proxyの動作をローカル環境上で再現することです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:service.yaml" data-lang=":service.yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:service.yaml" data-lang=":service.yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
 <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Service</span>
 <span style="color:#f92672">metadata</span>:
   <span style="color:#f92672">name</span>: <span style="color:#ae81ff">app-service</span>
@@ -127,7 +123,7 @@
 <p> </p>
 <h3 id="事前準備">事前準備</h3>
 <p>物理デバイスから仮想デバイスへ、仮想デバイスから物理デバイスへ、また、仮想デバイス1から仮想デバイス2へなど異なるインターフェース間のパケット転送を行うことができるIPフォワーディングを有効にするために下記のコマンドを実行します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sysctl --write net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sysctl --write net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 </code></pre></div><p> </p>
 <h3 id="仮想デバイスを作成しネットワーク名前空間上でwebアプリケーションを実行する">仮想デバイスを作成し、ネットワーク名前空間上でWebアプリケーションを実行する</h3>
 <p>まず、kubeletがCNIプラグインを利用して構築するPodネットワーク環境をローカル環境上に再現していきます。</p>
@@ -136,13 +132,13 @@
 <p> </p>
 <p>先にGo言語で作成した安易なWebアプリケーションサービスを用意します。</p>
 <p>Go言語の開発環境を構築します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install -y golang-go
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install -y golang-go
 </code></pre></div><p> </p>
 <p>Go言語のWebフレームワークであるGinをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo go get github.com/gin-gonic/gin
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo go get github.com/gin-gonic/gin
 </code></pre></div><p> </p>
 <p>下記のプログラムをmain.goとして保存します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:main.go" data-lang=":main.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:main.go" data-lang=":main.go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> (
     <span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
@@ -167,10 +163,10 @@
 }
 </code></pre></div><p> </p>
 <p>動作確認としてWebアプリケーションサービスを実行します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo go run main.go
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo go run main.go
 </code></pre></div><p> </p>
 <p>以下のような応答が返ってくればWebアプリケーションサービスは正常に動作しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -s localhost:8080 | jq
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -s localhost:8080 | jq
 <span style="color:#f92672">{</span>
   <span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;hello world from root namespace&#34;</span>
 <span style="color:#f92672">}</span>
@@ -192,27 +188,27 @@
 <h4 id="1-仮想ブリッジを作成する">1. 仮想ブリッジを作成する</h4>
 <p>Linuxにはユーザが作成可能ないくつかの仮想デバイスがあり、その一つに物理イーサネットや仮想イーサネットなどのネットワークインタフェースがお互いに通信するための仮想ブリッジがあります。</p>
 <p>再現する環境において、ネットワーク名前空間上で稼働するWebアプリケーションサービスが使用する仮想イーサネットが他のネットワークインタフェースと通信することができるように仮想ブリッジを作成します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link add dev bridge_eden type bridge
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link add dev bridge_eden type bridge
 </code></pre></div><p> </p>
 <p>次に、作成した仮想ブリッジに対してIPアドレスを割り当てます。</p>
 <p>仮想ブリッジ bridege_edenにIPアドレス 10.0.0.1/24を割り当てます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip address add 10.0.0.1/24 dev bridge_eden
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip address add 10.0.0.1/24 dev bridge_eden
 </code></pre></div><p> </p>
 <h4 id="2-ネットワーク名前空間を2つ作成する">2. ネットワーク名前空間を2つ作成する</h4>
 <p>KubernetesのPodを模倣する上で必要な、Webアプリケーションサービスを実行するためのネットワーク名前空間を作成します。</p>
 <p>2つのPodを作成するために、ネットワーク名前空間を2つ作成します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip netns add netns_adam
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip netns add netns_adam
 sudo ip netns add netns_eve
 </code></pre></div><p> </p>
 <p>ネットワーク名前空間では、それぞれ自分自身のloopback(lo)デバイスを持っています。</p>
 <p>loopbackデバイスは自分自身に対して送信したリクエストを自分自身で受信するための仮想デバイスです。</p>
 <p>ネットワーク名前空間を作成した際、デフォルトでloopbackデバイスはリンクダウンしているため、リンクアップさせる必要があります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip netns exec netns_adam ip link set dev lo up
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip netns exec netns_adam ip link set dev lo up
 sudo ip netns exec netns_eve  ip link set dev lo up
 </code></pre></div><p> </p>
 <h3 id="3-作成したネットワーク名前空間上でdnsの設定する">3. 作成したネットワーク名前空間上でDNSの設定する</h3>
 <p>作成したネットワーク名前空間上でアドレス解決を行えるようにDNSの設定します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p /etc/netns/netns_adam
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p /etc/netns/netns_adam
 sudo mkdir -p /etc/netns/netns_eve
 
 echo <span style="color:#e6db74">&#34;nameserver 8.8.8.8&#34;</span> | sudo tee -a /etc/netns/netns_adam/resolv.conf
@@ -224,18 +220,18 @@ echo <span style="color:#e6db74">&#34;nameserver 8.8.8.8&#34;</span> | sudo tee 
 <p>Podネットワーク環境の再現において、仮想イーサネットはルート名前空間と作成したあるネットワーク名前空間を相互接続することで、あるネットワーク名前空間上で稼働するWebアプリケーションサービスが他のネットワークインタフェースからのリクエストを処理できるようにします。</p>
 <p>それでは、仮想イーサネットであるvethを作成していきます。</p>
 <p>vethはペアで作成さるため、veth_adamとveth_ns_adamが、veth_eveとveth_ns_eveがペアとなった2つのvethを作成します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link add dev veth_adam type veth peer name veth_ns_adam
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link add dev veth_adam type veth peer name veth_ns_adam
 sudo ip link add dev veth_eve  type veth peer name veth_ns_eve
 </code></pre></div><p> </p>
 <p>作成したvethペアの片方である、veth_adamとveth_eveをルート名前空間上にある仮想ブリッジ bridge_edenにリンクアップします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link set dev veth_adam master bridge_eden
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link set dev veth_adam master bridge_eden
 sudo ip link set dev veth_eve  master bridge_eden
 
 sudo ip link set dev veth_adam up
 sudo ip link set dev veth_eve  up
 </code></pre></div><p> </p>
 <p>作成したvethペアのもう片方であるveth_ns_adamをネットワーク名前空間 netns_adamに、veth_ns_eveをネットワーク名前空間 netns_eveにリンクアップします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link set dev veth_ns_adam netns netns_adam
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link set dev veth_ns_adam netns netns_adam
 sudo ip link set dev veth_ns_eve  netns netns_eve
 
 sudo ip netns exec netns_adam ip link set dev veth_ns_adam up
@@ -243,25 +239,25 @@ sudo ip netns exec netns_eve  ip link set dev veth_ns_eve  up
 </code></pre></div><p> </p>
 <h4 id="5-ipアドレス-100011をネットワーク名前空間-netns_adam上のvethに割り当てる">5. IPアドレス 10.0.0.11をネットワーク名前空間 netns_adam上のvethに割り当てる</h4>
 <p>ネットワーク名前空間 netns_adam上にある仮想イーサネットであるveth_ns_adamにIPアドレス 10.0.0.11/24を割り当てます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip netns exec netns_adam ip address add 10.0.0.11/24 dev veth_ns_adam
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip netns exec netns_adam ip address add 10.0.0.11/24 dev veth_ns_adam
 </code></pre></div><p> </p>
 <h4 id="6-ipアドレス-100021をネットワーク名前空間-netns_eve上のvethに割り当てる">6. IPアドレス 10.0.0.21をネットワーク名前空間 netns_eve上のvethに割り当てる</h4>
 <p>ネットワーク名前空間 netns_eve上にある仮想イーサネットであるveth_ns_eveにIPアドレス 10.0.0.21/24を割り当てます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip netns exec netns_eve ip address add 10.0.0.21/24 dev veth_ns_eve
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip netns exec netns_eve ip address add 10.0.0.21/24 dev veth_ns_eve
 </code></pre></div><p> </p>
 <h4 id="7-ネットワーク名前空間上のデフォルトゲートウェイを設定する">7. ネットワーク名前空間上のデフォルトゲートウェイを設定する</h4>
 <p>最後に、ルート名前空間上にある仮想ブリッジ bridge_edenをリンクアップし、ネットワーク名前空間 netns_adamとnetns_eveに対してルート名前空間上にある仮想ブリッジ bridge_edenのIPアドレスをデフォルトゲートウェイとして設定します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link set bridge_eden up
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link set bridge_eden up
 sudo ip netns exec netns_adam ip route add default via 10.0.0.1
 sudo ip netns exec netns_eve  ip route add default via 10.0.0.1
 </code></pre></div><p> </p>
 <h4 id="パケット送受信のためのiptablesのルール作成">パケット送受信のためのiptablesのルール作成</h4>
 <p>作成した仮想ブリッジ bridge_edenに対してパケットの送受信を許可するためのにiptablesのルールを作成します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables --table filter --append FORWARD --in-interface  bridge_eden --jump ACCEPT
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables --table filter --append FORWARD --in-interface  bridge_eden --jump ACCEPT
 sudo iptables --table filter --append FORWARD --out-interface bridge_eden --jump ACCEPT
 </code></pre></div><p> </p>
 <p>また、IPアドレス 10.0.0.0/24が送信元であるルート名前空間以外の他のネットワーク名前空間からのリクエストをマスカレードするiptablesのルールを作成します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables --table nat --append POSTROUTING --source 10.0.0.0/24 --jump MASQUERADE
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables --table nat --append POSTROUTING --source 10.0.0.0/24 --jump MASQUERADE
 </code></pre></div><p> </p>
 <h4 id="動作確認">動作確認</h4>
 <p>各ネットワーク名前空間上で稼働しているWebアプリケーションサービスがリクエスを受信し、レスポンスを送信することができるか確認します。</p>
@@ -269,11 +265,11 @@ sudo iptables --table filter --append FORWARD --out-interface bridge_eden --jump
 <p> </p>
 <p>ネットワーク名前空間 netns_adam, netns_eve、それぞれの空間上でWebアプリケーションサービスを起動します。</p>
 <p>それぞれ別のターミナルを開いて実行して下さい。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip netns exec netns_adam go run main.go
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip netns exec netns_eve  go run main.go
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip netns exec netns_adam go run main.go
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip netns exec netns_eve  go run main.go
 </code></pre></div><p> </p>
 <p>ルート名前空間上からネットワーク名前空間 netns_adm、netns_eve、それぞれの空間上で稼働しているWebアプリケーションサービスにアクセスできる確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -s 10.0.0.11:8080 | jq
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -s 10.0.0.11:8080 | jq
 <span style="color:#f92672">{</span>
   <span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;hello world from netns_adam namespace&#34;</span>
 <span style="color:#f92672">}</span>
@@ -284,13 +280,13 @@ $ curl -s 10.0.0.21:8080 | jq
 <span style="color:#f92672">}</span>
 </code></pre></div><p> </p>
 <p>ネットワーク名前空間 netns_adm上からネットワーク名前空間 netns_eve上で稼働しているWebアプリケーションサービスにアクセスできるか確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo ip netns exec netns_adam curl -s 10.0.0.21:8080 | jq
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo ip netns exec netns_adam curl -s 10.0.0.21:8080 | jq
 <span style="color:#f92672">{</span>
   <span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;hello world from netns_eve namespace&#34;</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p> </p>
 <p>ネットワーク名前空間 netns_eve上からネットワーク名前空間 netns_adam上で稼働しているWebアプリケーションサービスにアクセスできるか確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo ip netns exec netns_eve curl -s 10.0.0.11:8080 | jq
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo ip netns exec netns_eve curl -s 10.0.0.11:8080 | jq
 <span style="color:#f92672">{</span>
   <span style="color:#e6db74">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;hello world from netns_adam namespace&#34;</span>
 <span style="color:#f92672">}</span>
@@ -304,12 +300,12 @@ $ curl -s 10.0.0.21:8080 | jq
 <p>それでは、iptablesモードのkube-proxyの動作を再現するためにiptablesのルールを作成していきます。</p>
 <p> </p>
 <p>ネットワークアドレス変換を行うNATテーブル上にServiceリーソスを再現するためのチェイン(ネットワーク経路)であるAPP-SERVICEをつくります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --table nat <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --new APP-SERVICE
 </code></pre></div><p> </p>
 <p>作成したチェイン APP-SERVICEに対して、アプリケーションからリクエストを受け取れるようにチェインPREPUTINGとOUTPUTを追加します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --table nat <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --append PREROUTING <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --jump APP-SERVICE
@@ -321,13 +317,13 @@ sudo iptables <span style="color:#ae81ff">\
 </code></pre></div><p> </p>
 <p>次に、別のチェインであるEDEN-SVC-HTTPを作成します。
 このチェインにネットワーク名前空間で稼働するWebアプリケーションサービスに対するチェインを紐付けていきます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --table nat <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --new EDEN-SVC-HTTP
 </code></pre></div><p> </p>
 <p>先程作成したチェイン APP-SERVICEに対してチェイン EDEN-SVC-HTTPを紐付けます。</p>
 <p><strong>&ndash;destination</strong>で指定している仮想IPアドレス <strong>10.96.0.1</strong>がClusterIPとなります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --table nat <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --append APP-SERVICE <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --destination 10.96.0.1 <span style="color:#ae81ff">\
@@ -337,7 +333,7 @@ sudo iptables <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --jump EDEN-SVC-HTTP
 </code></pre></div><p> </p>
 <p>ネットワーク名前空間 netns_adamで稼働するWebアプリケーションサービスに対して、ネットワーク経路として振る舞うためのチェイン ADAM-HTTPを作成し、チェイン EDEN-SVC-HTTPに紐付けます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --table nat <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --new ADAM-HTTP
 
@@ -359,7 +355,7 @@ sudo iptables <span style="color:#ae81ff">\
 <p>iptablesのルールは上から順番通りに適用されます。</p>
 <p>最初にこのルールを設定することで、このチェイン EVE-HTTPのルールが適用される確率が50%になります。</p>
 <p>したがって、ClusterIPとして振る舞っている仮想IPアドレス <strong>10.96.0.1</strong>へのアクセスは、Podとして稼働しているWebアプリケーションサービスに対するトラフィックをランダムに分散させることができるようになります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --table nat <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  --new EVE-HTTP
 
@@ -382,7 +378,7 @@ sudo iptables <span style="color:#ae81ff">\
 <h3 id="動作確認-1">動作確認</h3>
 <p>これまで、kubeletがCNIプラグインを利用して構築するPodネットワーク環境をローカル環境上に再現し、また、KubernetesがServiceリソースを作成した際に、iptablesモードで稼働しているkube-proxyの動作をローカル環境上で再現してきました。</p>
 <p>最後に、ClusterIPと見立てて設定した仮想IPアドレス <strong>10.96.0.1:8080</strong>にアクセスしてトラフィックが分散していることを確認し、iptablesを介した負荷分散が行われていることに感動して下さい！</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ubuntu@ubuntu:~$ curl -s 10.96.0.1:8080 | jq
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ubuntu@ubuntu:~$ curl -s 10.96.0.1:8080 | jq
 <span style="color:#f92672">{</span>
   <span style="color:#e6db74">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;hello world from netns_adam namespace&#34;</span>
 <span style="color:#f92672">}</span>
@@ -412,19 +408,19 @@ ubuntu@ubuntu:~$ curl -s 10.96.0.1:8080 | jq
 <p>本検証で作成したiptablesのチェインやルールを削除します。</p>
 <p>まず、チェイン上のルールを削除します。
 下記のコマンドを実行し、チェイン上のルールにつけられた番号を確認して下さい。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables -t nat -L --line-numbers
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables -t nat -L --line-numbers
 </code></pre></div><p> </p>
 <p>次に、チェイン上のルールを削除します。
 下記のコマンドに沿ってルールを削除して下さい。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables --table nat --delete &lt;chain_name&gt; &lt;rule_number&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables --table nat --delete &lt;chain_name&gt; &lt;rule_number&gt;
 </code></pre></div><p> </p>
 <p>最後に、チェインを削除します。
 ルールが紐付いているチェインは削除できませんのであらかじめチェインに紐付いているすべてのルールの削除して下さい。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables --table nat --delete-chain &lt;chain_name&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo iptables --table nat --delete-chain &lt;chain_name&gt;
 </code></pre></div><p> </p>
 <h4 id="仮想デバイスとネットワーク名前空間の削除">仮想デバイスとネットワーク名前空間の削除</h4>
 <p>次に、Podネットワーク環境を構築する際に作成した仮想イーサネット veth、ネットワーク名前空間と仮想ブリッジ bridge_edenを削除します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link del dev veth_ns_adam
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo ip link del dev veth_ns_adam
 sudo ip link del dev veth_ns_eve
 
 sudo ip netns del netns_adam
@@ -435,7 +431,7 @@ sudo ip link del dev bridge_eden
 </code></pre></div><p> </p>
 <h4 id="ipフォワーディングの無効化">IPフォワーディングの無効化</h4>
 <p>最後に、IPフォワーディングを無効化します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sysctl --write net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo sysctl --write net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
 </code></pre></div><p> </p>
 <h3 id="まとめ">まとめ</h3>
 <p>本記事ではkubernetesのコンポーネントの一つであるkube-proxyがiptablesモードで稼働している際、どのようにiptablesを使用しているのか、また、Serviceリソースのタイプの一つであるClusterIPがどのようにアプリケーションサービスを提供しているPodに対してトラフィックを転送しているかを理解することを目的としました。</p>

@@ -29,7 +29,7 @@
     
     <meta property="og:type" content="article" />
     
-    <meta name="generator" content="Hugo 0.85.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="generator" content="Hugo 0.86.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="">
     <link rel="stylesheet" href="https://techblog.on-going.jp/css/style.css" type="text/css">
     
@@ -61,10 +61,6 @@
         
         <a href="https://twitter.com/sosomasox" rel="me" >
           <i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i>
-        </a>
-        
-        <a href="https://www.facebook.com/profile.php?id=100023692920069" rel="me" >
-          <i class="fa fa-facebook" aria-hidden="true" title="Facebook"></i>
         </a>
         
     </ul>
@@ -125,7 +121,7 @@ nginxのPodが3つ稼働しており、LoadBalancer Serviceを利用してそれ
 <p>このコンポーネントは、ブログ記事を管理しているGitHubリポジトリ上のmasterブランチに対する更新があったとき、ブログ記事を保管しているNFSに対して更新内容を反映させる役割を担っています。</p>
 <p>これによって、GitHubリポジトリ上のmasterブランチへのpushをトリガーとして継続的デリバリーが行われるため、ブログの更新や内容の修正などが <em><strong>&ldquo;git push&rdquo;</strong></em> で行えるようになっています。</p>
 <p>Pod上では、以下のスクリプトが動作しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>
 LOOP_STOP_FLAG<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
 trap <span style="color:#e6db74">&#39;LOOP_STOP_FLAG=1; trap 1 2 3 4 9 15&#39;</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">9</span> <span style="color:#ae81ff">15</span>
@@ -167,7 +163,7 @@ exit <span style="color:#ae81ff">0</span>
 <h3 id="ngrok-http-webhook">ngrok-http-webhook</h3>
 <p>最後に、このコンポーネントは、ngrokサービスから取得した外部公開用URLに変更があったときに指定したエンドポイントに対してwebhookする役割を担っています。</p>
 <p>Pod上では以下のスクリプトが動作しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>
 LOOP_STOP_FLAG<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
 NGROK_URL<span style="color:#f92672">=</span>

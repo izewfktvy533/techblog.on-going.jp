@@ -29,7 +29,7 @@
     
     <meta property="og:type" content="article" />
     
-    <meta name="generator" content="Hugo 0.85.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="generator" content="Hugo 0.86.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="">
     <link rel="stylesheet" href="https://techblog.on-going.jp/css/style.css" type="text/css">
     
@@ -61,10 +61,6 @@
         
         <a href="https://twitter.com/sosomasox" rel="me" >
           <i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i>
-        </a>
-        
-        <a href="https://www.facebook.com/profile.php?id=100023692920069" rel="me" >
-          <i class="fa fa-facebook" aria-hidden="true" title="Facebook"></i>
         </a>
         
     </ul>
@@ -116,12 +112,12 @@
 <h3 id="kubestrをarm64用にビルドする">kubestrをarm64用にビルドする</h3>
 <p>まずはkubestrがfioを実行するために使用するPodのイメージをビルドしていきます。</p>
 <p>下記のコマンドを実行し、kubestrをクローンします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/kastenhq/kubestr.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/kastenhq/kubestr.git
 cd kubestr
 </code></pre></div><p> </p>
 <p>Dockerfileを編集します。</p>
 <p>下記のように <strong>GOARCH=amd64</strong> を <strong>GOARCH=arm64</strong> に変更します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git diff
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git diff
 diff --git a/Dockerfile b/Dockerfile
 index 34bb921..cac1ae1 <span style="color:#ae81ff">100644</span>
 --- a/Dockerfile
@@ -138,7 +134,7 @@ index 34bb921..cac1ae1 <span style="color:#ae81ff">100644</span>
 </code></pre></div><p> </p>
 <p>Dockerイメージをビルドし、自身のDockerHubリポジトリにプッシュします。</p>
 <p><strong>{your_dockerhub_id}</strong> には自身のDockerHubのIDを入れて下さい。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build -t kubestr:arm64 .
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build -t kubestr:arm64 .
 docker tag kubestr:arm64 <span style="color:#f92672">{</span>your_dockerhub_id<span style="color:#f92672">}</span>/kubestr:arm64
 docker push <span style="color:#f92672">{</span>your_dockerhub_id<span style="color:#f92672">}</span>/kubestr:arm64
 </code></pre></div><p> </p>
@@ -146,7 +142,7 @@ docker push <span style="color:#f92672">{</span>your_dockerhub_id<span style="co
 <p>pkg/common/common.go を下記のように編集します。</p>
 <p><strong>DefaultPodImage</strong> を先程作成したPodのイメージをプッシュした自身のDockerHubリポジトリ先に変更します。
 　</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git diff
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git diff
 diff --git a/pkg/common/common.go b/pkg/common/common.go
 index cbd966c..ac5263f <span style="color:#ae81ff">100644</span>
 --- a/pkg/common/common.go
@@ -162,7 +158,7 @@ index cbd966c..ac5263f <span style="color:#ae81ff">100644</span>
         // VolumeSnapshotClassResourcePlural  describes volume snapshot classses
 </code></pre></div><p> </p>
 <p>最後にkubestrコマンをビルドします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go build -o kubestr main.go
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go build -o kubestr main.go
 </code></pre></div><p> </p>
 <p>kubestrコマンドを実行できるか確認します。</p>
 <p>下図は筆者の環境上での実行結果です。</p>
@@ -170,7 +166,7 @@ index cbd966c..ac5263f <span style="color:#ae81ff">100644</span>
 <p> </p>
 <h3 id="kubestrを使用したブロックストレージrbdに対してパフォーマンス測定">kubestrを使用したブロックストレージ(RBD)に対してパフォーマンス測定</h3>
 <p>kubestrを使用したストレージのパフォーマンス測定は下記のコマンドで実行できます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./kubestr fio -s &lt;storage class&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./kubestr fio -s &lt;storage class&gt;
 </code></pre></div><p>下図は筆者の環境上での実行結果です。</p>
 <p><img src="images/introducing-kubestr-mesurament-of-rook-ceph-block-storage-rdb-performance-in-kubernetes-on-raspberry-pi/kubestr_fio_rbd.png" alt="kubestr_fio_rbd"></p>
 <p> </p>

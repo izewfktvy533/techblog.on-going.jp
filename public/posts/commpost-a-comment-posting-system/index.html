@@ -29,7 +29,7 @@
     
     <meta property="og:type" content="article" />
     
-    <meta name="generator" content="Hugo 0.85.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="generator" content="Hugo 0.86.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="">
     <link rel="stylesheet" href="https://techblog.on-going.jp/css/style.css" type="text/css">
     
@@ -61,10 +61,6 @@
         
         <a href="https://twitter.com/sosomasox" rel="me" >
           <i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i>
-        </a>
-        
-        <a href="https://www.facebook.com/profile.php?id=100023692920069" rel="me" >
-          <i class="fa fa-facebook" aria-hidden="true" title="Facebook"></i>
         </a>
         
     </ul>
@@ -162,7 +158,7 @@ ngrokサービスを利用することで、外部からCOMMPOSTのAPIサーバ�
 <p>上記の構成図の中からMongoDBとAPIサーバを稼働させているKubernetesマニフェストを紹介します。</p>
 <p>MongoDBを稼働させているKubernetesマニフェストファイルは下記の通りです。</p>
 <p> </p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:mongodb/manifest.yaml" data-lang=":mongodb/manifest.yaml">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:mongodb/manifest.yaml" data-lang=":mongodb/manifest.yaml">---
 
 <span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
 <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">PersistentVolume</span>
@@ -249,7 +245,7 @@ ngrokサービスを利用することで、外部からCOMMPOSTのAPIサーバ�
 </code></pre></div><p> </p>
 <p>APIサーバをMongoDBを稼働させているKubernetesマニフェストファイルは下記の通りです。</p>
 <p> </p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:commpost-api/manifest.yaml" data-lang=":commpost-api/manifest.yaml">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:commpost-api/manifest.yaml" data-lang=":commpost-api/manifest.yaml">---
 
 <span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
 <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ConfigMap</span>
@@ -321,7 +317,7 @@ ngrokサービスを利用することで、外部からCOMMPOSTのAPIサーバ�
 <p>フロントエンドは投稿されたコメントの表示とコメントを投稿するフォームを提供します。</p>
 <p>下記のHTMLをブログ記事に組み込むことでコメント投稿システム『COMMPOST』を利用することができます。</p>
 <p> </p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:commpost.html" data-lang=":commpost.html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;commpost&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:commpost.html" data-lang=":commpost.html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;commpost&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
     (<span style="color:#66d9ef">function</span>() {
         <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dsq</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;script&#39;</span>);

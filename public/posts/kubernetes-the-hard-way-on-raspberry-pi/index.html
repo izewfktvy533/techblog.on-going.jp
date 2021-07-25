@@ -29,7 +29,7 @@
     
     <meta property="og:type" content="article" />
     
-    <meta name="generator" content="Hugo 0.85.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="generator" content="Hugo 0.86.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="">
     <link rel="stylesheet" href="https://techblog.on-going.jp/css/style.css" type="text/css">
     
@@ -61,10 +61,6 @@
         
         <a href="https://twitter.com/sosomasox" rel="me" >
           <i class="fa fa-twitter" aria-hidden="true" title="Twitter"></i>
-        </a>
-        
-        <a href="https://www.facebook.com/profile.php?id=100023692920069" rel="me" >
-          <i class="fa fa-facebook" aria-hidden="true" title="Facebook"></i>
         </a>
         
     </ul>
@@ -233,10 +229,10 @@
 <h3 id="各種証明書の生成">各種証明書の生成</h3>
 <p>Kubernetesを構成する各コンポーネント間の接続に必要な証明書の作成を行います。</p>
 <p>まず、証明書の生成に使用するツールをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install -y golang-cfssl kubectl
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install -y golang-cfssl kubectl
 </code></pre></div><p> </p>
 <p>次に、下記のスクリプトを実行し、証明書の生成を行います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:gen-cert.sh" data-lang=":gen-cert.sh"><span style="color:#75715e">#!/bin/bash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:gen-cert.sh" data-lang=":gen-cert.sh"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>
 MASTER1_HOSTNAME<span style="color:#f92672">=</span>k8s-master1
 MASTER2_HOSTNAME<span style="color:#f92672">=</span>k8s-master2
@@ -521,7 +517,7 @@ exit <span style="color:#ae81ff">0</span>
 </code></pre></div><p> </p>
 <h3 id="kubeconfigの生成">kubeconfigの生成</h3>
 <p>下記のスクリプトを実行し、Kubernetesの各種コンポーネントがkube-apiserverと通信するための設定ファイルを作成します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:gen-kubeconfig.sh" data-lang=":gen-kubeconfig.sh"><span style="color:#75715e">#!/bin/bash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:gen-kubeconfig.sh" data-lang=":gen-kubeconfig.sh"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>
 MASTER1_HOSTNAME<span style="color:#f92672">=</span>k8s-master1
 MASTER2_HOSTNAME<span style="color:#f92672">=</span>k8s-master2
@@ -661,7 +657,7 @@ exit <span style="color:#ae81ff">0</span>
 </code></pre></div><p> </p>
 <h3 id="kube-apiserverがetcdに保存するデータを暗号化するための設定ファイルの作成">kube-apiserverがetcdに保存するデータを暗号化するための設定ファイルの作成</h3>
 <p>下記のコマンドを実行し、kube-apiserverがetcdにデータを保存する際に暗号化するための設定ファイルを作成します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ENCRYPTION_KEY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>head -c <span style="color:#ae81ff">32</span> /dev/urandom | base64<span style="color:#66d9ef">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ENCRYPTION_KEY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>head -c <span style="color:#ae81ff">32</span> /dev/urandom | base64<span style="color:#66d9ef">)</span>
 
 cat &gt; encryption-config.yaml <span style="color:#e6db74">&lt;&lt;EOF
 </span><span style="color:#e6db74">kind: EncryptionConfig
@@ -679,7 +675,7 @@ cat &gt; encryption-config.yaml <span style="color:#e6db74">&lt;&lt;EOF
 </code></pre></div><p> </p>
 <h3 id="各種証明書とkubeconfigの転送">各種証明書とkubeconfigの転送</h3>
 <p>下記のスクリプトを実行し、マスターノードに必要な各種証明書とkubeconfigを転送します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>
 MASTER1_HOSTNAME<span style="color:#f92672">=</span>k8s-master1
 MASTER2_HOSTNAME<span style="color:#f92672">=</span>k8s-master2
@@ -729,7 +725,7 @@ MASTER3_HOSTNAME<span style="color:#f92672">=</span>k8s-master3
 exit <span style="color:#ae81ff">0</span>
 </code></pre></div><p> </p>
 <p>次に、下記のスクリプトを実行し、ワーカーノードに必要な各種証明書とkubeconfigを転送します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>
 MASTER1_HOSTNAME<span style="color:#f92672">=</span>k8s-master1
 MASTER2_HOSTNAME<span style="color:#f92672">=</span>k8s-master2
@@ -764,7 +760,7 @@ exit <span style="color:#ae81ff">0</span>
 <h3 id="マスターノード上での作業">マスターノード上での作業</h3>
 <h3 id="etcdのデプロイ">etcdのデプロイ</h3>
 <p>下記のコマンドを実行し、etcdをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ETCD_VER<span style="color:#f92672">=</span>v3.4.14
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ETCD_VER<span style="color:#f92672">=</span>v3.4.14
 GOOGLE_URL<span style="color:#f92672">=</span>https://storage.googleapis.com/etcd
 GITHUB_URL<span style="color:#f92672">=</span>https://github.com/etcd-io/etcd/releases/download
 DOWNLOAD_URL<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>GOOGLE_URL<span style="color:#e6db74">}</span>
@@ -778,7 +774,7 @@ rm -rf etcd-<span style="color:#e6db74">${</span>ETCD_VER<span style="color:#e6d
 rm -f etcd-<span style="color:#e6db74">${</span>ETCD_VER<span style="color:#e6db74">}</span>-linux-arm64.tar.gz
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、設定ファイルの配置領域の作成や証明書の配置を行います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /etc/etcd/ <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /var/lib/etcd/
 
@@ -814,7 +810,7 @@ sudo mv <span style="color:#ae81ff">\
 <li>&ndash;listen-client-urls</li>
 <li>&ndash;advertise-client-urls</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/etcd.service" data-lang=":/etc/systemd/system/etcd.service"><span style="color:#66d9ef">[Unit]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/etcd.service" data-lang=":/etc/systemd/system/etcd.service"><span style="color:#66d9ef">[Unit]</span>
 <span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">etcd</span>
 <span style="color:#a6e22e">Documentation</span><span style="color:#f92672">=</span><span style="color:#e6db74">https://etcd.io/docs/</span>
 
@@ -847,13 +843,13 @@ sudo mv <span style="color:#ae81ff">\
 <span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">multi-user.target</span>
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、etcdを起動します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
 sudo systemctl enable etcd
 sudo systemctl start etcd
 </code></pre></div><p> </p>
 <p>etcdに対してヘルスチェックを行います。</p>
 <p>下記のような応答があればetcdは正常に動作しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --cacert /etc/etcd/etcd-ca.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --cert /etc/etcd/kube-etcd-healthcheck-client.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --key /etc/etcd/kube-etcd-healthcheck-client-key.pem <span style="color:#ae81ff">\
@@ -861,7 +857,7 @@ sudo systemctl start etcd
 <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;health&#34;</span>:<span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">}</span>
 </code></pre></div><p> </p>
 <p>etcdの状態を確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ etcdctl <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ etcdctl <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    endpoint status <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --write-out<span style="color:#f92672">=</span>table <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --cacert /etc/etcd/etcd-ca.pem <span style="color:#ae81ff">\
@@ -874,7 +870,7 @@ sudo systemctl start etcd
 +----------------+------------------+---------+---------+-----------+------------+-----------+------------+--------------------+--------+
 </code></pre></div><p> </p>
 <p>全てのマスターノード上にetcdをデプロイした後、etcdの状態を確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ etcdctl <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ etcdctl <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    endpoint status <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --write-out<span style="color:#f92672">=</span>table <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --endpoints<span style="color:#f92672">=</span>172.29.156.11:2379,172.29.156.12:2379,172.29.156.13:2379 <span style="color:#ae81ff">\
@@ -891,14 +887,14 @@ sudo systemctl start etcd
 </code></pre></div><p> </p>
 <h3 id="kube-apiserverのデプロイ">kube-apiserverのデプロイ</h3>
 <p>下記のコマンドを実行し、kube-apiserverをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">KUBERNETES_VERSION<span style="color:#f92672">=</span>v1.20.4
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">KUBERNETES_VERSION<span style="color:#f92672">=</span>v1.20.4
 
 wget -q --show-progress --https-only --timestamping https://dl.k8s.io/<span style="color:#e6db74">${</span>KUBERNETES_VERSION<span style="color:#e6db74">}</span>/bin/linux/arm64/kube-apiserver
 sudo chmod +x kube-apiserver
 sudo mv kube-apiserver /usr/local/bin
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、設定ファイルの配置領域の作成や設定ファイルの配置を行います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /etc/kubernetes/config/ <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /var/lib/kubernetes/
 
@@ -927,7 +923,7 @@ sudo mv <span style="color:#ae81ff">\
 <li>&ndash;tls-private-key-file</li>
 </ul>
 <p>&ndash;service-cluster-ip-rangeパラメータにはClusterIP用サブネットを指定します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/kube-apiserver.service" data-lang=":/etc/systemd/system/kube-apiserver.service"><span style="color:#66d9ef">[Unit]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/kube-apiserver.service" data-lang=":/etc/systemd/system/kube-apiserver.service"><span style="color:#66d9ef">[Unit]</span>
 <span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Kubernetes API Server</span>
 <span style="color:#a6e22e">Documentation</span><span style="color:#f92672">=</span><span style="color:#e6db74">https://github.com/kubernetes/kubernetes</span>
 
@@ -978,19 +974,19 @@ sudo mv <span style="color:#ae81ff">\
 <span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">multi-user.target</span>
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、kube-apiserverを起動します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
 sudo systemctl enable kube-apiserver
 sudo systemctl start kube-apiserver
 </code></pre></div><p> </p>
 <p>kube-apiserverに対してヘルスチェックを行います。</p>
 <p>下記のような応答があればkube-apiserverは正常に動作しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --cacert /var/lib/kubernetes/kubernetes-ca.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --cert /var/lib/kubernetes/kube-apiserver-kubelet-client.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --key /var/lib/kubernetes/kube-apiserver-kubelet-client-key.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    https://127.0.0.1:6443/healthz
 ok
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl <span style="color:#ae81ff">\
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --cacert /var/lib/kubernetes/kubernetes-ca.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --cert /var/lib/kubernetes/kube-apiserver-kubelet-client.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --key /var/lib/kubernetes/kube-apiserver-kubelet-client-key.pem <span style="color:#ae81ff">\
@@ -999,14 +995,14 @@ ok
 </code></pre></div><p> </p>
 <h3 id="kube-controller-managerのデプロイ">kube-controller-managerのデプロイ</h3>
 <p>下記のコマンドを実行し、kube-controller-managerをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">KUBERNETES_VERSION<span style="color:#f92672">=</span>v1.20.4
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">KUBERNETES_VERSION<span style="color:#f92672">=</span>v1.20.4
 
 wget -q --show-progress --https-only --timestamping https://dl.k8s.io/<span style="color:#e6db74">${</span>KUBERNETES_VERSION<span style="color:#e6db74">}</span>/bin/linux/arm64/kube-controller-manager
 sudo chmod +x kube-controller-manager
 sudo mv kube-controller-manager /usr/local/bin
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、設定ファイルの配置を行います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mv <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mv <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    kube-controller-manager.kubeconfig <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /var/lib/kubernetes/
 </code></pre></div><p> </p>
@@ -1014,7 +1010,7 @@ sudo mv kube-controller-manager /usr/local/bin
 <p>下記の内容をkube-controller-manager.serviceファイルとして保存します。</p>
 <p>&ndash;cluster-cidrパラメータにはPod用のサブネットを、
 &ndash;service-cluster-ip-rangeパラメータにはClusterIP用サブネットを指定します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/kube-controller-manager.service" data-lang=":/etc/systemd/system/kube-controller-manager.service"><span style="color:#66d9ef">[Unit]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/kube-controller-manager.service" data-lang=":/etc/systemd/system/kube-controller-manager.service"><span style="color:#66d9ef">[Unit]</span>
 <span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Kubernetes Controller Manager</span>
 <span style="color:#a6e22e">Documentation</span><span style="color:#f92672">=</span><span style="color:#e6db74">https://github.com/kubernetes/kubernetes</span>
 
@@ -1048,25 +1044,25 @@ sudo mv kube-controller-manager /usr/local/bin
 <span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">multi-user.target</span>
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、kube-controller-managerを起動します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
 sudo systemctl enable kube-controller-manager
 sudo systemctl start kube-controller-manager
 </code></pre></div><p> </p>
 <p>kube-controller-managerに対してヘルスチェックを行います。</p>
 <p>下記のような応答があればkube-controller-managerは正常に動作しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl http://localhost:10252/healthz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl http://localhost:10252/healthz
 ok
 </code></pre></div><p> </p>
 <p>全てのマスターノード上へのkube-controller-managerのデプロイ後、リーダー選出が行われます。</p>
 <p>下記のコマンドを実行することでリーダーかどうか確認することができます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -s http://localhost:10252/metrics | grep leader
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -s http://localhost:10252/metrics | grep leader
 <span style="color:#75715e"># HELP leader_election_master_status [ALPHA] Gauge of if the reporting system is master of the relevant lease, 0 indicates backup, 1 indicates master. &#39;name&#39; is the string used to identify the lease. Please make sure to group by name.</span>
 <span style="color:#75715e"># TYPE leader_election_master_status gauge</span>
 leader_election_master_status<span style="color:#f92672">{</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;kube-controller-manager&#34;</span><span style="color:#f92672">}</span> <span style="color:#ae81ff">1</span>
 </code></pre></div><p> </p>
 <h3 id="kube-schedulerのデプロイ">kube-schedulerのデプロイ</h3>
 <p>下記のコマンドを実行し、kube-schedulerをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">KUBERNETES_VERSION<span style="color:#f92672">=</span>v1.20.4
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">KUBERNETES_VERSION<span style="color:#f92672">=</span>v1.20.4
 
 wget -q --show-progress --https-only --timestamping https://dl.k8s.io/<span style="color:#e6db74">${</span>KUBERNETES_VERSION<span style="color:#e6db74">}</span>/bin/linux/arm64/kube-scheduler
 sudo chmod +x kube-scheduler
@@ -1074,7 +1070,7 @@ sudo mv kube-scheduler /usr/local/bin
 </code></pre></div><p> </p>
 <p>kube-schedulerのパラメータを設定する設定ファイルを作成します。</p>
 <p>下記の内容をkube-scheduler.yamlファイルとして保存します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:kube-scheduler.yaml" data-lang=":kube-scheduler.yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">kubescheduler.config.k8s.io/v1beta1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:kube-scheduler.yaml" data-lang=":kube-scheduler.yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">kubescheduler.config.k8s.io/v1beta1</span>
 <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">KubeSchedulerConfiguration</span>
 <span style="color:#f92672">clientConnection</span>:
   <span style="color:#f92672">kubeconfig</span>: <span style="color:#e6db74">&#34;/var/lib/kubernetes/kube-scheduler.kubeconfig&#34;</span>
@@ -1088,7 +1084,7 @@ sudo mv kube-scheduler /usr/local/bin
   <span style="color:#f92672">resourceNamespace</span>: <span style="color:#ae81ff">kube-system</span>
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、設定ファイルの配置を行います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mv <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mv <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    kube-scheduler.kubeconfig <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /var/lib/kubernetes/
 
@@ -1098,7 +1094,7 @@ sudo mv  <span style="color:#ae81ff">\
 </code></pre></div><p> </p>
 <p>/etc/systemd/systemフォルダ配下にユニットファイルを作成します。</p>
 <p>下記の内容をkube-controller-scheduler.serviceファイルとして保存します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/kube-scheduler.service" data-lang=":/etc/systemd/system/kube-scheduler.service"><span style="color:#66d9ef">[Unit]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/kube-scheduler.service" data-lang=":/etc/systemd/system/kube-scheduler.service"><span style="color:#66d9ef">[Unit]</span>
 <span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Kubernetes Scheduler</span>
 <span style="color:#a6e22e">Documentation</span><span style="color:#f92672">=</span><span style="color:#e6db74">https://github.com/kubernetes/kubernetes</span>
 
@@ -1113,38 +1109,38 @@ sudo mv  <span style="color:#ae81ff">\
 <span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">multi-user.target</span>
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、kube-schedulerを起動します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
 sudo systemctl enable kube-scheduler
 sudo systemctl start kube-scheduler
 </code></pre></div><p> </p>
 <p>kube-schedulerに対してヘルスチェックを行います。</p>
 <p>下記のような応答があればkube-schedulerは正常に動作しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl http://localhost:10251/healthz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl http://localhost:10251/healthz
 ok
 </code></pre></div><p> </p>
 <p>全てのマスターノード上へのkube-schedulerのデプロイ後、リーダー選出が行われます。</p>
 <p>下記のコマンドを実行することでリーダーかどうか確認することができます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -s http://localhost:10251/metrics | grep leader
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -s http://localhost:10251/metrics | grep leader
 <span style="color:#75715e"># HELP leader_election_master_status [ALPHA] Gauge of if the reporting system is master of the relevant lease, 0 indicates backup, 1 indicates master. &#39;name&#39; is the string used to identify the lease. Please make sure to group by name.</span>
 <span style="color:#75715e"># TYPE leader_election_master_status gauge</span>
 leader_election_master_status<span style="color:#f92672">{</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;kube-scheduler&#34;</span><span style="color:#f92672">}</span> <span style="color:#ae81ff">1</span>
 </code></pre></div><p> </p>
 <h3 id="kubectlのインストール">kubectlのインストール</h3>
 <p>下記のコマンドを実行し、kubectlをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">KUBERNETES_VERSION<span style="color:#f92672">=</span>v1.20.4
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">KUBERNETES_VERSION<span style="color:#f92672">=</span>v1.20.4
 
 wget -q --show-progress --https-only --timestamping https://dl.k8s.io/<span style="color:#e6db74">${</span>KUBERNETES_VERSION<span style="color:#e6db74">}</span>/bin/linux/arm64/kubectl
 sudo chmod +x kubectl
 sudo mv kubectl /usr/local/bin
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行することでkubectlコマンドを通してKubernetesクラスターに接続できるように設定します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    .kube/
 chown ubuntu:ubuntu .kube/
 mv admin.kubeconfig .kube/config
 </code></pre></div><p> </p>
 <p>kubeletコマンドを通して、Kubernetesの各コンポーネントが認識されているか確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get cs
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get cs
 Warning: v1 ComponentStatus is deprecated in v1.19+
 NAME                 STATUS    MESSAGE             ERROR
 controller-manager   Healthy   ok                  
@@ -1156,11 +1152,11 @@ etcd-2               Healthy   <span style="color:#f92672">{</span><span style="
 <h3 id="ロードバランサーの構築">ロードバランサーの構築</h3>
 <h3 id="keepalivedのデプロイ">Keepalivedのデプロイ</h3>
 <p>下記のコマンドを実行し、Keepalivedをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install -y keepalived<span style="color:#f92672">=</span>1:2.0.19-2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install -y keepalived<span style="color:#f92672">=</span>1:2.0.19-2
 </code></pre></div><p> </p>
 <p>Keepalivedの設定ファイルを作成します。</p>
 <p>下記の内容を/etc/keepalivedファルダ配下にkeepalived.confファイルとして保存します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:.cfg" data-lang=":.cfg"><span style="color:#a6e22e">vrrp_script chk_haproxy {</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:.cfg" data-lang=":.cfg"><span style="color:#a6e22e">vrrp_script chk_haproxy {</span>
     <span style="color:#a6e22e">script   &#34;systemctl is-active haproxy&#34;</span>
     <span style="color:#a6e22e">interval 1</span>
     <span style="color:#a6e22e">rise     2</span>
@@ -1183,21 +1179,21 @@ etcd-2               Healthy   <span style="color:#f92672">{</span><span style="
 <span style="color:#a6e22e">}</span>
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、Keepalivedを起動します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
 sudo systemctl enable keepalived
 sudo systemctl start keepalived
 </code></pre></div><p> </p>
 <p>Keepalivedが動作していることを確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl is-active keepalived
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl is-active keepalived
 active
 </code></pre></div><p> </p>
 <h3 id="haproxyのデプロイ">HAproxyのデプロイ</h3>
 <p>下記のコマンドを実行し、HAProxyをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install -y haproxy<span style="color:#f92672">=</span>2.0.13-2ubuntu0.1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install -y haproxy<span style="color:#f92672">=</span>2.0.13-2ubuntu0.1
 </code></pre></div><p> </p>
 <p>HAProxyの設定ファイルを作成します。</p>
 <p>下記の内容を/etc/haproxyファルダ配下にhaproxy.cfgファイルとして保存します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:.cfg" data-lang=":.cfg"><span style="color:#a6e22e">global</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:.cfg" data-lang=":.cfg"><span style="color:#a6e22e">global</span>
     <span style="color:#a6e22e">log /dev/log    local0</span>
     <span style="color:#a6e22e">log /dev/log    local1 notice</span>
     <span style="color:#a6e22e">chroot /var/lib/haproxy</span>
@@ -1244,17 +1240,17 @@ active
     <span style="color:#a6e22e">server k8s-master3 172.29.156.13:6443 check inter 3000ms rise 2 fall 3</span>
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、HAProxyを起動します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
 sudo systemctl enable haproxy
 sudo systemctl start haproxy
 </code></pre></div><p> </p>
 <p>HAProxyが動作していることを確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl is-active haproxy
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl is-active haproxy
 active
 </code></pre></div><p> </p>
 <h3 id="flanneldを機能させるための準備">flanneldを機能させるための準備</h3>
 <p>下記のコマンドを実行し、flanneldを機能させるための設定をetcdサーバに保存します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    -X PUT <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --cacert /etc/etcd/etcd-ca.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --cert /etc/etcd/kube-etcd-flanneld-client.pem <span style="color:#ae81ff">\
@@ -1263,7 +1259,7 @@ active
 </span><span style="color:#ae81ff"></span>    https://127.0.0.1:2379/v2/keys/coreos.com/network/config
 </code></pre></div><p> </p>
 <p>etcdサーバ上にflanneldの設定が保存されていることを確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -s <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -s <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --cacert /etc/etcd/etcd-ca.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --cert /etc/etcd/kube-etcd-flanneld-client.pem <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    --key /etc/etcd/kube-etcd-flanneld-client-key.pem <span style="color:#ae81ff">\
@@ -1287,15 +1283,15 @@ active
 <h3 id="事前準備">事前準備</h3>
 <p>cgroupsのMemory Subsystemを有効化します。
 /boot/firmware/cmdline.txtに下記を追記して再起動してください。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/boot/firmware/cmdline.txt" data-lang=":/boot/firmware/cmdline.txt">cgroup_memory=1 cgroup_enable=memory
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/boot/firmware/cmdline.txt" data-lang=":/boot/firmware/cmdline.txt">cgroup_memory=1 cgroup_enable=memory
 </code></pre></div><p> </p>
 <p>次に、依存関係のあるパッケージをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt update
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt update
 sudo apt -y install socat conntrack ipset
 </code></pre></div><p> </p>
 <h3 id="証明書配置領域の作成と各種証明書の配置">証明書配置領域の作成と各種証明書の配置</h3>
 <p>下記のコマンドを実行し、証明書の配置領域の作成と各種証明書の配置を行います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /etc/etcd/ <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /var/lib/kubernetes/
 
@@ -1312,7 +1308,7 @@ sudo mv <span style="color:#ae81ff">\
 </code></pre></div><p> </p>
 <h3 id="cni-pluginsとcrictlのインストール">cni-pluginsとcrictlのインストール</h3>
 <p>下記のコマンドを実行し、cni-pluginsとcrictlをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /etc/cni/net.d/ <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /opt/cni/bin/ 
 
@@ -1332,7 +1328,7 @@ rm crictl-v1.20.0-linux-arm64.tar.gz cni-plugins-linux-arm64-v0.9.1.tgz
 </code></pre></div><p> </p>
 <h3 id="containerdとruncのインストール">containerdとruncのインストール</h3>
 <p>containerdとruncをインストールする前に下記のコマンドを実行し、必要な設定を行います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat <span style="color:#e6db74">&lt;&lt;EOF | sudo tee /etc/modules-load.d/containerd.conf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat <span style="color:#e6db74">&lt;&lt;EOF | sudo tee /etc/modules-load.d/containerd.conf
 </span><span style="color:#e6db74">overlay
 </span><span style="color:#e6db74">br_netfilter
 </span><span style="color:#e6db74">EOF</span>
@@ -1349,16 +1345,16 @@ cat <span style="color:#e6db74">&lt;&lt;EOF | sudo tee /etc/sysctl.d/99-kubernet
 sudo sysctl --system
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、containerdとruncをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install -y <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install -y <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    containerd<span style="color:#f92672">=</span>1.3.3-0ubuntu2.3 <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    runc<span style="color:#f92672">=</span>1.0.0~rc10-0ubuntu1
 </code></pre></div><p> </p>
 <p>/etc/containerdフォルダを作成します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /etc/containerd/
 </code></pre></div><p> </p>
 <p>/etc/containerdフォルダ配下に下記の内容をconfig.tomlファイルとして保存します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:config.toml" data-lang=":config.toml"><span style="color:#a6e22e">version</span> = <span style="color:#ae81ff">2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:config.toml" data-lang=":config.toml"><span style="color:#a6e22e">version</span> = <span style="color:#ae81ff">2</span>
 <span style="color:#a6e22e">root</span> = <span style="color:#e6db74">&#34;/var/lib/containerd&#34;</span>
 <span style="color:#a6e22e">state</span> = <span style="color:#e6db74">&#34;/run/containerd&#34;</span>
 <span style="color:#a6e22e">plugin_dir</span> = <span style="color:#e6db74">&#34;&#34;</span>
@@ -1481,7 +1477,7 @@ sudo sysctl --system
 </code></pre></div><p> </p>
 <h3 id="kubeletのデプロイ">kubeletのデプロイ</h3>
 <p>下記のコマンドを実行し、kubeletをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">KUBERNETES_VERSION<span style="color:#f92672">=</span>v1.20.4
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">KUBERNETES_VERSION<span style="color:#f92672">=</span>v1.20.4
 
 wget -q --show-progress --https-only --timestamping <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    https://storage.googleapis.com/kubernetes-release/release/<span style="color:#e6db74">${</span>KUBERNETES_VERSION<span style="color:#e6db74">}</span>/bin/linux/arm64/kubelet
@@ -1489,7 +1485,7 @@ chmod +x kubelet
 sudo mv kubelet /usr/local/bin/
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、設定ファイルの配置領域の作成と設定ファイルの配置を行います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /var/lib/kubelet/
 
 sudo mv <span style="color:#ae81ff">\
@@ -1504,7 +1500,7 @@ sudo mv <span style="color:#ae81ff">\
 </code></pre></div><p> </p>
 <p>/etc/systemd/systemフォルダ配下にユニットファイルを作成します。</p>
 <p>下記の内容をkubelet.serviceファイルとして保存します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/kubelet.service" data-lang=":/etc/systemd/system/kubelet.service"><span style="color:#66d9ef">[Unit]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/kubelet.service" data-lang=":/etc/systemd/system/kubelet.service"><span style="color:#66d9ef">[Unit]</span>
 <span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Kubernetes Kubelet</span>
 <span style="color:#a6e22e">Documentation</span><span style="color:#f92672">=</span><span style="color:#e6db74">https://github.com/kubernetes/kubernetes</span>
 <span style="color:#a6e22e">After</span><span style="color:#f92672">=</span><span style="color:#e6db74">containerd.service</span>
@@ -1526,18 +1522,18 @@ sudo mv <span style="color:#ae81ff">\
 <span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">multi-user.target</span>
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、kubeletを起動します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
 sudo systemctl enable kubelet
 sudo systemctl start kubelet
 </code></pre></div><p> </p>
 <p>kubeletに対してヘルスチェックを行います。</p>
 <p>下記のような応答があればkubeletは正常に動作しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl localhost:10248/healthz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl localhost:10248/healthz
 ok
 </code></pre></div><p> </p>
 <h3 id="kube-proxyのデプロイ">kube-proxyのデプロイ</h3>
 <p>下記のコマンドを実行し、kube-proxyをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">KUBERNETES_VERSION<span style="color:#f92672">=</span>v1.20.4
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">KUBERNETES_VERSION<span style="color:#f92672">=</span>v1.20.4
 
 wget -q --show-progress --https-only --timestamping <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>   https://storage.googleapis.com/kubernetes-release/release/<span style="color:#e6db74">${</span>KUBERNETES_VERSION<span style="color:#e6db74">}</span>/bin/linux/arm64/kube-proxy
@@ -1545,7 +1541,7 @@ chmod +x kube-proxy
 sudo mv kube-proxy /usr/local/bin/
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、設定ファイルの配置領域の作成と設定ファイルの配置を行います。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo mkdir -p <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /var/lib/kube-proxy/
 
 sudo mv <span style="color:#ae81ff">\
@@ -1553,7 +1549,7 @@ sudo mv <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    /var/lib/kube-proxy/
 </code></pre></div><p> </p>
 <p>下記の内容を/var/lib/kube-proxyフォルダ配下にkube-proxy-config.yamlファイルとして保存します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-/var/lib/kube-proxy/kube-proxy-config.yaml" data-lang="/var/lib/kube-proxy/kube-proxy-config.yaml"><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">KubeProxyConfiguration</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-/var/lib/kube-proxy/kube-proxy-config.yaml" data-lang="/var/lib/kube-proxy/kube-proxy-config.yaml"><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">KubeProxyConfiguration</span>
 <span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">kubeproxy.config.k8s.io/v1alpha1</span>
 <span style="color:#f92672">clientConnection</span>:
   <span style="color:#f92672">kubeconfig</span>: <span style="color:#ae81ff">/var/lib/kube-proxy/kube-proxy.kubeconfig</span>
@@ -1562,7 +1558,7 @@ sudo mv <span style="color:#ae81ff">\
 </code></pre></div><p> </p>
 <p>/etc/systemd/systemフォルダ配下にユニットファイルを作成します。</p>
 <p>下記の内容をkube-proxy.serviceファイルとして保存します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/kube-proxy.service" data-lang=":/etc/systemd/system/kube-proxy.service"><span style="color:#66d9ef">[Unit]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/kube-proxy.service" data-lang=":/etc/systemd/system/kube-proxy.service"><span style="color:#66d9ef">[Unit]</span>
 <span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Kubernetes Kube Proxy</span>
 <span style="color:#a6e22e">Documentation</span><span style="color:#f92672">=</span><span style="color:#e6db74">https://github.com/kubernetes/kubernetes</span>
 
@@ -1576,24 +1572,24 @@ sudo mv <span style="color:#ae81ff">\
 <span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">multi-user.target</span>
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、kube-proxyを起動します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
 sudo systemctl enable kube-proxy
 sudo systemctl start kube-proxy
 </code></pre></div><p> </p>
 <p>kube-proxyに対してヘルスチェックを行います。</p>
 <p>下記のような応答があればkube-proxyは正常に動作しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl localhost:10256/healthz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl localhost:10256/healthz
 <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;lastUpdated&#34;</span>: <span style="color:#e6db74">&#34;2021-03-29 16:19:51.774807039 +0000 UTC m=+973.895724187&#34;</span>,<span style="color:#e6db74">&#34;currentTime&#34;</span>: <span style="color:#e6db74">&#34;2021-03-29 16:19:51.774807039 +0000 UTC m=+973.895724187&#34;</span><span style="color:#f92672">}</span>
 </code></pre></div><p> </p>
 <h3 id="flanneldのデプロイ">flanneldのデプロイ</h3>
 <p>下記のコマンドを実行し、flanneldをインストールします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://github.com/flannel-io/flannel/releases/download/v0.13.0/flannel-v0.13.0-linux-arm64.tar.gz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://github.com/flannel-io/flannel/releases/download/v0.13.0/flannel-v0.13.0-linux-arm64.tar.gz
 tar -zxvf flannel-v0.13.0-linux-arm64.tar.gz
 sudo mv flanneld /usr/local/bin/
 rm flannel-v0.13.0-linux-arm64.tar.gz README.md mk-docker-opts.sh
 </code></pre></div><p> </p>
 <p>下記の内容を/etc/cni/net.dフォルダ配下に10-flannel.conflistファイルとして保存します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:.cfg" data-lang=":.cfg"><span style="color:#a6e22e">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:.cfg" data-lang=":.cfg"><span style="color:#a6e22e">{</span>
   <span style="color:#a6e22e">&#34;name&#34;: &#34;cbr0&#34;,</span>
   <span style="color:#a6e22e">&#34;cniVersion&#34;: &#34;0.3.1&#34;,</span>
   <span style="color:#a6e22e">&#34;plugins&#34;: [</span>
@@ -1615,7 +1611,7 @@ rm flannel-v0.13.0-linux-arm64.tar.gz README.md mk-docker-opts.sh
 </code></pre></div><p> </p>
 <p>/etc/systemd/systemフォルダ配下にユニットファイルを作成します。</p>
 <p>下記の内容をflanneld.serviceファイルとして保存します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/flanneld.service" data-lang=":/etc/systemd/system/flanneld.service"><span style="color:#66d9ef">[Unit]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:/etc/systemd/system/flanneld.service" data-lang=":/etc/systemd/system/flanneld.service"><span style="color:#66d9ef">[Unit]</span>
 <span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Flanneld overlay address etcd agent</span>
 <span style="color:#a6e22e">Documentation</span><span style="color:#f92672">=</span><span style="color:#e6db74">https://github.com/flannel-io/flannel</span>
 
@@ -1636,18 +1632,18 @@ rm flannel-v0.13.0-linux-arm64.tar.gz README.md mk-docker-opts.sh
 <span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">multi-user.target</span>
 </code></pre></div><p> </p>
 <p>下記のコマンドを実行し、flanneldを起動します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
 sudo systemctl enable flanneld
 sudo systemctl start flanneld
 </code></pre></div><p> </p>
 <p>flanneldに対してヘルスチェックを行います。</p>
 <p>下記のような応答があればflanneldは正常に動作しています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl localhost:9999/healthz
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl localhost:9999/healthz
 flanneld is running
 </code></pre></div><p> </p>
 <p>また、flanneldがPod Networkの構築を行ったことを確認します。</p>
 <p>/run/flannel/subnet.envファイルに対してPod Networkの情報が記載されていれば構築が正常に行われています。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat /run/flannel/subnet.env
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat /run/flannel/subnet.env
 FLANNEL_NETWORK<span style="color:#f92672">=</span>10.244.0.0/16
 FLANNEL_SUBNET<span style="color:#f92672">=</span>10.244.94.1/24
 FLANNEL_MTU<span style="color:#f92672">=</span><span style="color:#ae81ff">1450</span>
@@ -1659,7 +1655,7 @@ FLANNEL_IPMASQ<span style="color:#f92672">=</span>true
  </p>
 <h3 id="kubernetesクラスターの状態確認">Kubernetesクラスターの状態確認</h3>
 <p>Kubernetesクラスターの状態を確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get nodes -o wide
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get nodes -o wide
 NAME          STATUS   ROLES    AGE     VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
 k8s-worker1   Ready    &lt;none&gt;   24m     v1.20.4   172.29.156.14   &lt;none&gt;        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
 k8s-worker2   Ready    &lt;none&gt;   6m16s   v1.20.4   172.29.156.15   &lt;none&gt;        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
@@ -1668,7 +1664,7 @@ k8s-worker4   Ready    &lt;none&gt;   2m49s   v1.20.4   172.29.156.17   &lt;none
 k8s-worker5   Ready    &lt;none&gt;   2m52s   v1.20.4   172.29.156.18   &lt;none&gt;        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
 </code></pre></div><p> </p>
 <p>マスターノードに対してもワーカーノードとして動作できるように設定を行った場合のKubernetesクラスターの状態は以下のようになります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get nodes -o wide
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get nodes -o wide
 NAME          STATUS   ROLES    AGE     VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
 k8s-master1   Ready    &lt;none&gt;   3m9s    v1.20.4   172.29.156.11   &lt;none&gt;        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
 k8s-master2   Ready    &lt;none&gt;   108s    v1.20.4   172.29.156.12   &lt;none&gt;        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
@@ -1680,7 +1676,7 @@ k8s-worker4   Ready    &lt;none&gt;   6m23s   v1.20.4   172.29.156.17   &lt;none
 k8s-worker5   Ready    &lt;none&gt;   6m26s   v1.20.4   172.29.156.18   &lt;none&gt;        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
 </code></pre></div><p> </p>
 <p>下記のようなコマンドを実行し、マスターノードに対しては基本的にPodが作成されないようにroleとtaintを追加します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl label node <span style="color:#e6db74">`</span>hostname<span style="color:#e6db74">`</span> node-role.kubernetes.io/master<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl label node <span style="color:#e6db74">`</span>hostname<span style="color:#e6db74">`</span> node-role.kubernetes.io/master<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
 kubectl label node <span style="color:#e6db74">`</span>hostname<span style="color:#e6db74">`</span> node-role.kubernetes.io/controlplane<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
 kubectl label node <span style="color:#e6db74">`</span>hostname<span style="color:#e6db74">`</span> node-role.kubernetes.io/etcd<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>
 kubectl taint node <span style="color:#e6db74">`</span>hostname<span style="color:#e6db74">`</span> node-role.kubernetes.io/master<span style="color:#f92672">=</span>:NoSchedule
@@ -1688,7 +1684,7 @@ kubectl taint node <span style="color:#e6db74">`</span>hostname<span style="colo
 kubectl taint node <span style="color:#e6db74">`</span>hostname<span style="color:#e6db74">`</span> node-role.kubernetes.io/etcd<span style="color:#f92672">=</span>:NoSchedule
 </code></pre></div><p> </p>
 <p>上記のコマンド実行後のKubernetesクラスターの状態は以下のようになります。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get nodes -o wide
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get nodes -o wide
 NAME          STATUS   ROLES                  AGE     VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
 k8s-master1   Ready    control-plane,master   9m11s   v1.20.4   172.29.156.11   &lt;none&gt;        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
 k8s-master2   Ready    control-plane,master   7m50s   v1.20.4   172.29.156.12   &lt;none&gt;        Ubuntu 20.04.2 LTS   5.4.0-1032-raspi   containerd://1.3.3-0ubuntu2.3
@@ -1702,7 +1698,7 @@ k8s-worker5   Ready    &lt;none&gt;                 12m     v1.20.4   172.29.156
 <h3 id="corednsのデプロイ">CoreDNSのデプロイ</h3>
 <p>Kubernetesクラスター内部の名前解決を行うためにCoreDNSをデプロイします。</p>
 <p>下記の内容のマニフェストファイルを作成します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:coredns.yaml" data-lang=":coredns.yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:coredns.yaml" data-lang=":coredns.yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
 <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServiceAccount</span>
 <span style="color:#f92672">metadata</span>:
   <span style="color:#f92672">name</span>: <span style="color:#ae81ff">coredns</span>
@@ -1901,7 +1897,7 @@ k8s-worker5   Ready    &lt;none&gt;                 12m     v1.20.4   172.29.156
     <span style="color:#f92672">protocol</span>: <span style="color:#ae81ff">TCP</span>
 </code></pre></div><p> </p>
 <p>CoreDNSをデプロイします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl apply -f coredns.yaml 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl apply -f coredns.yaml 
 serviceaccount/coredns created
 clusterrole.rbac.authorization.k8s.io/system:coredns created
 clusterrolebinding.rbac.authorization.k8s.io/system:coredns created
@@ -1910,7 +1906,7 @@ deployment.apps/coredns created
 service/kube-dns created
 </code></pre></div><p> </p>
 <p>リソースが作成されたことを確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl -n kube-system get all
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl -n kube-system get all
 NAME                           READY   STATUS    RESTARTS   AGE
 pod/coredns-867bfd96bd-9g87v   1/1     Running   <span style="color:#ae81ff">0</span>          49s
 pod/coredns-867bfd96bd-9tbz7   1/1     Running   <span style="color:#ae81ff">0</span>          49s
@@ -1926,7 +1922,7 @@ replicaset.apps/coredns-867bfd96bd   <span style="color:#ae81ff">2</span>       
 </code></pre></div><p> </p>
 <p>名前解決の機能がちゃんと動作しているか確認します。</p>
 <p>下記の内容のマニフェストファイルを作成し、リソースを作成します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dnsutils.yaml" data-lang="dnsutils.yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dnsutils.yaml" data-lang="dnsutils.yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
 <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Pod</span>
 <span style="color:#f92672">metadata</span>:
   <span style="color:#f92672">name</span>: <span style="color:#ae81ff">dnsutils</span>
@@ -1942,7 +1938,7 @@ replicaset.apps/coredns-867bfd96bd   <span style="color:#ae81ff">2</span>       
   <span style="color:#f92672">restartPolicy</span>: <span style="color:#ae81ff">Always</span>
 </code></pre></div><p> </p>
 <p>リソースが作成されたことを確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl apply -f dnsutils.yaml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl apply -f dnsutils.yaml
 pod/dnsutils created
 
 $kubectl get all
@@ -1953,14 +1949,14 @@ NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT<span style="col
 service/kubernetes   ClusterIP   10.96.0.1    &lt;none&gt;        443/TCP   14h
 </code></pre></div><p> </p>
 <p>名前解決が行えることを確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl exec -i -t dnsutils -- nslookup kubernetes.default
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl exec -i -t dnsutils -- nslookup kubernetes.default
 Server:		10.96.0.10
 Address:	10.96.0.10#53
 
 Name:	kubernetes.default.svc.cluster.local
 Address: 10.96.0.1
 
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl exec -i -t dnsutils -- nslookup google.com
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl exec -i -t dnsutils -- nslookup google.com
 Server:		10.96.0.10
 Address:	10.96.0.10#53
 
@@ -1970,14 +1966,14 @@ Address: 172.217.175.110
 Name:	google.com
 Address: 2404:6800:4004:80e::200e
 </code></pre></div><p>確認後、リソースを削除します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl delete -f dnsutils.yaml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl delete -f dnsutils.yaml
 pod <span style="color:#e6db74">&#34;dnsutils&#34;</span> deleted
 </code></pre></div><p> </p>
 <h3 id="kubernetesクラスターの最終動作確認">Kubernetesクラスターの最終動作確認</h3>
 <p>最後にKubernetesクラスターがちゃんと動作しているか確認を行います。</p>
 <p>Secret が暗号化されて保存されていることを確認します。</p>
 <p>本来は base64 encoded な値が表示されますが、そうでない暗号化されたデータが見えれば OK です。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl create secret generic kubernetes-the-hard-way <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl create secret generic kubernetes-the-hard-way <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>&gt;   --from-literal<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mykey=mydata&#34;</span>
 secret/kubernetes-the-hard-way created
 
@@ -2012,12 +2008,12 @@ $ etcdctl get <span style="color:#ae81ff">\
 </span><span style="color:#e6db74">0000015a
 </span></code></pre></div><p> </p>
 <p>作成したリソースを削除します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl delete secrets/kubernetes-the-hard-way
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl delete secrets/kubernetes-the-hard-way
 secret <span style="color:#e6db74">&#34;kubernetes-the-hard-way&#34;</span> deleted
 </code></pre></div><p> </p>
 <p>Podが起動できることを確認します。</p>
 <p>nginxをデプロイするために、下記の内容のマニフェストファイルを作成します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:nginx.yaml" data-lang=":nginx.yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-:nginx.yaml" data-lang=":nginx.yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
 <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
 <span style="color:#f92672">metadata</span>:
   <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx</span>
@@ -2038,11 +2034,11 @@ secret <span style="color:#e6db74">&#34;kubernetes-the-hard-way&#34;</span> dele
         - <span style="color:#f92672">containerPort</span>: <span style="color:#ae81ff">80</span>
 </code></pre></div><p> </p>
 <p>nginxをデプロイします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl apply -f nginx.yaml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl apply -f nginx.yaml
 deployment.apps/nginx created
 </code></pre></div><p> </p>
 <p>Port Forwardingが機能することを確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ POD_NAME<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>kubectl get pods -l app<span style="color:#f92672">=</span>nginx -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{.items[0].metadata.name}&#34;</span><span style="color:#66d9ef">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ POD_NAME<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>kubectl get pods -l app<span style="color:#f92672">=</span>nginx -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{.items[0].metadata.name}&#34;</span><span style="color:#66d9ef">)</span>
 $ kubectl port-forward $POD_NAME 8081:80
 Forwarding from 127.0.0.1:8081 -&gt; <span style="color:#ae81ff">80</span>
 Forwarding from <span style="color:#f92672">[</span>::1<span style="color:#f92672">]</span>:8081 -&gt; <span style="color:#ae81ff">80</span>
@@ -2060,15 +2056,15 @@ Accept-Ranges: bytes
 
 </code></pre></div><p> </p>
 <p>Pod のログにアクセスできることを確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl logs $POD_NAME
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl logs $POD_NAME
 127.0.0.1 - - <span style="color:#f92672">[</span>30/Mar/2021:03:51:42 +0000<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;HEAD / HTTP/1.1&#34;</span> <span style="color:#ae81ff">200</span> <span style="color:#ae81ff">0</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;curl/7.68.0&#34;</span> <span style="color:#e6db74">&#34;-&#34;</span>
 </code></pre></div><p> </p>
 <p>Pod 上でコマンドを実行できることを確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl exec -ti $POD_NAME -- nginx -v
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl exec -ti $POD_NAME -- nginx -v
 nginx version: nginx/1.15.12
 </code></pre></div><p> </p>
 <p>NodePort を通じてアクセスできることを確認します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl expose deployment nginx --port <span style="color:#ae81ff">80</span> --type NodePort
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl expose deployment nginx --port <span style="color:#ae81ff">80</span> --type NodePort
 service/nginx exposed
 
 $ kubectl get svc
@@ -2089,7 +2085,7 @@ Accept-Ranges: bytes
 
 </code></pre></div><p> </p>
 <p>最終動作確認後、作成したリソースを削除します。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl delete svc/nginx
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl delete svc/nginx
 service <span style="color:#e6db74">&#34;nginx&#34;</span> deleted
 
 $ kubectl delete -f nginx.yaml 

@@ -32,12 +32,6 @@ use = "katex"  # options: "katex", "mathjax". default is "katex".
     title = "Twitter"
     url = "https://twitter.com/sosomasox"
 
-    [[params.socialIcons]]
-    icon = "fa-facebook"
-    title = "Facebook"
-    url = "https://www.facebook.com/profile.php?id=100023692920069"
-
-
 [menue]
     [[menu.main]]
     name = "Home"
